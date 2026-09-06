@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
 
-<title>AYUSH GAMING | Official</title>
+<title>AYUSH GAMING</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,42 +39,43 @@ button{
 
 :root{
   --red:#ff1744;
-  --red2:#ff003c;
-  --dark:#090909;
-  --card:#101010;
-  --border:rgba(255,255,255,.08);
-  --muted:#999;
+  --dark:#050505;
+  --card:#111;
+  --border:#252525;
+  --muted:#888;
 }
 
-.loader{
+/* LOADER */
+
+#loader{
   position:fixed;
   inset:0;
   background:#050505;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:9999;
-  transition:.6s;
+  z-index:99999;
+  transition:opacity .5s;
 }
 
-.loader.hide{
+#loader.hide{
   opacity:0;
   pointer-events:none;
 }
 
-.loader-box{
+.loader-content{
   text-align:center;
 }
 
 .loader-title{
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
   font-size:28px;
   font-weight:900;
-  color:var(--red);
   letter-spacing:3px;
+  color:var(--red);
 }
 
-.loader-line{
+.loader-bar{
   width:180px;
   height:3px;
   background:#222;
@@ -82,40 +83,42 @@ button{
   overflow:hidden;
 }
 
-.loader-line span{
+.loader-bar span{
   display:block;
-  width:45%;
+  width:40%;
   height:100%;
   background:var(--red);
-  animation:load 1s infinite;
+  animation:loaderMove 1s infinite;
 }
 
-@keyframes load{
-  from{transform:translateX(-100%)}
-  to{transform:translateX(330%)}
+@keyframes loaderMove{
+  from{transform:translateX(-150%)}
+  to{transform:translateX(450%)}
 }
+
+/* NAVBAR */
 
 nav{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  height:70px;
-  background:rgba(5,5,5,.88);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
+  height:68px;
+  z-index:1000;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 6%;
-  z-index:1000;
+  background:rgba(5,5,5,.9);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
 }
 
 .logo{
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
   font-weight:900;
-  letter-spacing:2px;
-  color:#fff;
+  font-size:17px;
+  letter-spacing:1px;
 }
 
 .logo span{
@@ -124,13 +127,13 @@ nav{
 
 .nav-links{
   display:flex;
-  gap:25px;
+  gap:24px;
 }
 
 .nav-links a{
-  color:#ddd;
   text-decoration:none;
-  font-size:14px;
+  color:#ddd;
+  font-size:13px;
   font-weight:600;
 }
 
@@ -138,18 +141,20 @@ nav{
   color:var(--red);
 }
 
-.nav-actions{
+.nav-buttons{
   display:flex;
-  gap:10px;
+  gap:8px;
 }
+
+/* BUTTON */
 
 .btn{
   border:0;
-  padding:10px 17px;
-  border-radius:8px;
-  font-weight:700;
+  border-radius:9px;
+  padding:10px 16px;
   color:#fff;
-  background:#191919;
+  background:#1a1a1a;
+  font-weight:700;
 }
 
 .btn-red{
@@ -157,51 +162,39 @@ nav{
 }
 
 .btn-red:hover{
-  background:#e90035;
+  background:#e90036;
 }
+
+/* HERO */
 
 .hero{
   min-height:100vh;
   padding:120px 6% 70px;
   display:flex;
   align-items:center;
-  position:relative;
-  overflow:hidden;
 }
 
-.hero:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:var(--red);
-  filter:blur(180px);
-  opacity:.12;
-  right:-150px;
-  top:100px;
-}
-
-.hero-content{
+.hero-inner{
   width:100%;
   max-width:1200px;
   margin:auto;
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:60px;
+  gap:50px;
   align-items:center;
 }
 
 .eyebrow{
   color:var(--red);
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
   font-size:13px;
   letter-spacing:4px;
-  margin-bottom:15px;
+  margin-bottom:14px;
 }
 
 .hero h1{
-  font-family:Orbitron;
-  font-size:clamp(40px,7vw,82px);
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(42px,7vw,82px);
   line-height:1;
   margin-bottom:20px;
 }
@@ -210,51 +203,52 @@ nav{
   color:var(--red);
 }
 
-.hero p{
-  color:#aaa;
-  max-width:580px;
+.hero-text{
+  color:#999;
+  max-width:600px;
   line-height:1.8;
 }
 
 .hero-buttons{
   display:flex;
-  gap:12px;
-  margin-top:30px;
+  gap:10px;
+  margin-top:28px;
   flex-wrap:wrap;
 }
 
+/* PROFILE CARD */
+
 .profile-card{
   background:linear-gradient(145deg,#151515,#090909);
-  border:1px solid rgba(255,23,68,.25);
-  border-radius:24px;
-  padding:30px;
-  box-shadow:0 20px 70px rgba(0,0,0,.5);
+  border:1px solid #302020;
+  border-radius:22px;
+  padding:28px;
 }
 
-.avatar-wrap{
+.avatar-row{
   display:flex;
   align-items:center;
-  gap:18px;
-  margin-bottom:25px;
+  gap:16px;
+  margin-bottom:24px;
 }
 
 .avatar{
   width:82px;
   height:82px;
-  border-radius:50%;
   object-fit:cover;
+  border-radius:50%;
   border:3px solid var(--red);
-  background:#191919;
+  background:#222;
 }
 
 .profile-name{
-  font-family:Orbitron;
-  font-size:21px;
+  font-family:Orbitron,sans-serif;
+  font-size:20px;
   font-weight:800;
 }
 
 .profile-uid{
-  color:#888;
+  color:#777;
   font-size:12px;
   margin-top:5px;
 }
@@ -262,31 +256,33 @@ nav{
 .stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  gap:8px;
 }
 
 .stat{
-  background:#0d0d0d;
+  background:#0c0c0c;
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:16px 8px;
+  border-radius:12px;
+  padding:15px 5px;
   text-align:center;
 }
 
 .stat strong{
   display:block;
-  font-family:Orbitron;
-  font-size:20px;
   color:var(--red);
+  font-family:Orbitron,sans-serif;
+  font-size:20px;
 }
 
 .stat span{
   color:#777;
-  font-size:11px;
+  font-size:10px;
 }
 
+/* SECTIONS */
+
 section{
-  padding:90px 6%;
+  padding:85px 6%;
 }
 
 .section-inner{
@@ -295,33 +291,38 @@ section{
 }
 
 .section-title{
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
   font-size:30px;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .section-subtitle{
   color:#777;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
+/* VIDEO */
+
 .video-box{
+  width:100%;
   max-width:430px;
   margin:auto;
+  padding:9px;
   background:#0d0d0d;
-  padding:10px;
-  border-radius:20px;
   border:1px solid var(--border);
+  border-radius:20px;
 }
 
 .video-box video{
-  display:block;
   width:100%;
   aspect-ratio:9/16;
+  display:block;
   object-fit:cover;
   border-radius:14px;
   background:#000;
 }
+
+/* GAMES */
 
 .games-grid{
   display:grid;
@@ -332,67 +333,62 @@ section{
 .game-card{
   background:var(--card);
   border:1px solid var(--border);
-  padding:25px;
   border-radius:18px;
-  transition:.25s;
-}
-
-.game-card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(255,23,68,.4);
+  padding:24px;
 }
 
 .game-icon{
-  font-size:35px;
-  margin-bottom:15px;
+  font-size:34px;
+  margin-bottom:12px;
 }
 
 .game-card h3{
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
+  font-size:17px;
   margin-bottom:8px;
 }
 
 .game-card p{
   color:#777;
   font-size:13px;
-  min-height:45px;
-  margin-bottom:18px;
+  min-height:42px;
+  margin-bottom:16px;
 }
 
 .game-area{
-  margin-top:20px;
-  background:#080808;
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:15px;
   display:none;
+  margin-top:20px;
+  padding:15px;
+  background:#090909;
+  border:1px solid var(--border);
+  border-radius:16px;
 }
 
 .game-area.active{
   display:block;
 }
 
-.game-top{
+.game-header{
   display:flex;
   justify-content:space-between;
-  margin-bottom:15px;
+  gap:10px;
+  margin-bottom:14px;
+  font-size:13px;
   font-weight:700;
 }
 
 .tap-button{
   width:100%;
-  min-height:150px;
-  background:#151515;
-  color:#fff;
+  height:160px;
   border:2px solid var(--red);
   border-radius:14px;
-  font-family:Orbitron;
-  font-size:25px;
+  background:#151515;
+  color:#fff;
+  font-family:Orbitron,sans-serif;
+  font-size:26px;
 }
 
-.tap-button:active{
-  transform:scale(.98);
-}
+/* MEMORY */
 
 .memory-grid{
   display:grid;
@@ -404,64 +400,67 @@ section{
   aspect-ratio:1;
   border:0;
   border-radius:8px;
-  background:#171717;
-  color:#171717;
+  background:#181818;
+  color:#fff;
   font-size:22px;
 }
 
 .memory-card.open,
 .memory-card.matched{
   background:var(--red);
-  color:#fff;
 }
 
+/* AIM */
+
 .aim-area{
-  height:260px;
-  background:#111;
-  border-radius:14px;
   position:relative;
+  height:260px;
+  background:#121212;
+  border-radius:14px;
   overflow:hidden;
 }
 
 .target{
+  position:absolute;
   width:45px;
   height:45px;
+  border:0;
   border-radius:50%;
   background:var(--red);
-  position:absolute;
   display:none;
-  box-shadow:0 0 25px rgba(255,23,68,.5);
 }
 
-.board{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
+/* LEADERBOARD */
+
+.player-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.player-row{
+.player{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
+  padding:12px;
   background:#101010;
   border:1px solid var(--border);
-  padding:13px;
   border-radius:14px;
 }
 
-.player-row.me{
-  border-color:rgba(255,23,68,.6);
+.player.me{
+  border-color:var(--red);
 }
 
 .rank{
-  width:38px;
+  width:35px;
   text-align:center;
-  font-family:Orbitron;
+  font-family:Orbitron,sans-serif;
   color:var(--red);
   font-weight:800;
 }
 
-.small-avatar{
+.player-avatar{
   width:48px;
   height:48px;
   border-radius:50%;
@@ -471,10 +470,14 @@ section{
 
 .player-info{
   flex:1;
+  min-width:0;
 }
 
 .player-info strong{
   display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .player-info small{
@@ -482,34 +485,37 @@ section{
 }
 
 .player-points{
-  font-family:Orbitron;
   color:var(--red);
+  font-family:Orbitron,sans-serif;
+  font-size:12px;
   font-weight:800;
 }
 
-.profile-section{
+/* PROFILE */
+
+.profile-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:18px;
 }
 
-.big-profile{
+.profile-box{
   background:#101010;
   border:1px solid var(--border);
   border-radius:20px;
-  padding:30px;
+  padding:28px;
 }
 
-.big-profile-top{
+.profile-top{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:17px;
   margin-bottom:25px;
 }
 
 .big-avatar{
-  width:100px;
-  height:100px;
+  width:95px;
+  height:95px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid var(--red);
@@ -518,51 +524,53 @@ section{
 .achievement-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:10px;
 }
 
 .achievement{
-  padding:16px;
-  border-radius:14px;
+  background:#0b0b0b;
   border:1px solid var(--border);
-  background:#0c0c0c;
-  opacity:.4;
+  border-radius:12px;
+  padding:15px;
+  opacity:.35;
 }
 
 .achievement.unlocked{
   opacity:1;
-  border-color:rgba(255,23,68,.45);
+  border-color:var(--red);
 }
 
 .achievement-icon{
-  font-size:25px;
+  font-size:23px;
   margin-bottom:5px;
 }
 
 .achievement h4{
-  font-family:Orbitron;
-  font-size:13px;
+  font-family:Orbitron,sans-serif;
+  font-size:12px;
 }
 
 .achievement p{
-  font-size:11px;
   color:#777;
+  font-size:10px;
   margin-top:4px;
 }
 
-.auth-modal{
+/* AUTH */
+
+.auth-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.82);
   backdrop-filter:blur(10px);
-  z-index:3000;
+  z-index:5000;
   display:none;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:18px;
 }
 
-.auth-modal.show{
+.auth-overlay.show{
   display:flex;
 }
 
@@ -570,27 +578,28 @@ section{
   width:100%;
   max-width:430px;
   max-height:90vh;
-  overflow:auto;
+  overflow-y:auto;
   background:#101010;
-  border:1px solid rgba(255,23,68,.35);
+  border:1px solid #40202a;
   border-radius:20px;
   padding:25px;
   position:relative;
 }
 
-.close{
+.close-btn{
   position:absolute;
-  top:15px;
-  right:18px;
-  background:none;
+  right:15px;
+  top:12px;
   border:0;
+  background:none;
   color:#aaa;
-  font-size:25px;
+  font-size:26px;
 }
 
 .auth-title{
-  font-family:Orbitron;
-  margin-bottom:20px;
+  font-family:Orbitron,sans-serif;
+  font-size:22px;
+  margin-bottom:18px;
 }
 
 .auth-tabs{
@@ -624,17 +633,17 @@ section{
 .form-group label{
   display:block;
   color:#aaa;
-  font-size:12px;
+  font-size:11px;
   margin-bottom:6px;
 }
 
 .form-group input{
   width:100%;
-  background:#080808;
-  border:1px solid #292929;
-  color:#fff;
   padding:12px;
   border-radius:9px;
+  border:1px solid #292929;
+  background:#080808;
+  color:#fff;
   outline:none;
 }
 
@@ -643,58 +652,65 @@ section{
 }
 
 .photo-preview{
+  display:block;
   width:70px;
   height:70px;
-  border-radius:50%;
   object-fit:cover;
-  display:block;
-  margin:8px 0;
+  border-radius:50%;
   border:2px solid var(--red);
-  background:#222;
+  margin-top:8px;
 }
 
-.auth-message{
+.message{
   color:#ff607e;
   font-size:12px;
   min-height:18px;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .hidden{
-  display:none!important;
+  display:none !important;
 }
 
+/* FOOTER */
+
 footer{
-  padding:40px 6%;
   text-align:center;
+  padding:40px 6%;
   border-top:1px solid var(--border);
   color:#555;
 }
 
-.social{
+.instagram{
   color:var(--red);
   text-decoration:none;
 }
 
-.toast{
+/* TOAST */
+
+#toast{
   position:fixed;
+  bottom:22px;
   left:50%;
-  bottom:25px;
-  transform:translateX(-50%) translateY(100px);
+  transform:translate(-50%,120px);
   background:#171717;
   border:1px solid var(--red);
-  padding:12px 18px;
+  color:#fff;
+  padding:11px 17px;
   border-radius:10px;
-  z-index:5000;
+  z-index:6000;
+  font-size:12px;
   transition:.3s;
-  font-size:13px;
 }
 
-.toast.show{
-  transform:translateX(-50%) translateY(0);
+#toast.show{
+  transform:translate(-50%,0);
 }
+
+/* MOBILE */
 
 @media(max-width:800px){
+
   nav{
     padding:0 4%;
   }
@@ -707,16 +723,15 @@ footer{
     padding:110px 5% 60px;
   }
 
-  .hero-content{
+  .hero-inner{
     grid-template-columns:1fr;
-    gap:35px;
   }
 
   .games-grid{
     grid-template-columns:1fr;
   }
 
-  .profile-section{
+  .profile-grid{
     grid-template-columns:1fr;
   }
 
@@ -726,50 +741,51 @@ footer{
 }
 
 @media(max-width:480px){
+
   .logo{
-    font-size:14px;
+    font-size:13px;
   }
 
-  .nav-actions .btn{
-    padding:8px 11px;
-    font-size:11px;
+  .nav-buttons .btn{
+    padding:8px 10px;
+    font-size:10px;
   }
 
   .hero h1{
-    font-size:43px;
-  }
-
-  .stats{
-    gap:6px;
-  }
-
-  .stat{
-    padding:12px 5px;
-  }
-
-  .stat strong{
-    font-size:16px;
+    font-size:44px;
   }
 
   .achievement-grid{
     grid-template-columns:1fr;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="loader" id="loader">
-  <div class="loader-box">
+<!-- LOADER -->
+
+<div id="loader">
+  <div class="loader-content">
     <div class="loader-title">AYUSH GAMING</div>
-    <div class="loader-line"><span></span></div>
-    <small style="color:#555">LOADING...</small>
+
+    <div class="loader-bar">
+      <span></span>
+    </div>
+
+    <small style="color:#666">LOADING...</small>
   </div>
 </div>
 
+<!-- NAVBAR -->
+
 <nav>
-  <div class="logo">AYUSH <span>GAMING</span></div>
+
+  <div class="logo">
+    AYUSH <span>GAMING</span>
+  </div>
 
   <div class="nav-links">
     <a href="#home">HOME</a>
@@ -778,43 +794,87 @@ footer{
     <a href="#profile">PROFILE</a>
   </div>
 
-  <div class="nav-actions">
-    <button class="btn btn-red" id="authButton" onclick="openAuth()">LOGIN</button>
-    <button class="btn hidden" id="logoutButton" onclick="logout()">LOGOUT</button>
+  <div class="nav-buttons">
+
+    <button id="loginButton" class="btn btn-red" onclick="openAuth()">
+      LOGIN
+    </button>
+
+    <button id="logoutButton" class="btn hidden" onclick="logout()">
+      LOGOUT
+    </button>
+
   </div>
+
 </nav>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <div class="hero-content">
+
+  <div class="hero-inner">
 
     <div>
-      <div class="eyebrow">WELCOME TO</div>
 
-      <h1>AYUSH<br><span>GAMING</span></h1>
+      <div class="eyebrow">
+        WELCOME TO
+      </div>
 
-      <p>
+      <h1>
+        AYUSH<br>
+        <span>GAMING</span>
+      </h1>
+
+      <p class="hero-text">
         WATCH • PLAY • DOMINATE
         <br>
-        Enter the gaming zone, play games, earn points,
-        unlock achievements and climb the real-time leaderboard.
+        Play games, earn real points, unlock achievements
+        and climb the real-time leaderboard.
       </p>
 
       <div class="hero-buttons">
-        <button class="btn btn-red" onclick="document.getElementById('games').scrollIntoView()">PLAY NOW</button>
-        <button class="btn" onclick="openAuth()">CREATE ACCOUNT</button>
+
+        <button class="btn btn-red"
+          onclick="document.getElementById('games').scrollIntoView()">
+          PLAY NOW
+        </button>
+
+        <button class="btn"
+          onclick="openAuth()">
+          CREATE ACCOUNT
+        </button>
+
       </div>
+
     </div>
 
     <div class="profile-card">
-      <div class="avatar-wrap">
-        <img id="heroAvatar" class="avatar" src="IMG_20251213_190214.jpg">
+
+      <div class="avatar-row">
+
+        <img
+          id="heroAvatar"
+          class="avatar"
+          src="IMG_20251213_190214.jpg"
+          alt="Profile">
+
         <div>
-          <div class="profile-name" id="heroName">AYUSH GAMING</div>
-          <div class="profile-uid">FREE FIRE UID: <span id="heroUid">5518922614</span></div>
+
+          <div id="heroName" class="profile-name">
+            AYUSH GAMING
+          </div>
+
+          <div class="profile-uid">
+            FREE FIRE UID:
+            <span id="heroUid">5518922614</span>
+          </div>
+
         </div>
+
       </div>
 
       <div class="stats">
+
         <div class="stat">
           <strong id="heroGames">0</strong>
           <span>GAMES</span>
@@ -829,140 +889,307 @@ footer{
           <strong id="heroRank">—</strong>
           <span>RANK</span>
         </div>
+
       </div>
+
     </div>
 
   </div>
+
 </section>
+
+<!-- VIDEO -->
 
 <section>
+
   <div class="section-inner">
-    <div class="section-title">FEATURED VIDEO</div>
-    <div class="section-subtitle">THE GRIND NEVER STOPS</div>
+
+    <div class="section-title">
+      FEATURED VIDEO
+    </div>
+
+    <div class="section-subtitle">
+      THE GRIND NEVER STOPS
+    </div>
 
     <div class="video-box">
-      <video id="mainVideo" playsinline controls preload="none" poster="IMG_20251213_190214.jpg">
-        Your browser does not support video.
+
+      <video
+        id="mainVideo"
+        controls
+        playsinline
+        preload="none"
+        poster="IMG_20251213_190214.jpg">
       </video>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- GAMES -->
+
 <section id="games">
+
   <div class="section-inner">
 
-    <div class="section-title">GAMING ZONE</div>
-    <div class="section-subtitle">Play games to earn real points.</div>
+    <div class="section-title">
+      GAMING ZONE
+    </div>
+
+    <div class="section-subtitle">
+      Play games to earn points.
+    </div>
 
     <div class="games-grid">
 
       <div class="game-card">
+
         <div class="game-icon">⚡</div>
+
         <h3>TAP RUSH</h3>
-        <p>Tap as fast as you can for 10 seconds.</p>
-        <button class="btn btn-red" onclick="openGame('tapGame')">PLAY</button>
+
+        <p>
+          Tap as fast as possible for 10 seconds.
+        </p>
+
+        <button class="btn btn-red"
+          onclick="openGame('tapGame')">
+          PLAY
+        </button>
+
       </div>
 
       <div class="game-card">
+
         <div class="game-icon">🧠</div>
+
         <h3>MEMORY MATCH</h3>
-        <p>Match all pairs and complete the challenge.</p>
-        <button class="btn btn-red" onclick="openGame('memoryGame');startMemory()">PLAY</button>
+
+        <p>
+          Match all the cards.
+        </p>
+
+        <button class="btn btn-red"
+          onclick="openGame('memoryGame');startMemory()">
+          PLAY
+        </button>
+
       </div>
 
       <div class="game-card">
+
         <div class="game-icon">🎯</div>
+
         <h3>AIM TEST</h3>
-        <p>Hit the target as many times as possible.</p>
-        <button class="btn btn-red" onclick="openGame('aimGame');startAim()">PLAY</button>
+
+        <p>
+          Hit the target as many times as possible.
+        </p>
+
+        <button class="btn btn-red"
+          onclick="openGame('aimGame');startAim()">
+          PLAY
+        </button>
+
       </div>
 
     </div>
 
-    <div class="game-area" id="tapGame">
-      <div class="game-top">
-        <span>⚡ TAP RUSH</span>
-        <span>Score: <b id="tapScore">0</b> | Time: <b id="tapTime">10</b></span>
+    <!-- TAP GAME -->
+
+    <div id="tapGame" class="game-area">
+
+      <div class="game-header">
+
+        <span>
+          ⚡ TAP RUSH
+        </span>
+
+        <span>
+          Score:
+          <b id="tapScore">0</b>
+          |
+          Time:
+          <b id="tapTime">10</b>
+        </span>
+
       </div>
 
-      <button class="tap-button" id="tapButton" onclick="tapRush()">TAP!</button>
+      <button
+        id="tapButton"
+        class="tap-button"
+        onclick="tapRush()">
+        TAP!
+      </button>
+
     </div>
 
-    <div class="game-area" id="memoryGame">
-      <div class="game-top">
-        <span>🧠 MEMORY MATCH</span>
-        <span>Moves: <b id="memoryMoves">0</b></span>
+    <!-- MEMORY GAME -->
+
+    <div id="memoryGame" class="game-area">
+
+      <div class="game-header">
+
+        <span>
+          🧠 MEMORY MATCH
+        </span>
+
+        <span>
+          Moves:
+          <b id="memoryMoves">0</b>
+        </span>
+
       </div>
 
-      <div class="memory-grid" id="memoryGrid"></div>
+      <div
+        id="memoryGrid"
+        class="memory-grid">
+      </div>
+
     </div>
 
-    <div class="game-area" id="aimGame">
-      <div class="game-top">
-        <span>🎯 AIM TEST</span>
-        <span>Hits: <b id="aimScore">0</b> | Time: <b id="aimTime">10</b></span>
+    <!-- AIM GAME -->
+
+    <div id="aimGame" class="game-area">
+
+      <div class="game-header">
+
+        <span>
+          🎯 AIM TEST
+        </span>
+
+        <span>
+          Hits:
+          <b id="aimScore">0</b>
+          |
+          Time:
+          <b id="aimTime">10</b>
+        </span>
+
       </div>
 
-      <div class="aim-area" id="aimArea">
-        <button class="target" id="target" onclick="hitTarget()"></button>
+      <div id="aimArea" class="aim-area">
+
+        <button
+          id="target"
+          class="target"
+          onclick="hitTarget()">
+        </button>
+
       </div>
 
-      <button class="btn btn-red" style="margin-top:12px" onclick="startAim()">START</button>
+      <button
+        class="btn btn-red"
+        style="margin-top:12px"
+        onclick="startAim()">
+        START
+      </button>
+
     </div>
 
   </div>
+
 </section>
+
+<!-- LEADERBOARD -->
 
 <section id="leaderboard">
+
   <div class="section-inner">
 
-    <div class="section-title">REAL-TIME LEADERBOARD</div>
-    <div class="section-subtitle">
-      Players are automatically ranked by their real points.
+    <div class="section-title">
+      REAL-TIME LEADERBOARD
     </div>
 
-    <div class="board" id="leaderboardList">
-      <div style="color:#666">Loading players...</div>
+    <div class="section-subtitle">
+      Players are ranked by their real points.
+    </div>
+
+    <div
+      id="leaderboardList"
+      class="player-list">
+
+      <div style="color:#666">
+        Loading players...
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
+<!-- PROFILE -->
+
 <section id="profile">
+
   <div class="section-inner">
 
-    <div class="section-title">MY PROFILE</div>
-    <div class="section-subtitle">Your real gaming profile.</div>
+    <div class="section-title">
+      MY PROFILE
+    </div>
 
-    <div class="profile-section">
+    <div class="section-subtitle">
+      Your gaming profile.
+    </div>
 
-      <div class="big-profile">
-        <div id="profileGuest">
-          <h3 style="font-family:Orbitron;margin-bottom:10px">LOGIN REQUIRED</h3>
-          <p style="color:#777;font-size:13px;margin-bottom:20px">
+    <div class="profile-grid">
+
+      <div class="profile-box">
+
+        <div id="guestProfile">
+
+          <h3 style="font-family:Orbitron;margin-bottom:10px">
+            LOGIN REQUIRED
+          </h3>
+
+          <p style="color:#777;font-size:13px;margin-bottom:18px">
             Login or create an account to view your profile.
           </p>
-          <button class="btn btn-red" onclick="openAuth()">LOGIN / SIGN UP</button>
+
+          <button
+            class="btn btn-red"
+            onclick="openAuth()">
+            LOGIN / SIGN UP
+          </button>
+
         </div>
 
-        <div id="profileLogged" class="hidden">
+        <div id="loggedProfile" class="hidden">
 
-          <div class="big-profile-top">
-            <img id="profileAvatar" class="big-avatar" src="IMG_20251213_190214.jpg">
+          <div class="profile-top">
+
+            <img
+              id="profileAvatar"
+              class="big-avatar"
+              src="IMG_20251213_190214.jpg">
 
             <div>
-              <h2 id="profileName" style="font-family:Orbitron">PLAYER</h2>
+
+              <h2
+                id="profileName"
+                style="font-family:Orbitron">
+                PLAYER
+              </h2>
+
               <p style="color:#777;font-size:12px">
                 Free Fire UID:
                 <span id="profileUid">—</span>
               </p>
-              <p style="color:#ff1744;font-size:12px;margin-top:4px">
-                Rank: <span id="profileRank">—</span>
+
+              <p style="color:var(--red);font-size:12px">
+                Rank:
+                <span id="profileRank">—</span>
               </p>
+
             </div>
+
           </div>
 
           <div class="stats">
+
             <div class="stat">
               <strong id="profileGames">0</strong>
               <span>GAMES</span>
@@ -977,115 +1204,1989 @@ footer{
               <strong id="profileWins">0</strong>
               <span>WINS</span>
             </div>
+
           </div>
 
         </div>
+
       </div>
 
-      <div class="big-profile">
-        <h3 style="font-family:Orbitron;margin-bottom:20px">ACHIEVEMENTS</h3>
+      <div class="profile-box">
 
-        <div class="achievement-grid" id="achievementGrid">
+        <h3
+          style="font-family:Orbitron;margin-bottom:18px">
+          ACHIEVEMENTS
+        </h3>
 
-          <div class="achievement" id="achFirst">
+        <div class="achievement-grid">
+
+          <div id="achFirst" class="achievement">
             <div class="achievement-icon">🎮</div>
             <h4>FIRST GAME</h4>
             <p>Play your first game.</p>
           </div>
 
-          <div class="achievement" id="achWin">
+          <div id="achWin" class="achievement">
             <div class="achievement-icon">🏆</div>
             <h4>FIRST WIN</h4>
             <p>Get your first win.</p>
           </div>
 
-          <div class="achievement" id="ach100">
+          <div id="ach100" class="achievement">
             <div class="achievement-icon">💯</div>
             <h4>100 POINTS</h4>
             <p>Reach 100 points.</p>
           </div>
 
-          <div class="achievement" id="ach10">
+          <div id="ach10" class="achievement">
             <div class="achievement-icon">🔥</div>
             <h4>10 GAMES</h4>
             <p>Play 10 games.</p>
           </div>
 
-          <div class="achievement" id="ach500">
+          <div id="ach500" class="achievement">
             <div class="achievement-icon">💎</div>
             <h4>500 POINTS</h4>
             <p>Reach 500 points.</p>
           </div>
 
-          <div class="achievement" id="achTop3">
+          <div id="achTop3" class="achievement">
             <div class="achievement-icon">👑</div>
             <h4>TOP 3</h4>
             <p>Reach the top 3.</p>
           </div>
 
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
-<section id="allPlayers">
+<!-- ALL PLAYERS -->
+
+<section>
+
   <div class="section-inner">
 
-    <div class="section-title">ALL PLAYERS</div>
-    <div class="section-subtitle">Every registered player has their own profile.</div>
+    <div class="section-title">
+      ALL PLAYERS
+    </div>
 
-    <div class="board" id="allPlayersList">
-      <div style="color:#666">No players yet.</div>
+    <div class="section-subtitle">
+      Every registered player appears here.
+    </div>
+
+    <div
+      id="allPlayersList"
+      class="player-list">
+
+      <div style="color:#666">
+        No players yet.
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
+<!-- FOOTER -->
+
 <footer>
+
   <div style="font-family:Orbitron;color:#fff;margin-bottom:10px">
-    AYUSH <span style="color:#ff1744">GAMING</span>
+    AYUSH <span style="color:var(--red)">GAMING</span>
   </div>
 
-  <a class="social" href="https://www.instagram.com/ayush_gaming025" target="_blank">
+  <a
+    class="instagram"
+    href="https://www.instagram.com/ayush_gaming025"
+    target="_blank">
     Instagram @ayush_gaming025
   </a>
 
-  <p style="margin-top:15px">© 2026 Ayush Gaming. All rights reserved.</p>
+  <p style="margin-top:12px">
+    © 2026 Ayush Gaming
+  </p>
+
 </footer>
 
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+
+<div id="toast"></div>
 
 <!-- AUTH MODAL -->
 
-<div class="auth-modal" id="authModal">
+<div id="authModal" class="auth-overlay">
 
   <div class="auth-box">
 
-    <button class="close" onclick="closeAuth()">×</button>
+    <button
+      class="close-btn"
+      onclick="closeAuth()">
+      ×
+    </button>
 
-    <div class="auth-title" id="authTitle">LOGIN</div>
-
-    <div class="auth-tabs">
-      <button id="loginTab" class="active" onclick="showLogin()">LOGIN</button>
-      <button id="signupTab" onclick="showSignup()">SIGN UP</button>
+    <div id="authTitle" class="auth-title">
+      LOGIN
     </div>
 
-    <div class="auth-message" id="authMessage"></div>
+    <div class="auth-tabs">
+
+      <button
+        id="loginTab"
+        class="active"
+        onclick="showLogin()">
+        LOGIN
+      </button>
+
+      <button
+        id="signupTab"
+        onclick="showSignup()">
+        SIGN UP
+      </button>
+
+    </div>
+
+    <div id="authMessage" class="message"></div>
 
     <!-- LOGIN -->
 
     <div id="loginForm">
 
       <div class="form-group">
+
         <label>EMAIL</label>
-        <input id="loginEmail" type="email" placeholder="your@email.com">
+
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="your@email.com">
+
       </div>
 
       <div class="form-group">
+
         <label>PASSWORD</label>
-        <input id="loginPassword" type="password" placeholder="Password">
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Password">
+
       </div>
 
-      <button class="btn btn-red" style="width:100%" onclick="login(
+      <button
+        class="btn btn-red"
+        style="width:100%"
+        onclick="login()">
+        LOGIN
+      </button>
+
+    </div>
+
+    <!-- SIGNUP -->
+
+    <div id="signupForm" class="hidden">
+
+      <div class="form-group">
+
+        <label>GAMER NAME</label>
+
+        <input
+          id="signupName"
+          type="text"
+          placeholder="Your gaming name">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>EMAIL</label>
+
+        <input
+          id="signupEmail"
+          type="email"
+          placeholder="your@email.com">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>PASSWORD</label>
+
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="Minimum 6 characters">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>FREE FIRE UID</label>
+
+        <input
+          id="signupUid"
+          type="text"
+          placeholder="Your Free Fire UID">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>PROFILE PHOTO</label>
+
+        <input
+          id="signupPhoto"
+          type="file"
+          accept="image/*"
+          onchange="previewPhoto(event)">
+
+        <img
+          id="photoPreview"
+          class="photo-preview hidden">
+
+      </div>
+
+      <button
+        class="btn btn-red"
+        style="width:100%"
+        onclick="signup()">
+        CREATE ACCOUNT
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD-ywzIakrch9AXA-C9pI08dqrDS31ZOvo",
+  authDomain: "ayush-gaming-6c5e5.firebaseapp.com",
+  projectId: "ayush-gaming-6c5e5",
+  storageBucket: "ayush-gaming-6c5e5.firebasestorage.app",
+  messagingSenderId: "3497976221",
+  appId: "1:3497976221:web:5613cb9b81bb0b959e8f74",
+  measurementId: "G-4HNV92YWF4"
+};
+
+let firebaseReady = false;
+let auth = null;
+let db = null;
+
+try{
+
+  firebase.initializeApp(firebaseConfig);
+
+  auth = firebase.auth();
+  db = firebase.firestore();
+
+  firebaseReady = true;
+
+}catch(error){
+
+  console.error("Firebase error:",error);
+
+}
+
+/* =========================
+   LOADER
+========================= */
+
+function hideLoader(){
+
+  const loader = document.getElementById("loader");
+
+  if(loader){
+    loader.classList.add("hide");
+  }
+
+}
+
+/*
+  Loader will ALWAYS disappear.
+  Firebase cannot keep the page stuck.
+*/
+
+setTimeout(hideLoader,1500);
+setTimeout(hideLoader,3500);
+
+window.addEventListener("load",hideLoader);
+
+/* =========================
+   GLOBAL VARIABLES
+========================= */
+
+const defaultPhoto = "IMG_20251213_190214.jpg";
+
+let currentUser = null;
+let currentData = null;
+
+let leaderboardUsers = [];
+
+let unsubscribeUser = null;
+let unsubscribeLeaderboard = null;
+
+/* =========================
+   VIDEO
+========================= */
+
+window.addEventListener("load",function(){
+
+  const video = document.getElementById("mainVideo");
+
+  if(!video) return;
+
+  let videoLoaded = false;
+
+  function loadVideo(){
+
+    if(videoLoaded) return;
+
+    videoLoaded = true;
+
+    const source = document.createElement("source");
+
+    source.src =
+      "lv_7568434162294803717_20260805165841.mp4";
+
+    source.type = "video/mp4";
+
+    video.appendChild(source);
+
+    video.load();
+
+  }
+
+  video.addEventListener("play",loadVideo);
+  video.addEventListener("click",loadVideo);
+
+});
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  if(!toast) return;
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(function(){
+    toast.classList.remove("show");
+  },2500);
+
+}
+
+/* =========================
+   AUTH MODAL
+========================= */
+
+function openAuth(){
+
+  document
+    .getElementById("authModal")
+    .classList.add("show");
+
+  showLogin();
+
+}
+
+function closeAuth(){
+
+  document
+    .getElementById("authModal")
+    .classList.remove("show");
+
+  document
+    .getElementById("authMessage")
+    .textContent="";
+
+}
+
+function showLogin(){
+
+  document
+    .getElementById("loginForm")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("signupForm")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginTab")
+    .classList.add("active");
+
+  document
+    .getElementById("signupTab")
+    .classList.remove("active");
+
+  document
+    .getElementById("authTitle")
+    .textContent="LOGIN";
+
+}
+
+function showSignup(){
+
+  document
+    .getElementById("loginForm")
+    .classList.add("hidden");
+
+  document
+    .getElementById("signupForm")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("loginTab")
+    .classList.remove("active");
+
+  document
+    .getElementById("signupTab")
+    .classList.add("active");
+
+  document
+    .getElementById("authTitle")
+    .textContent="CREATE ACCOUNT";
+
+}
+
+function authMessage(text){
+
+  document
+    .getElementById("authMessage")
+    .textContent=text;
+
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+async function login(){
+
+  if(!firebaseReady){
+
+    authMessage(
+      "Firebase is not connected."
+    );
+
+    return;
+
+  }
+
+  const email =
+    document.getElementById("loginEmail").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  if(!email || !password){
+
+    authMessage(
+      "Email and password required."
+    );
+
+    return;
+
+  }
+
+  try{
+
+    authMessage("Logging in...");
+
+    await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+
+    closeAuth();
+
+    showToast("Login successful 🔥");
+
+  }catch(error){
+
+    console.error(error);
+
+    if(
+      error.code ===
+      "auth/invalid-credential"
+    ){
+
+      authMessage(
+        "Wrong email or password."
+      );
+
+    }else if(
+      error.code ===
+      "auth/user-not-found"
+    ){
+
+      authMessage(
+        "Account not found."
+      );
+
+    }else{
+
+      authMessage(
+        "Login failed. Please try again."
+      );
+
+    }
+
+  }
+
+}
+
+/* =========================
+   SIGNUP
+========================= */
+
+async function signup(){
+
+  if(!firebaseReady){
+
+    authMessage(
+      "Firebase is not connected."
+    );
+
+    return;
+
+  }
+
+  const name =
+    document.getElementById("signupName").value.trim();
+
+  const email =
+    document.getElementById("signupEmail").value.trim();
+
+  const password =
+    document.getElementById("signupPassword").value;
+
+  const uid =
+    document.getElementById("signupUid").value.trim();
+
+  const file =
+    document.getElementById("signupPhoto").files[0];
+
+  if(!name || !email || !password || !uid){
+
+    authMessage(
+      "Please fill all required fields."
+    );
+
+    return;
+
+  }
+
+  if(password.length < 6){
+
+    authMessage(
+      "Password must contain at least 6 characters."
+    );
+
+    return;
+
+  }
+
+  try{
+
+    authMessage("Creating account...");
+
+    const result =
+      await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+    const user = result.user;
+
+    let photo = defaultPhoto;
+
+    if(file){
+
+      photo =
+        await resizeImage(file);
+
+    }
+
+    await user.updateProfile({
+      displayName:name,
+      photoURL:photo
+    });
+
+    await db
+      .collection("users")
+      .doc(user.uid)
+      .set({
+
+        name:name,
+        email:email,
+        freeFireUid:uid,
+        photo:photo,
+
+        points:0,
+        gamesPlayed:0,
+        wins:0,
+
+        createdAt:
+          firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      });
+
+    closeAuth();
+
+    showToast(
+      "Account created successfully 🔥"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    if(
+      error.code ===
+      "auth/email-already-in-use"
+    ){
+
+      authMessage(
+        "This email is already registered."
+      );
+
+    }else if(
+      error.code ===
+      "auth/invalid-email"
+    ){
+
+      authMessage(
+        "Invalid email address."
+      );
+
+    }else if(
+      error.code ===
+      "auth/weak-password"
+    ){
+
+      authMessage(
+        "Password is too weak."
+      );
+
+    }else{
+
+      authMessage(
+        "Signup failed. Please try again."
+      );
+
+    }
+
+  }
+
+}
+
+/* =========================
+   IMAGE RESIZE
+========================= */
+
+function resizeImage(file){
+
+  return new Promise(function(resolve,reject){
+
+    const reader =
+      new FileReader();
+
+    reader.onload=function(event){
+
+      const image =
+        new Image();
+
+      image.onload=function(){
+
+        const canvas =
+          document.createElement("canvas");
+
+        const size=256;
+
+        canvas.width=size;
+        canvas.height=size;
+
+        const ctx =
+          canvas.getContext("2d");
+
+        const scale =
+          Math.max(
+            size/image.width,
+            size/image.height
+          );
+
+        const width =
+          image.width*scale;
+
+        const height =
+          image.height*scale;
+
+        const x =
+          (size-width)/2;
+
+        const y =
+          (size-height)/2;
+
+        ctx.drawImage(
+          image,
+          x,
+          y,
+          width,
+          height
+        );
+
+        resolve(
+          canvas.toDataURL(
+            "image/jpeg",
+            .72
+          )
+        );
+
+      };
+
+      image.onerror=reject;
+
+      image.src=event.target.result;
+
+    };
+
+    reader.onerror=reject;
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+function previewPhoto(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+  const preview =
+    document.getElementById("photoPreview");
+
+  preview.src =
+    URL.createObjectURL(file);
+
+  preview.classList.remove("hidden");
+
+}
+
+/* =========================
+   AUTH STATE
+========================= */
+
+if(firebaseReady){
+
+  auth.onAuthStateChanged(
+    async function(user){
+
+      currentUser=user;
+
+      if(unsubscribeUser){
+
+        unsubscribeUser();
+
+        unsubscribeUser=null;
+
+      }
+
+      if(user){
+
+        document
+          .getElementById("loginButton")
+          .classList.add("hidden");
+
+        document
+          .getElementById("logoutButton")
+          .classList.remove("hidden");
+
+        await loadUser(user);
+
+      }else{
+
+        document
+          .getElementById("loginButton")
+          .classList.remove("hidden");
+
+        document
+          .getElementById("logoutButton")
+          .classList.add("hidden");
+
+        currentData=null;
+
+        showGuest();
+
+      }
+
+    }
+  );
+
+}else{
+
+  showGuest();
+
+}
+
+/* =========================
+   LOAD USER
+========================= */
+
+async function loadUser(user){
+
+  if(!db) return;
+
+  const ref =
+    db.collection("users").doc(user.uid);
+
+  try{
+
+    const snapshot =
+      await ref.get();
+
+    if(!snapshot.exists){
+
+      await ref.set({
+
+        name:
+          user.displayName || "PLAYER",
+
+        email:
+          user.email || "",
+
+        freeFireUid:"—",
+
+        photo:
+          user.photoURL || defaultPhoto,
+
+        points:0,
+        gamesPlayed:0,
+        wins:0,
+
+        createdAt:
+          firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      });
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+  unsubscribeUser =
+    ref.onSnapshot(
+      function(snapshot){
+
+        if(snapshot.exists){
+
+          currentData =
+            snapshot.data();
+
+          renderProfile();
+
+        }
+
+      },
+      function(error){
+
+        console.error(
+          "User listener error:",
+          error
+        );
+
+      }
+    );
+
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+function renderProfile(){
+
+  if(!currentData) return;
+
+  const name =
+    currentData.name || "PLAYER";
+
+  const photo =
+    currentData.photo || defaultPhoto;
+
+  const uid =
+    currentData.freeFireUid || "—";
+
+  const games =
+    Number(currentData.gamesPlayed || 0);
+
+  const points =
+    Number(currentData.points || 0);
+
+  const wins =
+    Number(currentData.wins || 0);
+
+  document
+    .getElementById("heroName")
+    .textContent=name;
+
+  document
+    .getElementById("heroAvatar")
+    .src=photo;
+
+  document
+    .getElementById("heroUid")
+    .textContent=uid;
+
+  document
+    .getElementById("heroGames")
+    .textContent=games;
+
+  document
+    .getElementById("heroPoints")
+    .textContent=points;
+
+  document
+    .getElementById("guestProfile")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loggedProfile")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("profileName")
+    .textContent=name;
+
+  document
+    .getElementById("profileAvatar")
+    .src=photo;
+
+  document
+    .getElementById("profileUid")
+    .textContent=uid;
+
+  document
+    .getElementById("profileGames")
+    .textContent=games;
+
+  document
+    .getElementById("profilePoints")
+    .textContent=points;
+
+  document
+    .getElementById("profileWins")
+    .textContent=wins;
+
+  updateRank();
+
+  updateAchievements();
+
+}
+
+function showGuest(){
+
+  document
+    .getElementById("heroName")
+    .textContent="AYUSH GAMING";
+
+  document
+    .getElementById("heroAvatar")
+    .src=defaultPhoto;
+
+  document
+    .getElementById("heroUid")
+    .textContent="5518922614";
+
+  document
+    .getElementById("heroGames")
+    .textContent="0";
+
+  document
+    .getElementById("heroPoints")
+    .textContent="0";
+
+  document
+    .getElementById("heroRank")
+    .textContent="—";
+
+  document
+    .getElementById("guestProfile")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("loggedProfile")
+    .classList.add("hidden");
+
+  resetAchievements();
+
+}
+
+/* =========================
+   LEADERBOARD
+========================= */
+
+function startLeaderboard(){
+
+  if(!db){
+
+    document
+      .getElementById("leaderboardList")
+      .innerHTML=
+      "<div style='color:#777'>Firebase connection unavailable.</div>";
+
+    return;
+
+  }
+
+  unsubscribeLeaderboard =
+    db
+      .collection("users")
+      .orderBy("points","desc")
+      .limit(100)
+      .onSnapshot(
+        function(snapshot){
+
+          leaderboardUsers=[];
+
+          snapshot.forEach(
+            function(doc){
+
+              leaderboardUsers.push({
+
+                id:doc.id,
+                ...doc.data()
+
+              });
+
+            }
+          );
+
+          renderLeaderboard();
+          renderAllPlayers();
+          updateRank();
+
+        },
+        function(error){
+
+          console.error(
+            "Leaderboard error:",
+            error
+          );
+
+          document
+            .getElementById("leaderboardList")
+            .innerHTML=
+            "<div style='color:#777'>Unable to load leaderboard.</div>";
+
+        }
+      );
+
+}
+
+/* =========================
+   LEADERBOARD RENDER
+========================= */
+
+function renderLeaderboard(){
+
+  const list =
+    document.getElementById(
+      "leaderboardList"
+    );
+
+  if(!leaderboardUsers.length){
+
+    list.innerHTML=
+      "<div style='color:#666'>No players registered yet.</div>";
+
+    return;
+
+  }
+
+  list.innerHTML="";
+
+  leaderboardUsers.forEach(
+    function(player,index){
+
+      const row =
+        createPlayerRow(
+          player,
+          index+1
+        );
+
+      list.appendChild(row);
+
+    }
+  );
+
+}
+
+function renderAllPlayers(){
+
+  const list =
+    document.getElementById(
+      "allPlayersList"
+    );
+
+  if(!leaderboardUsers.length){
+
+    list.innerHTML=
+      "<div style='color:#666'>No players registered yet.</div>";
+
+    return;
+
+  }
+
+  list.innerHTML="";
+
+  leaderboardUsers.forEach(
+    function(player,index){
+
+      list.appendChild(
+        createPlayerRow(
+          player,
+          index+1
+        )
+      );
+
+    }
+  );
+
+}
+
+function createPlayerRow(player,rank){
+
+  const row =
+    document.createElement("div");
+
+  row.className="player";
+
+  if(
+    currentUser &&
+    currentUser.uid===player.id
+  ){
+
+    row.classList.add("me");
+
+  }
+
+  const avatar =
+    document.createElement("img");
+
+  avatar.className="player-avatar";
+
+  avatar.src =
+    player.photo || defaultPhoto;
+
+  const rankElement =
+    document.createElement("div");
+
+  rankElement.className="rank";
+
+  rankElement.textContent=
+    "#"+rank;
+
+  const info =
+    document.createElement("div");
+
+  info.className="player-info";
+
+  const name =
+    document.createElement("strong");
+
+  name.textContent=
+    player.name || "PLAYER";
+
+  const small =
+    document.createElement("small");
+
+  small.textContent=
+    "Games: "+
+    Number(player.gamesPlayed || 0)+
+    " • FF UID: "+
+    (player.freeFireUid || "—");
+
+  info.appendChild(name);
+  info.appendChild(small);
+
+  const points =
+    document.createElement("div");
+
+  points.className="player-points";
+
+  points.textContent=
+    Number(player.points || 0)+
+    " XP";
+
+  row.appendChild(rankElement);
+  row.appendChild(avatar);
+  row.appendChild(info);
+  row.appendChild(points);
+
+  return row;
+
+}
+
+/* =========================
+   RANK
+========================= */
+
+function updateRank(){
+
+  if(!currentUser){
+
+    document
+      .getElementById("heroRank")
+      .textContent="—";
+
+    document
+      .getElementById("profileRank")
+      .textContent="—";
+
+    return;
+
+  }
+
+  const index =
+    leaderboardUsers.findIndex(
+      function(player){
+
+        return player.id===
+          currentUser.uid;
+
+      }
+    );
+
+  if(index<0){
+
+    document
+      .getElementById("heroRank")
+      .textContent="—";
+
+    document
+      .getElementById("profileRank")
+      .textContent="—";
+
+    return;
+
+  }
+
+  const rank=index+1;
+
+  document
+    .getElementById("heroRank")
+    .textContent="#"+rank;
+
+  document
+    .getElementById("profileRank")
+    .textContent="#"+rank;
+
+  updateAchievements();
+
+}
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+function resetAchievements(){
+
+  document
+    .querySelectorAll(".achievement")
+    .forEach(
+      function(element){
+
+        element.classList.remove(
+          "unlocked"
+        );
+
+      }
+    );
+
+}
+
+function unlockAchievement(id){
+
+  const element =
+    document.getElementById(id);
+
+  if(element){
+
+    element.classList.add(
+      "unlocked"
+    );
+
+  }
+
+}
+
+function updateAchievements(){
+
+  if(!currentData){
+
+    resetAchievements();
+
+    return;
+
+  }
+
+  resetAchievements();
+
+  const games =
+    Number(currentData.gamesPlayed || 0);
+
+  const points =
+    Number(currentData.points || 0);
+
+  const wins =
+    Number(currentData.wins || 0);
+
+  if(games>=1)
+    unlockAchievement("achFirst");
+
+  if(wins>=1)
+    unlockAchievement("achWin");
+
+  if(points>=100)
+    unlockAchievement("ach100");
+
+  if(games>=10)
+    unlockAchievement("ach10");
+
+  if(points>=500)
+    unlockAchievement("ach500");
+
+  const rank =
+    leaderboardUsers.findIndex(
+      function(player){
+
+        return currentUser &&
+          player.id===currentUser.uid;
+
+      }
+    );
+
+  if(rank>=0 && rank<3)
+    unlockAchievement("achTop3");
+
+}
+
+/* =========================
+   SAVE GAME
+========================= */
+
+async function saveGameResult(points,wins){
+
+  if(!currentUser){
+
+    showToast(
+      "Login first to save your score."
+    );
+
+    openAuth();
+
+    return false;
+
+  }
+
+  points =
+    Math.max(
+      0,
+      Math.floor(Number(points)||0)
+    );
+
+  wins =
+    Math.max(
+      0,
+      Math.floor(Number(wins)||0)
+    );
+
+  try{
+
+    const ref =
+      db.collection("users")
+        .doc(currentUser.uid);
+
+    await db.runTransaction(
+      async function(transaction){
+
+        const snapshot =
+          await transaction.get(ref);
+
+        if(!snapshot.exists){
+
+          throw new Error(
+            "Profile not found"
+          );
+
+        }
+
+        const data =
+          snapshot.data();
+
+        transaction.update(
+          ref,
+          {
+
+            points:
+              Number(data.points||0)+points,
+
+            gamesPlayed:
+              Number(data.gamesPlayed||0)+1,
+
+            wins:
+              Number(data.wins||0)+wins,
+
+            updatedAt:
+              firebase.firestore.FieldValue.serverTimestamp()
+
+          }
+        );
+
+      }
+    );
+
+    showToast(
+      "+"+points+
+      " points added 🔥"
+    );
+
+    return true;
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      "Score could not be saved."
+    );
+
+    return false;
+
+  }
+
+}
+
+/* =========================
+   GAME OPEN
+========================= */
+
+function openGame(id){
+
+  document
+    .querySelectorAll(".game-area")
+    .forEach(
+      function(game){
+
+        game.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+  const game =
+    document.getElementById(id);
+
+  if(game){
+
+    game.classList.add("active");
+
+    game.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
+
+}
+
+/* =========================
+   TAP RUSH
+========================= */
+
+let tapScore=0;
+let tapTime=10;
+let tapRunning=false;
+let tapInterval=null;
+
+function tapRush(){
+
+  if(!currentUser){
+
+    showToast(
+      "Login first to play."
+    );
+
+    openAuth();
+
+    return;
+
+  }
+
+  if(!tapRunning){
+
+    tapScore=0;
+    tapTime=10;
+    tapRunning=true;
+
+    document
+      .getElementById("tapScore")
+      .textContent="0";
+
+    document
+      .getElementById("tapTime")
+      .textContent="10";
+
+    clearInterval(tapInterval);
+
+    tapInterval=
+      setInterval(
+        function(){
+
+          tapTime--;
+
+          document
+            .getElementById("tapTime")
+            .textContent=tapTime;
+
+          if(tapTime<=0){
+
+            clearInterval(
+              tapInterval
+            );
+
+            tapRunning=false;
+
+            const finalScore=
+              tapScore;
+
+            saveGameResult(
+              finalScore,
+              finalScore>=30 ? 1 : 0
+            );
+
+          }
+
+        },
+        1000
+      );
+
+  }
+
+  if(tapRunning){
+
+    tapScore++;
+
+    document
+      .getElementById("tapScore")
+      .textContent=tapScore;
+
+  }
+
+}
+
+/* =========================
+   MEMORY MATCH
+========================= */
+
+let memoryFirst=null;
+let memorySecond=null;
+let memoryLock=false;
+let memoryMatches=0;
+let memoryMoves=0;
+
+function startMemory(){
+
+  if(!currentUser){
+
+    showToast(
+      "Login first to play."
+    );
+
+    openAuth();
+
+    return;
+
+  }
+
+  const symbols=[
+    "🔥","🔥",
+    "🎮","🎮",
+    "⚡","⚡",
+    "👑","👑"
+  ];
+
+  symbols.sort(
+    function(){
+      return Math.random()-.5;
+    }
+  );
+
+  memoryFirst=null;
+  memorySecond=null;
+  memoryLock=false;
+  memoryMatches=0;
+  memoryMoves=0;
+
+  document
+    .getElementById("memoryMoves")
+    .textContent="0";
+
+  const grid =
+    document.getElementById(
+      "memoryGrid"
+    );
+
+  grid.innerHTML="";
+
+  symbols.forEach(
+    function(symbol,index){
+
+      const card =
+        document.createElement("button");
+
+      card.className="memory-card";
+
+      card.textContent="?";
+
+      card.dataset.symbol=
+        symbol;
+
+      card.dataset.index=
+        index;
+
+      card.onclick=
+        function(){
+
+          flipMemory(card);
+
+        };
+
+      grid.appendChild(card);
+
+    }
+  );
+
+}
+
+function flipMemory(card){
+
+  if(
+    memoryLock ||
+    card.classList.contains("open") ||
+    card.classList.contains("matched")
+  ){
+
+    return;
+
+  }
+
+  card.classList.add("open");
+
+  card.textContent=
+    card.dataset.symbol;
+
+  if(!memoryFirst){
+
+    memoryFirst=card;
+
+    return;
+
+  }
+
+  memorySecond=card;
+
+  memoryMoves++;
+
+  document
+    .getElementById("memoryMoves")
+    .textContent=
+    memoryMoves;
+
+  if(
+    memoryFirst.dataset.symbol===
+    memorySecond.dataset.symbol
+  ){
+
+    memoryFirst.classList.add(
+      "matched"
+    );
+
+    memorySecond.classList.add(
+      "matched"
+    );
+
+    memoryFirst=null;
+    memorySecond=null;
+
+    memoryMatches++;
+
+    if(memoryMatches===4){
+
+      const bonus=
+        Math.max(
+          25,
+          100-(memoryMoves*5)
+        );
+
+      setTimeout(
+        function(){
+
+          saveGameResult(
+            bonus,
+            1
+          );
+
+        },
+        400
+      );
+
+    }
+
+  }else{
+
+    memoryLock=true;
+
+    setTimeout(
+      function(){
+
+        memoryFirst.classList.remove(
+          "open"
+        );
+
+        memorySecond.classList.remove(
+          "open"
+        );
+
+        memoryFirst.textContent="?";
+        memorySecond.textContent="?";
+
+        memoryFirst=null;
+        memorySecond=null;
+
+        memoryLock=false;
+
+      },
+      700
+    );
+
+  }
+
+}
+
+/* =========================
+   AIM TEST
+========================= */
+
+let aimScore=0;
+let aimTime=10;
+let aimRunning=false;
+let aimInterval=null;
+
+function startAim(){
+
+  if(!currentUser){
+
+    showToast(
+      "Login first to play."
+    );
+
+    openAuth();
+
+    return;
+
+  }
+
+  aimScore=0;
+  aimTime=10;
+  aimRunning=true;
+
+  document
+    .getElementById("aimScore")
+    .textContent="0";
+
+  document
+    .getElementById("aimTime")
+    .textContent="10";
+
+  clearInterval(aimInterval);
+
+  moveTarget();
+
+  aimInterval=
+    setInterval(
+      function(){
+
+        aimTime--;
+
+        document
+          .getElementById("aimTime")
+          .textContent=aimTime;
+
+        if(aimTime<=0){
+
+          clearInterval(
+            aimInterval
+          );
+
+          aimRunning=false;
+
+          document
+            .getElementById("target")
+            .style.display="none";
+
+          const points=
+            aimScore*5;
+
+          saveGameResult(
+            points,
+            aimScore>=8 ? 1 : 0
+          );
+
+        }
+
+      },
+      1000
+    );
+
+}
+
+function moveTarget(){
+
+  if(!aimRunning) return;
+
+  const area =
+    document.getElementById(
+      "aimArea"
+    );
+
+  const target =
+    document.getElementById(
+      "target"
+    );
+
+  const maxX =
+    Math.max(
+      0,
+      area.clientWidth-45
+    );
+
+  const maxY =
+    Math.max(
+      0,
+      area.clientHeight-45
+    );
+
+  target.style.left=
+    Math.floor(
+      Math.random()*(maxX+1)
+    )+"px";
+
+  target.style.top=
+    Math.floor(
+      Math.random()*(maxY+1)
+    )+"px";
+
+  target.style.display="block";
+
+}
+
+function hitTarget(){
+
+  if(!aimRunning) return;
+
+  aimScore++;
+
+  document
+    .getElementById("aimScore")
+    .textContent=aimScore;
+
+  moveTarget();
+
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function logout(){
+
+  if(!auth) return;
+
+  try{
+
+    await auth.signOut();
+
+    showToast(
+      "Logged out."
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+/* =========================
+   START
+========================= */
+
+if(firebaseReady){
+
+  startLeaderboard();
+
+}else{
+
+  document
+    .getElementById("leaderboardList")
+    .innerHTML=
+    "<div style='color:#777'>Firebase connection unavailable.</div>";
+
+}
+
+</script>
+
+</body>
+</html>
