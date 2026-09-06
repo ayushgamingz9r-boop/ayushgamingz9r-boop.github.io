@@ -1,92 +1,644 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Ayush Gaming</title>
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: Arial, sans-serif;
+      background: #080b14;
       color: white;
-      text-align: center;
+      overflow-x: hidden;
+    }
 
+    /* Animated gaming background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
       background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+        linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.92)),
         url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80");
-
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 30%, rgba(0, 200, 255, 0.15), transparent 45%);
+      pointer-events: none;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 8, 20, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 220, 255, 0.25);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #00d9ff;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #00d9ff;
+    }
+
+    /* Home */
+    #home {
       min-height: 100vh;
+      padding: 120px 20px 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .content {
-      padding: 100px 20px;
+    .welcome {
+      animation: fadeUp 1s ease;
     }
 
-    h1 {
-      font-size: 42px;
-      text-shadow: 0 0 15px #00ffff;
+    .welcome h1 {
+      font-size: clamp(38px, 10vw, 72px);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(0, 217, 255, 0.7);
     }
 
-    p {
-      font-size: 20px;
+    .welcome h1 span {
+      color: #00d9ff;
+    }
+
+    .welcome p {
+      margin-top: 12px;
+      font-size: 18px;
+      color: #c7d2e5;
+    }
+
+    /* Profile */
+    .profile-card {
+      margin-top: 35px;
+      width: min(92%, 400px);
+      padding: 28px 20px;
+      border-radius: 22px;
+      background: rgba(10, 15, 30, 0.78);
+      border: 1px solid rgba(0, 217, 255, 0.35);
+      box-shadow: 0 0 35px rgba(0, 217, 255, 0.12);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .profile-photo {
+      width: 155px;
+      height: 155px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #00d9ff;
+      box-shadow:
+        0 0 15px #00d9ff,
+        0 0 45px rgba(0, 217, 255, 0.35);
+    }
+
+    .profile-card h2 {
+      margin-top: 18px;
+      font-size: 27px;
     }
 
     .uid {
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 350px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      box-shadow: 0 0 15px #00ffff;
+      margin-top: 10px;
+      font-size: 17px;
+      color: #b9c7da;
     }
 
-    .uid h2 {
-      margin: 5px;
+    .uid strong {
+      color: #00d9ff;
+      font-size: 20px;
+    }
+
+    /* Buttons */
+    .buttons {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px rgba(0, 217, 255, 0.35);
     }
 
     .instagram {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: #e1306c;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: bold;
+      background: #d62976;
+      border: none;
     }
 
-    .instagram:hover {
-      transform: scale(1.05);
+    /* Sections */
+    section {
+      padding: 75px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: #00d9ff;
+    }
+
+    .section-subtitle {
+      color: #aebbd0;
+      margin-bottom: 30px;
+    }
+
+    /* Games */
+    .games {
+      max-width: 850px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      background: rgba(10, 15, 30, 0.82);
+      border: 1px solid rgba(0, 217, 255, 0.25);
+      border-radius: 18px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: #00d9ff;
+      box-shadow: 0 0 25px rgba(0, 217, 255, 0.18);
+    }
+
+    .game-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .game-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .game-card p {
+      color: #b9c7da;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    /* Game screen */
+    .game-box {
+      display: none;
+      max-width: 420px;
+      margin: 25px auto 0;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid #00d9ff;
+      border-radius: 18px;
+    }
+
+    .game-box.active {
+      display: block;
+    }
+
+    #maze {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      background: #111827;
+      border: 2px solid #00d9ff;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    #player {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: #00d9ff;
+      border-radius: 6px;
+      left: 10px;
+      top: 10px;
+      box-shadow: 0 0 12px #00d9ff;
+    }
+
+    #goal {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: #42ff75;
+      border-radius: 50%;
+      right: 10px;
+      bottom: 10px;
+      box-shadow: 0 0 15px #42ff75;
+    }
+
+    .controls {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .control {
+      width: 60px;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      background: #182338;
+      color: white;
+      font-size: 22px;
+      border: 1px solid #33445f;
+      touch-action: manipulation;
+    }
+
+    .control:active {
+      background: #00d9ff;
+      color: black;
+    }
+
+    .empty {
+      visibility: hidden;
+    }
+
+    /* Tap game */
+    #tapButton {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 4px solid #00d9ff;
+      background: #111827;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+      touch-action: manipulation;
+    }
+
+    #tapScore {
+      margin-top: 15px;
+      font-size: 20px;
+      color: #00d9ff;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      color: #8d9bb0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .welcome h1 {
+        letter-spacing: 1px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="content">
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">AYUSH<span> GAMING</span></div>
 
-    <h1>🎮 Welcome to Ayush Gaming 🎮</h1>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Profile</a>
+    </div>
+  </nav>
 
-    <p>Welcome to my gaming website!</p>
+  <!-- Home -->
+  <section id="home">
 
-    <div class="uid">
-      <h2>🔥 Free Fire UID 🔥</h2>
-      <p>5518922614</p>
+    <div class="welcome">
+      <h1>Welcome to <span>My Website</span></h1>
+      <p>Enter the world of Ayush Gaming 🎮</p>
     </div>
 
+    <!-- Profile -->
+    <div class="profile-card">
+
+      <img
+        src="IMG_20251213_190214.jpg"
+        alt="Ayush Gaming Profile"
+        class="profile-photo"
+      >
+
+      <h2>🎮 Ayush Gaming</h2>
+
+      <div class="uid">
+        Free Fire UID:
+        <strong>5518922614</strong>
+      </div>
+
+      <div class="buttons">
+        <a
+          class="btn instagram"
+          href="https://www.instagram.com/ayush_gaming025"
+          target="_blank"
+          rel="noopener noreferrer">
+          📸 Instagram
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Games -->
+  <section id="games">
+
+    <h2 class="section-title">🎮 My <span>Games</span></h2>
+    <p class="section-subtitle">
+      Play these mini games directly on your mobile.
+    </p>
+
+    <div class="games">
+
+      <!-- Maze Game -->
+      <div class="game-card">
+        <div class="game-icon">🧩</div>
+        <h3>Maze Runner</h3>
+        <p>Move the player to the green target using the mobile controls.</p>
+
+        <button class="btn" onclick="openGame('mazeGame')">
+          ▶ Play Maze
+        </button>
+      </div>
+
+      <!-- Tap Game -->
+      <div class="game-card">
+        <div class="game-icon">⚡</div>
+        <h3>Tap Challenge</h3>
+        <p>Tap the button as many times as possible in 10 seconds.</p>
+
+        <button class="btn" onclick="openGame('tapGame')">
+          ▶ Play Tap
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Maze -->
+    <div id="mazeGame" class="game-box">
+
+      <h3>🧩 Maze Runner</h3>
+      <p style="margin: 10px 0;">Reach the green circle!</p>
+
+      <div id="maze">
+        <div id="player"></div>
+        <div id="goal"></div>
+      </div>
+
+      <div class="controls">
+        <button class="control empty"></button>
+        <button class="control" onclick="movePlayer(0,-15)">⬆️</button>
+        <button class="control empty"></button>
+
+        <button class="control" onclick="movePlayer(-15,0)">⬅️</button>
+        <button class="control" onclick="movePlayer(0,15)">⬇️</button>
+        <button class="control" onclick="movePlayer(15,0)">➡️</button>
+      </div>
+
+      <button class="btn" style="margin-top:15px;" onclick="resetMaze()">
+        🔄 Reset
+      </button>
+
+    </div>
+
+    <!-- Tap Game -->
+    <div id="tapGame" class="game-box">
+
+      <h3>⚡ Tap Challenge</h3>
+      <p id="tapTime">Time: 10</p>
+
+      <button id="tapButton" onclick="tapGame()">
+        TAP!
+      </button>
+
+      <div id="tapScore">Score: 0</div>
+
+      <button class="btn" style="margin-top:15px;" onclick="startTapGame()">
+        🔄 Start Game
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- Profile -->
+  <section id="contact">
+
+    <h2 class="section-title">🔥 <span>Gaming Profile</span></h2>
+
+    <p class="section-subtitle">
+      Follow me on Instagram for gaming updates.
+    </p>
+
     <a
-      class="instagram"
-      href="https://www.instagram.com/ayush_gaming025?stkn=MXV4MWhxZ2ZxOGx0YQ=="
-      target="_blank">
-      📸 Follow me on Instagram
+      class="btn instagram"
+      href="https://www.instagram.com/ayush_gaming025"
+      target="_blank"
+      rel="noopener noreferrer">
+      📸 Follow @ayush_gaming025
     </a>
 
-  </div>
+  </section>
+
+  <footer>
+    © 2026 Ayush Gaming • Made with 🎮
+  </footer>
+
+
+  <script>
+    /* Navigation to games */
+    function openGame(gameId) {
+      document.getElementById(gameId).classList.toggle("active");
+    }
+
+
+    /* Maze Game */
+    let playerX = 10;
+    let playerY = 10;
+
+    function movePlayer(dx, dy) {
+      const maze = document.getElementById("maze");
+      const player = document.getElementById("player");
+
+      const maxX = maze.clientWidth - player.offsetWidth;
+      const maxY = maze.clientHeight - player.offsetHeight;
+
+      playerX += dx;
+      playerY += dy;
+
+      if (playerX < 0) playerX = 0;
+      if (playerY < 0) playerY = 0;
+      if (playerX > maxX) playerX = maxX;
+      if (playerY > maxY) playerY = maxY;
+
+      player.style.left = playerX + "px";
+      player.style.top = playerY + "px";
+
+      checkGoal();
+    }
+
+    function checkGoal() {
+      const player = document.getElementById("player");
+      const goal = document.getElementById("goal");
+
+      const p = player.getBoundingClientRect();
+      const g = goal.getBoundingClientRect();
+
+      if (
+        p.left < g.right &&
+        p.right > g.left &&
+        p.top < g.bottom &&
+        p.bottom > g.top
+      ) {
+        alert("🎉 You Win! Great Gaming!");
+        resetMaze();
+      }
+    }
+
+    function resetMaze() {
+      playerX = 10;
+      playerY = 10;
+
+      const player = document.getElementById("player");
+
+      player.style.left = playerX + "px";
+      player.style.top = playerY + "px";
+    }
+
+
+    /* Tap Challenge */
+    let tapScore = 0;
+    let tapTime = 10;
+    let tapRunning = false;
+    let tapTimer;
+
+    function startTapGame() {
+      tapScore = 0;
+      tapTime = 10;
+      tapRunning = true;
+
+      document.getElementById("tapScore").textContent = "Score: 0";
+      document.getElementById("tapTime").textContent = "Time: 10";
+
+      clearInterval(tapTimer);
+
+      tapTimer = setInterval(function () {
+        tapTime--;
+
+        document.getElementById("tapTime").textContent =
+          "Time: " + tapTime;
+
+        if (tapTime <= 0) {
+          clearInterval(tapTimer);
+          tapRunning = false;
+
+          alert("⏱️ Time Up! Your Score: " + tapScore);
+        }
+      }, 1000);
+    }
+
+    function tapGame() {
+      if (!tapRunning) {
+        return;
+      }
+
+      tapScore++;
+
+      document.getElementById("tapScore").textContent =
+        "Score: " + tapScore;
+    }
+  </script>
 
 </body>
 </html>
-<img src="IMG_20251213_190214.jpg" alt="Ayush Gaming" class="profile-photo">
