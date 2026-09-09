@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#050505">
 <title>AYUSH GAMING</title>
 
-<!-- Firebase App & Services -->
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -29,15 +29,24 @@ body{
   overflow-x:hidden;
 }
 
-button{
+button,input{
   font-family:inherit;
+}
+
+button{
   cursor:pointer;
 }
+
+.hide{
+  display:none!important;
+}
+
+/* ================= LOADER ================= */
 
 #loader{
   position:fixed;
   inset:0;
-  z-index:9999;
+  z-index:99999;
   background:#050505;
   display:flex;
   align-items:center;
@@ -45,33 +54,29 @@ button{
   color:#e50914;
   font-size:28px;
   font-weight:900;
-  letter-spacing:2px;
-  transition: opacity 0.5s ease;
+  letter-spacing:3px;
+  transition:.5s;
 }
 
-.hide{
-  display:none!important;
-}
-
-/* NAVBAR */
+/* ================= NAV ================= */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
   padding:14px 5%;
-  background:rgba(5,5,5,.95);
-  backdrop-filter:blur(10px);
+  background:rgba(5,5,5,.96);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid #242424;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:12px;
 }
 
 .logo{
   color:#ff2020;
-  font-size:22px;
+  font-size:21px;
   font-weight:900;
   white-space:nowrap;
 }
@@ -90,14 +95,13 @@ nav button{
   padding:9px 12px;
   border-radius:8px;
   font-size:12px;
-  transition: 0.2s;
 }
 
 nav button:hover{
   background:#e50914;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
   min-height:500px;
@@ -105,28 +109,16 @@ nav button:hover{
   display:flex;
   align-items:center;
   background:
-  radial-gradient(circle at 80% 45%,rgba(229,9,20,.38),transparent 35%),
-  linear-gradient(120deg,#050505,#100000,#050505);
+  radial-gradient(circle at 80% 45%,rgba(229,9,20,.4),transparent 35%),
+  linear-gradient(120deg,#050505,#130000,#050505);
   position:relative;
   overflow:hidden;
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  right:-100px;
-  bottom:-100px;
-  border:1px solid #e50914;
-  transform:rotate(45deg);
-  opacity:.15;
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:700px;
+  max-width:750px;
 }
 
 .hero h1{
@@ -142,7 +134,7 @@ nav button:hover{
 .hero p{
   color:#aaa;
   margin:25px 0;
-  max-width:600px;
+  max-width:650px;
   font-size:17px;
   line-height:1.6;
 }
@@ -154,14 +146,13 @@ nav button:hover{
   padding:14px 22px;
   border-radius:9px;
   font-weight:bold;
-  transition: 0.2s;
 }
 
 .main-btn:hover{
   background:#ff2632;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 section{
   padding:60px 6%;
@@ -176,11 +167,11 @@ section{
 .section-subtitle{
   text-align:center;
   color:#777;
-  margin-top:-20px;
+  margin-top:-18px;
   margin-bottom:30px;
 }
 
-/* VIDEO */
+/* ================= VIDEO ================= */
 
 .video-box{
   max-width:950px;
@@ -197,20 +188,20 @@ video{
   max-height:540px;
 }
 
-/* GAME CARDS */
+/* ================= GAMES ================= */
 
 .game-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
 .game-card{
-  background:linear-gradient(145deg,#121212,#090909);
+  background:linear-gradient(145deg,#131313,#090909);
   border:1px solid #272727;
   border-radius:17px;
   padding:25px;
-  min-height:230px;
+  min-height:245px;
   transition:.25s;
 }
 
@@ -220,12 +211,12 @@ video{
 }
 
 .game-icon{
-  font-size:42px;
+  font-size:43px;
   margin-bottom:15px;
 }
 
 .game-card h3{
-  font-size:23px;
+  font-size:22px;
   margin-bottom:10px;
 }
 
@@ -244,7 +235,7 @@ video{
   font-weight:bold;
 }
 
-/* LEADERBOARD */
+/* ================= LEADERBOARD ================= */
 
 .leader-list{
   max-width:850px;
@@ -265,14 +256,14 @@ video{
 .rank{
   width:38px;
   text-align:center;
-  font-size:19px;
+  font-size:18px;
   color:#e50914;
   font-weight:bold;
 }
 
 .avatar{
-  width:48px;
-  height:48px;
+  width:50px;
+  height:50px;
   border-radius:50%;
   object-fit:cover;
   background:#222;
@@ -298,29 +289,50 @@ video{
 .points{
   color:#ff3131;
   font-weight:bold;
+  white-space:nowrap;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
 
 .profile-box{
-  max-width:520px;
+  max-width:550px;
   margin:auto;
   text-align:center;
   background:#101010;
   border:1px solid #282828;
   border-radius:18px;
-  padding:28px;
+  padding:30px;
 }
 
 .profile-box .avatar{
-  width:105px;
-  height:105px;
+  width:115px;
+  height:115px;
   margin-bottom:15px;
 }
 
 .profile-email{
   color:#777;
   margin-top:6px;
+}
+
+.profile-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.profile-actions button{
+  border:0;
+  border-radius:8px;
+  padding:10px 15px;
+  background:#222;
+  color:#fff;
+}
+
+.profile-actions button:hover{
+  background:#e50914;
 }
 
 .stats{
@@ -335,6 +347,7 @@ video{
   border:1px solid #222;
   border-radius:10px;
   padding:15px 8px;
+  font-size:12px;
 }
 
 .stat b{
@@ -344,11 +357,11 @@ video{
   margin-bottom:5px;
 }
 
-/* ACHIEVEMENTS */
+/* ================= ACHIEVEMENTS ================= */
 
 .achievement-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:15px;
 }
 
@@ -357,49 +370,54 @@ video{
   border:1px solid #292929;
   border-radius:13px;
   padding:20px;
-  text-align: center;
+  text-align:center;
 }
 
 .achievement.locked{
-  opacity:.35;
+  opacity:.32;
 }
 
 .achievement-icon{
-  font-size:30px;
+  font-size:31px;
   margin-bottom:10px;
 }
 
 .achievement p{
   color:#777;
   margin-top:6px;
-  font-size: 13px;
+  font-size:13px;
 }
 
-/* AUTH */
+/* ================= MODAL ================= */
 
-.modal{
+.modal,
+.game-modal{
   position:fixed;
   inset:0;
   z-index:5000;
-  background:rgba(0,0,0,.82);
+  background:rgba(0,0,0,.9);
   display:none;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:15px;
 }
 
-.modal.show{
+.modal.show,
+.game-modal.show{
   display:flex;
 }
 
-.auth-box{
+.auth-box,
+.game-window{
   width:100%;
-  max-width:420px;
+  max-width:650px;
+  max-height:94vh;
+  overflow:auto;
   background:#101010;
   border:1px solid #333;
   border-radius:18px;
   padding:25px;
-  box-shadow:0 20px 70px rgba(0,0,0,.7);
+  box-shadow:0 20px 70px rgba(0,0,0,.8);
 }
 
 .close-btn{
@@ -409,6 +427,8 @@ video{
   color:#aaa;
   font-size:25px;
 }
+
+/* ================= AUTH ================= */
 
 .auth-tabs{
   display:flex;
@@ -425,7 +445,7 @@ video{
 
 .auth-tabs button.active{
   background:#e50914;
-  color:white;
+  color:#fff;
 }
 
 .auth-form input{
@@ -450,45 +470,19 @@ video{
   border:0;
   border-radius:8px;
   background:#e50914;
-  color:white;
+  color:#fff;
   font-weight:bold;
 }
 
 .message{
+  min-height:20px;
   margin-top:12px;
-  min-height:18px;
-  font-size:13px;
   color:#ff5555;
-  text-align: center;
+  text-align:center;
+  font-size:13px;
 }
 
-/* GAME MODAL */
-
-.game-modal{
-  position:fixed;
-  inset:0;
-  z-index:4500;
-  background:rgba(0,0,0,.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-}
-
-.game-modal.show{
-  display:flex;
-}
-
-.game-window{
-  width:100%;
-  max-width:650px;
-  max-height:94vh;
-  overflow:auto;
-  background:#0d0d0d;
-  border:1px solid #333;
-  border-radius:18px;
-  padding:20px;
-}
+/* ================= GAME HEADER ================= */
 
 .game-header{
   display:flex;
@@ -506,7 +500,14 @@ video{
   border-radius:8px;
 }
 
-/* 2048 */
+.game-info,
+.game-status{
+  text-align:center;
+  color:#aaa;
+  margin:10px;
+}
+
+/* ================= 2048 ================= */
 
 .board2048{
   width:min(92vw,400px);
@@ -518,7 +519,7 @@ video{
   gap:8px;
   background:#252525;
   border-radius:10px;
-  touch-action: none;
+  touch-action:none;
 }
 
 .tile2048{
@@ -529,24 +530,22 @@ video{
   background:#151515;
   font-size:clamp(18px,7vw,32px);
   font-weight:900;
-  color: #fff;
-  transition: all 0.1s ease;
 }
 
-.tile2048.active{ background:#e50914; }
-.tile2048.v4{ background:#d62828; }
-.tile2048.v8{ background:#f77f00; }
-.tile2048.v16{ background:#fcbf49; }
-.tile2048.v32{ background:#2a9d8f; }
-.tile2048.v64{ background:#e76f51; }
-.tile2048.big{ background:#7a0010; }
+.tile2048.v2{background:#333}
+.tile2048.v4{background:#555}
+.tile2048.v8{background:#e50914}
+.tile2048.v16{background:#c70000}
+.tile2048.v32{background:#9b0000}
+.tile2048.v64{background:#720000}
+.tile2048.big{background:#4b0000}
 
 .game-controls{
   display:grid;
   grid-template-columns:repeat(3,60px);
   justify-content:center;
   gap:7px;
-  margin-top: 15px;
+  margin-top:15px;
 }
 
 .game-controls button{
@@ -558,21 +557,15 @@ video{
   font-size:20px;
 }
 
-.game-controls button:nth-child(1){ grid-column:2; }
-.game-controls button:nth-child(2){ grid-column:1; grid-row:2; }
-.game-controls button:nth-child(3){ grid-column:2; grid-row:2; }
-.game-controls button:nth-child(4){ grid-column:3; grid-row:2; }
+.game-controls button:nth-child(1){grid-column:2}
+.game-controls button:nth-child(2){grid-column:1;grid-row:2}
+.game-controls button:nth-child(3){grid-column:2;grid-row:2}
+.game-controls button:nth-child(4){grid-column:3;grid-row:2}
 
-.game-info{
-  text-align:center;
-  color:#aaa;
-  margin:10px;
-}
-
-/* SUDOKU */
+/* ================= SUDOKU ================= */
 
 .sudoku-board{
-  width:min(94vw,400px);
+  width:min(94vw,420px);
   aspect-ratio:1;
   margin:15px auto;
   display:grid;
@@ -585,9 +578,9 @@ video{
   height:100%;
   border:1px solid #333;
   background:#080808;
-  color:#fff;
+  color:white;
   text-align:center;
-  font-size:clamp(14px,4vw,22px);
+  font-size:clamp(13px,4vw,22px);
   outline:none;
 }
 
@@ -597,17 +590,25 @@ video{
   background:#151515;
 }
 
-.sudoku-cell:nth-child(3n){ border-right:2px solid #777; }
-.sudoku-cell:nth-child(9n){ border-right:none; }
+.sudoku-cell:nth-child(3n){
+  border-right:2px solid #777;
+}
+
+.sudoku-cell:nth-child(9n){
+  border-right:none;
+}
+
 .sudoku-cell:nth-child(n+19):nth-child(-n+27),
-.sudoku-cell:nth-child(n+46):nth-child(-n+54){ border-bottom:2px solid #777; }
+.sudoku-cell:nth-child(n+46):nth-child(-n+54){
+  border-bottom:2px solid #777;
+}
 
 .sudoku-buttons{
   display:flex;
   gap:10px;
   justify-content:center;
   flex-wrap:wrap;
-  margin-top: 15px;
+  margin-top:15px;
 }
 
 .sudoku-buttons button{
@@ -619,17 +620,10 @@ video{
   font-weight:bold;
 }
 
-.sudoku-status{
-  text-align:center;
-  min-height:25px;
-  color:#aaa;
-  margin:10px;
-}
-
-/* MAZE */
+/* ================= MAZE ================= */
 
 .maze-board{
-  width:min(92vw,400px);
+  width:min(92vw,420px);
   aspect-ratio:1;
   margin:15px auto;
   display:grid;
@@ -646,16 +640,24 @@ video{
   font-size:clamp(12px,4vw,22px);
 }
 
-.maze-cell.wall{ background:#242424; }
-.maze-cell.player{ background:#e50914; }
-.maze-cell.exit{ background:#28a745; }
+.maze-cell.wall{
+  background:#292929;
+}
+
+.maze-cell.player{
+  background:#e50914;
+}
+
+.maze-cell.exit{
+  background:#168a3b;
+}
 
 .maze-controls{
   display:grid;
   grid-template-columns:repeat(3,55px);
   gap:7px;
   justify-content:center;
-  margin-top: 15px;
+  margin-top:15px;
 }
 
 .maze-controls button{
@@ -667,15 +669,57 @@ video{
   font-size:20px;
 }
 
-.maze-controls .up{ grid-column:2; }
-.maze-controls .left{ grid-column:1; grid-row:2; }
-.maze-controls .down{ grid-column:2; grid-row:2; }
-.maze-controls .right{ grid-column:3; grid-row:2; }
+.maze-controls .up{grid-column:2}
+.maze-controls .left{grid-column:1;grid-row:2}
+.maze-controls .down{grid-column:2;grid-row:2}
+.maze-controls .right{grid-column:3;grid-row:2}
 
-.maze-status{
+/* ================= MINESWEEPER ================= */
+
+.mine-board{
+  width:min(94vw,420px);
+  margin:20px auto;
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:3px;
+  background:#333;
+  padding:5px;
+}
+
+.mine-cell{
+  aspect-ratio:1;
+  border:0;
+  background:#202020;
+  color:#fff;
+  font-weight:bold;
+  font-size:clamp(11px,3.5vw,18px);
+  border-radius:4px;
+}
+
+.mine-cell.open{
+  background:#080808;
+}
+
+.mine-cell.mine{
+  background:#e50914;
+}
+
+.mine-cell.flag{
+  background:#3a1515;
+}
+
+.mine-buttons{
   text-align:center;
-  color:#aaa;
-  margin:10px;
+  margin-top:15px;
+}
+
+.mine-buttons button{
+  background:#e50914;
+  color:white;
+  border:0;
+  border-radius:8px;
+  padding:11px 18px;
+  font-weight:bold;
 }
 
 footer{
@@ -685,18 +729,47 @@ footer{
   color:#666;
 }
 
-/* MOBILE RESPONSIVE */
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
-  header{ align-items:center; }
-  .logo{ font-size:17px; }
-  nav button{ font-size:10px; padding:7px 8px; }
-  .hero{ min-height:440px; padding:60px 6%; }
-  section{ padding:45px 5%; }
-  .section-title{ font-size:27px; }
-  .stats{ gap:6px; }
-  .stat{ padding:12px 4px; font-size:11px; }
-  .stat b{ font-size:18px; }
+
+  header{
+    align-items:center;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  nav button{
+    font-size:10px;
+    padding:7px 8px;
+  }
+
+  .hero{
+    min-height:440px;
+    padding:60px 6%;
+  }
+
+  section{
+    padding:45px 5%;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+
+  .stats{
+    gap:6px;
+  }
+
+  .stat{
+    padding:12px 4px;
+  }
+
+  .stat b{
+    font-size:18px;
+  }
 }
 </style>
 </head>
@@ -707,6 +780,7 @@ footer{
 
 <header>
   <div class="logo">AYUSH GAMING</div>
+
   <nav>
     <button onclick="goTo('games')">Games</button>
     <button onclick="goTo('leaderboard')">Rank</button>
@@ -717,175 +791,489 @@ footer{
 
 <section class="hero">
   <div class="hero-content">
-    <h1>PLAY.<br><span class="red">COMPETE.</span><br>DOMINATE.</h1>
-    <p id="heroMessage">Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.</p>
-    <button class="main-btn" onclick="goTo('games')">ENTER GAMING ZONE</button>
+    <h1>
+      PLAY.<br>
+      <span class="red">COMPETE.</span><br>
+      DOMINATE.
+    </h1>
+
+    <p id="heroMessage">
+      Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.
+    </p>
+
+    <button class="main-btn" onclick="goTo('games')">
+      ENTER GAMING ZONE
+    </button>
   </div>
 </section>
 
 <section>
   <h2 class="section-title">🎬 FEATURED</h2>
+
   <div class="video-box">
-    <video id="featuredVideo" controls muted playsinline preload="none">
-      <source id="videoSource" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    <video controls muted playsinline preload="none">
+      <source
+        src="lv_7568434162294803717_20260805165841.mp4"
+        type="video/mp4">
     </video>
   </div>
 </section>
 
 <section id="games">
+
   <h2 class="section-title">🎮 CHALLENGE ZONE</h2>
-  <p class="section-subtitle">No boring tap games. Choose a real challenge.</p>
+
+  <p class="section-subtitle">
+    Harder puzzles. Real challenges. No boring tap games.
+  </p>
+
   <div class="game-grid">
+
     <div class="game-card">
       <div class="game-icon">🧩</div>
       <h3>2048 PRO</h3>
-      <p>Combine matching numbers and reach 2048. One wrong move can destroy your board.</p>
+      <p>
+        Combine tiles and reach 2048. Every move matters.
+        Can you survive the board?
+      </p>
       <button onclick="open2048()">PLAY 2048</button>
     </div>
+
     <div class="game-card">
       <div class="game-icon">🔢</div>
-      <h3>SUDOKU CHALLENGE</h3>
-      <p>Solve a 9×9 puzzle. Every row, column and box must contain the correct numbers.</p>
+      <h3>HARD SUDOKU</h3>
+      <p>
+        Solve a 9×9 logic puzzle. Every row, column and box
+        must contain 1–9 exactly once.
+      </p>
       <button onclick="openSudoku()">PLAY SUDOKU</button>
     </div>
+
     <div class="game-card">
       <div class="game-icon">🌀</div>
       <h3>MAZE ESCAPE</h3>
-      <p>Find your way through a randomly generated maze and reach the exit in fewest moves.</p>
+      <p>
+        Navigate a guaranteed-solvable maze and reach the exit
+        using the fewest moves possible.
+      </p>
       <button onclick="openMaze()">PLAY MAZE</button>
     </div>
+
+    <div class="game-card">
+      <div class="game-icon">💣</div>
+      <h3>MINESWEEPER</h3>
+      <p>
+        Find the safe cells and avoid hidden mines.
+        One wrong move ends the round.
+      </p>
+      <button onclick="openMines()">PLAY MINESWEEPER</button>
+    </div>
+
   </div>
 </section>
 
 <section id="leaderboard">
+
   <h2 class="section-title">🏆 LIVE LEADERBOARD</h2>
+
   <div class="leader-list" id="leaderboardList">
-    <p style="text-align:center;color:#777">Loading players...</p>
+    <p style="text-align:center;color:#777">
+      Loading players...
+    </p>
   </div>
+
 </section>
 
 <section id="profile">
+
   <h2 class="section-title">👤 MY PROFILE</h2>
+
   <div class="profile-box">
-    <img id="profilePhoto" class="avatar" src="https://via.placeholder.com/105/222/fff?text=Gamer" alt="Profile">
+
+    <img
+      id="profilePhoto"
+      class="avatar"
+      src="https://via.placeholder.com/115/222/fff?text=Gamer"
+      alt="Profile">
+
     <h2 id="profileName">Guest Gamer</h2>
-    <p class="profile-email" id="profileEmail">Login to save your progress</p>
+
+    <p class="profile-email" id="profileEmail">
+      Login to save your progress
+    </p>
+
+    <div class="profile-actions">
+
+      <button id="changePhotoButton" onclick="changePhoto()" class="hide">
+        📷 Change DP
+      </button>
+
+    </div>
+
     <div class="stats">
-      <div class="stat"><b id="profilePoints">0</b>Points</div>
-      <div class="stat"><b id="profileGames">0</b>Games</div>
-      <div class="stat"><b id="profileWins">0</b>Wins</div>
+
+      <div class="stat">
+        <b id="profilePoints">0</b>
+        Points
+      </div>
+
+      <div class="stat">
+        <b id="profileGames">0</b>
+        Games
+      </div>
+
+      <div class="stat">
+        <b id="profileWins">0</b>
+        Wins
+      </div>
+
     </div>
+
   </div>
 </section>
 
 <section>
+
   <h2 class="section-title">🏅 ACHIEVEMENTS</h2>
+
   <div class="achievement-grid" id="achievementList"></div>
+
 </section>
 
 <section>
+
   <h2 class="section-title">👥 ALL PLAYERS</h2>
+
   <div class="leader-list" id="playersList">
-    <p style="text-align:center;color:#777">Loading players...</p>
+    <p style="text-align:center;color:#777">
+      Loading players...
+    </p>
   </div>
+
 </section>
 
-<footer>AYUSH GAMING © 2026</footer>
+<footer>
+  AYUSH GAMING © 2026
+</footer>
 
-<!-- AUTH MODAL -->
+
+<!-- ================= AUTH ================= -->
+
 <div class="modal" id="authModal">
+
   <div class="auth-box">
+
     <button class="close-btn" onclick="closeAuth()">×</button>
+
     <div class="auth-tabs">
-      <button id="loginTab" class="active" onclick="showLogin()">LOGIN</button>
-      <button id="signupTab" onclick="showSignup()">SIGN UP</button>
+
+      <button
+        id="loginTab"
+        class="active"
+        onclick="showLogin()">
+        LOGIN
+      </button>
+
+      <button
+        id="signupTab"
+        onclick="showSignup()">
+        SIGN UP
+      </button>
+
     </div>
+
+
+    <!-- LOGIN -->
 
     <div id="loginForm" class="auth-form">
+
       <h2>Welcome Back 🎮</h2>
-      <input id="loginEmail" type="email" placeholder="Email">
-      <input id="loginPassword" type="password" placeholder="Password">
-      <button class="submit-btn" onclick="login()">LOGIN</button>
+
+      <input
+        id="loginEmail"
+        type="email"
+        autocomplete="email"
+        placeholder="Email">
+
+      <input
+        id="loginPassword"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Password">
+
+      <button
+        class="submit-btn"
+        id="loginSubmit"
+        onclick="login()">
+        LOGIN
+      </button>
+
       <div id="loginMessage" class="message"></div>
+
     </div>
+
+
+    <!-- SIGNUP -->
 
     <div id="signupForm" class="auth-form hide">
+
       <h2>Create Account 🔥</h2>
-      <input id="signupName" type="text" placeholder="Gamer Name">
-      <input id="signupEmail" type="email" placeholder="Email">
-      <input id="signupPassword" type="password" placeholder="Password">
-      <input id="signupPhoto" type="file" accept="image/*">
-      <button class="submit-btn" onclick="signup()">CREATE ACCOUNT</button>
+
+      <input
+        id="signupName"
+        type="text"
+        maxlength="25"
+        placeholder="Gamer Name">
+
+      <input
+        id="signupEmail"
+        type="email"
+        autocomplete="email"
+        placeholder="Email">
+
+      <input
+        id="signupPassword"
+        type="password"
+        autocomplete="new-password"
+        placeholder="Password (minimum 6 characters)">
+
+      <input
+        id="signupPhoto"
+        type="file"
+        accept="image/*">
+
+      <button
+        class="submit-btn"
+        id="signupSubmit"
+        onclick="signup()">
+        CREATE ACCOUNT
+      </button>
+
       <div id="signupMessage" class="message"></div>
+
     </div>
+
   </div>
+
 </div>
 
-<!-- 2048 MODAL -->
+
+<!-- ================= 2048 ================= -->
+
 <div class="game-modal" id="modal2048">
+
   <div class="game-window">
+
     <div class="game-header">
       <h2>🧩 2048 PRO</h2>
-      <button class="game-close" onclick="closeGame('modal2048')">×</button>
+      <button
+        class="game-close"
+        onclick="closeGame('modal2048')">
+        ×
+      </button>
     </div>
+
     <div class="game-info">
-      Score: <b id="score2048">0</b> &nbsp; | &nbsp; Best: <b id="best2048">0</b>
+      Score:
+      <b id="score2048">0</b>
+      |
+      Best:
+      <b id="best2048">0</b>
     </div>
+
     <div id="board2048" class="board2048"></div>
-    <div class="game-info" id="status2048">Use arrow keys, buttons or swipe.</div>
+
+    <div
+      class="game-status"
+      id="status2048">
+      Use arrows or swipe.
+    </div>
+
     <div class="game-controls">
+
       <button onclick="move2048('up')">⬆️</button>
       <button onclick="move2048('left')">⬅️</button>
       <button onclick="move2048('down')">⬇️</button>
       <button onclick="move2048('right')">➡️</button>
+
     </div>
+
     <div style="text-align:center;margin-top:15px">
-      <button class="main-btn" onclick="start2048()">NEW GAME</button>
+      <button class="main-btn" onclick="start2048()">
+        NEW GAME
+      </button>
     </div>
+
   </div>
 </div>
 
-<!-- SUDOKU MODAL -->
+
+<!-- ================= SUDOKU ================= -->
+
 <div class="game-modal" id="modalSudoku">
+
   <div class="game-window">
+
     <div class="game-header">
-      <h2>🔢 SUDOKU</h2>
-      <button class="game-close" onclick="closeGame('modalSudoku')">×</button>
+
+      <h2>🔢 HARD SUDOKU</h2>
+
+      <button
+        class="game-close"
+        onclick="closeGame('modalSudoku')">
+        ×
+      </button>
+
     </div>
-    <div id="sudokuStatus" class="sudoku-status">Fill the missing numbers (1-9).</div>
-    <div id="sudokuBoard" class="sudoku-board"></div>
+
+    <div
+      id="sudokuStatus"
+      class="game-status">
+      Fill the missing numbers.
+    </div>
+
+    <div
+      id="sudokuBoard"
+      class="sudoku-board">
+    </div>
+
     <div class="sudoku-buttons">
-      <button onclick="checkSudoku()">CHECK</button>
-      <button onclick="newSudoku()">NEW PUZZLE</button>
+
+      <button onclick="checkSudoku()">
+        CHECK
+      </button>
+
+      <button onclick="newSudoku()">
+        NEW PUZZLE
+      </button>
+
     </div>
+
   </div>
+
 </div>
 
-<!-- MAZE MODAL -->
+
+<!-- ================= MAZE ================= -->
+
 <div class="game-modal" id="modalMaze">
+
   <div class="game-window">
+
     <div class="game-header">
+
       <h2>🌀 MAZE ESCAPE</h2>
-      <button class="game-close" onclick="closeGame('modalMaze')">×</button>
+
+      <button
+        class="game-close"
+        onclick="closeGame('modalMaze')">
+        ×
+      </button>
+
     </div>
-    <div class="maze-status" id="mazeStatus">Reach the green exit!</div>
-    <div id="mazeBoard" class="maze-board"></div>
+
+    <div
+      id="mazeStatus"
+      class="game-status">
+      Reach the green exit!
+    </div>
+
+    <div
+      id="mazeBoard"
+      class="maze-board">
+    </div>
+
     <div class="maze-controls">
-      <button class="up" onclick="moveMaze(0,-1)">⬆️</button>
-      <button class="left" onclick="moveMaze(-1,0)">⬅️</button>
-      <button class="down" onclick="moveMaze(0,1)">⬇️</button>
-      <button class="right" onclick="moveMaze(1,0)">➡️</button>
+
+      <button
+        class="up"
+        onclick="moveMaze(0,-1)">
+        ⬆️
+      </button>
+
+      <button
+        class="left"
+        onclick="moveMaze(-1,0)">
+        ⬅️
+      </button>
+
+      <button
+        class="down"
+        onclick="moveMaze(0,1)">
+        ⬇️
+      </button>
+
+      <button
+        class="right"
+        onclick="moveMaze(1,0)">
+        ➡️
+      </button>
+
     </div>
+
     <div style="text-align:center;margin-top:15px">
-      <button class="main-btn" onclick="newMaze()">NEW MAZE</button>
+
+      <button
+        class="main-btn"
+        onclick="newMaze()">
+        NEW MAZE
+      </button>
+
     </div>
+
   </div>
+
 </div>
+
+
+<!-- ================= MINESWEEPER ================= -->
+
+<div class="game-modal" id="modalMines">
+
+  <div class="game-window">
+
+    <div class="game-header">
+
+      <h2>💣 MINESWEEPER</h2>
+
+      <button
+        class="game-close"
+        onclick="closeGame('modalMines')">
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="mineStatus"
+      class="game-status">
+      Find all safe cells.
+    </div>
+
+    <div
+      id="mineBoard"
+      class="mine-board">
+    </div>
+
+    <div class="mine-buttons">
+
+      <button onclick="newMines()">
+        NEW BOARD
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
 
 <script>
-/* =====================================================
-   FIREBASE INITIALIZATION
-===================================================== */
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
 const firebaseConfig = {
   apiKey: "AIzaSyD-ywzIakrch9AXA-C9pI08dqrDS31ZOvo",
   authDomain: "ayush-gaming-6c5e5.firebaseapp.com",
@@ -897,348 +1285,1527 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-const defaultPhoto = "https://via.placeholder.com/105/222/fff?text=Gamer";
+const defaultPhoto =
+  "https://via.placeholder.com/115/222/fff?text=Gamer";
+
 let currentUser = null;
 let currentPlayer = null;
+let userListener = null;
 
-/* =====================================================
-   CORE APP UI & EVENTS
-===================================================== */
-window.addEventListener("load", function(){
+
+/* =========================================================
+   BASIC UI
+========================================================= */
+
+window.addEventListener("load",function(){
+
   setTimeout(function(){
+
     const loader = document.getElementById("loader");
+
     loader.style.opacity = "0";
-    setTimeout(() => loader.classList.add("hide"), 500);
-  }, 1000);
+
+    setTimeout(function(){
+      loader.classList.add("hide");
+    },500);
+
+  },1200);
+
   renderAchievements();
+
 });
+
 
 function goTo(id){
+
   const element = document.getElementById(id);
-  if(element) element.scrollIntoView({ behavior:"smooth" });
+
+  if(element){
+    element.scrollIntoView({
+      behavior:"smooth"
+    });
+  }
+
 }
 
-function openGame(id){ document.getElementById(id).classList.add("show"); }
-function closeGame(id){ document.getElementById(id).classList.remove("show"); }
 
-/* =====================================================
-   AUTHENTICATION LOGIC
-===================================================== */
+function openGame(id){
+
+  document.getElementById(id).classList.add("show");
+
+}
+
+
+function closeGame(id){
+
+  document.getElementById(id).classList.remove("show");
+
+}
+
+
+/* =========================================================
+   AUTH UI
+========================================================= */
+
 function openAuth(){
+
   document.getElementById("authModal").classList.add("show");
+
   showLogin();
+
 }
+
 
 function closeAuth(){
+
   document.getElementById("authModal").classList.remove("show");
+
   clearMessages();
+
 }
+
 
 function clearMessages(){
+
   document.getElementById("loginMessage").textContent = "";
+
   document.getElementById("signupMessage").textContent = "";
+
 }
+
 
 function showLogin(){
+
   document.getElementById("loginForm").classList.remove("hide");
+
   document.getElementById("signupForm").classList.add("hide");
+
   document.getElementById("loginTab").classList.add("active");
+
   document.getElementById("signupTab").classList.remove("active");
+
   clearMessages();
+
 }
+
 
 function showSignup(){
+
   document.getElementById("signupForm").classList.remove("hide");
+
   document.getElementById("loginForm").classList.add("hide");
+
   document.getElementById("signupTab").classList.add("active");
+
   document.getElementById("loginTab").classList.remove("active");
+
   clearMessages();
+
 }
+
+
+/* =========================================================
+   LOGIN
+   IMPORTANT:
+   LOGIN NEVER CREATES AN ACCOUNT
+========================================================= */
 
 async function login(){
-  const email = document.getElementById("loginEmail").value.trim();
-  const pass = document.getElementById("loginPassword").value.trim();
-  const msg = document.getElementById("loginMessage");
 
-  if(!email || !pass) return msg.textContent = "Please fill all fields!";
+  const email =
+    document.getElementById("loginEmail").value.trim();
 
-  try {
-    await auth.signInWithEmailAndPassword(email, pass);
-    closeAuth();
-  } catch(e) {
-    msg.textContent = e.message;
+  const pass =
+    document.getElementById("loginPassword").value;
+
+  const msg =
+    document.getElementById("loginMessage");
+
+  const button =
+    document.getElementById("loginSubmit");
+
+
+  msg.textContent = "";
+
+
+  if(!email || !pass){
+
+    msg.textContent =
+      "Please enter email and password.";
+
+    return;
   }
+
+
+  button.disabled = true;
+
+  button.textContent = "LOGGING IN...";
+
+
+  try{
+
+    await auth.signInWithEmailAndPassword(
+      email,
+      pass
+    );
+
+    closeAuth();
+
+  }
+
+  catch(e){
+
+    if(
+      e.code === "auth/user-not-found" ||
+      e.code === "auth/invalid-credential"
+    ){
+
+      msg.textContent =
+        "Account not found. Please Sign Up first.";
+
+    }
+
+    else if(e.code === "auth/wrong-password"){
+
+      msg.textContent =
+        "Wrong password.";
+
+    }
+
+    else if(e.code === "auth/invalid-email"){
+
+      msg.textContent =
+        "Please enter a valid email.";
+
+    }
+
+    else{
+
+      msg.textContent =
+        "Login failed. Please try again.";
+
+      console.error(e);
+
+    }
+
+  }
+
+  finally{
+
+    button.disabled = false;
+
+    button.textContent = "LOGIN";
+
+  }
+
 }
+
+
+/* =========================================================
+   SIGNUP
+========================================================= */
 
 async function signup(){
-  const name = document.getElementById("signupName").value.trim();
-  const email = document.getElementById("signupEmail").value.trim();
-  const pass = document.getElementById("signupPassword").value.trim();
-  const photoFile = document.getElementById("signupPhoto").files[0];
-  const msg = document.getElementById("signupMessage");
 
-  if(!name || !email || !pass) return msg.textContent = "All text fields required!";
+  const name =
+    document.getElementById("signupName").value.trim();
 
-  try {
+  const email =
+    document.getElementById("signupEmail").value.trim();
+
+  const pass =
+    document.getElementById("signupPassword").value;
+
+  const photoFile =
+    document.getElementById("signupPhoto").files[0];
+
+  const msg =
+    document.getElementById("signupMessage");
+
+  const button =
+    document.getElementById("signupSubmit");
+
+
+  msg.textContent = "";
+
+
+  if(!name || !email || !pass){
+
+    msg.textContent =
+      "Please fill all required fields.";
+
+    return;
+  }
+
+
+  if(pass.length < 6){
+
+    msg.textContent =
+      "Password must be at least 6 characters.";
+
+    return;
+  }
+
+
+  button.disabled = true;
+
+  button.textContent = "CREATING...";
+
+
+  try{
+
     let photoURL = defaultPhoto;
+
+
     if(photoFile){
-      photoURL = await convertBase64(photoFile);
+
+      photoURL =
+        await resizeImage(photoFile);
+
     }
 
-    const res = await auth.createUserWithEmailAndPassword(email, pass);
-    await db.collection("users").doc(res.user.uid).set({
-      name: name,
-      email: email,
-      photo: photoURL,
-      points: 0,
-      gamesPlayed: 0,
-      wins: 0,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+
+    /*
+      IMPORTANT:
+      This is the ONLY place where a new
+      Firebase account is created.
+    */
+
+    const result =
+      await auth.createUserWithEmailAndPassword(
+        email,
+        pass
+      );
+
+
+    await db
+      .collection("users")
+      .doc(result.user.uid)
+      .set({
+
+        name:name,
+
+        email:email,
+
+        photo:photoURL,
+
+        points:0,
+
+        gamesPlayed:0,
+
+        wins:0,
+
+        createdAt:
+          firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      });
+
 
     closeAuth();
-  } catch(e) {
-    msg.textContent = e.message;
+
   }
+
+  catch(e){
+
+    if(e.code === "auth/email-already-in-use"){
+
+      msg.textContent =
+        "This email is already registered. Login instead.";
+
+    }
+
+    else if(e.code === "auth/invalid-email"){
+
+      msg.textContent =
+        "Please enter a valid email.";
+
+    }
+
+    else if(e.code === "auth/weak-password"){
+
+      msg.textContent =
+        "Password is too weak.";
+
+    }
+
+    else{
+
+      msg.textContent =
+        "Signup failed. Please try again.";
+
+      console.error(e);
+
+    }
+
+  }
+
+  finally{
+
+    button.disabled = false;
+
+    button.textContent = "CREATE ACCOUNT";
+
+  }
+
 }
 
-function convertBase64(file){
-  return new Promise((resolve, reject) => {
+
+/* =========================================================
+   RESIZE PROFILE PHOTO
+========================================================= */
+
+function resizeImage(file){
+
+  return new Promise((resolve,reject)=>{
+
     const reader = new FileReader();
+
+    reader.onload = function(event){
+
+      const img = new Image();
+
+      img.onload = function(){
+
+        const canvas =
+          document.createElement("canvas");
+
+        const size = 256;
+
+        canvas.width = size;
+        canvas.height = size;
+
+
+        const ctx =
+          canvas.getContext("2d");
+
+
+        const min =
+          Math.min(img.width,img.height);
+
+        const sx =
+          (img.width-min)/2;
+
+        const sy =
+          (img.height-min)/2;
+
+
+        ctx.drawImage(
+          img,
+          sx,
+          sy,
+          min,
+          min,
+          0,
+          0,
+          size,
+          size
+        );
+
+
+        resolve(
+          canvas.toDataURL(
+            "image/jpeg",
+            .78
+          )
+        );
+
+      };
+
+
+      img.onerror = reject;
+
+      img.src = event.target.result;
+
+    };
+
+
+    reader.onerror = reject;
+
     reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+
   });
+
 }
 
-auth.onAuthStateChanged(user => {
-  currentUser = user;
-  const btn = document.getElementById("authButton");
-  if(user){
-    btn.textContent = "Logout";
-    btn.onclick = () => auth.signOut();
-    listenUserData(user.uid);
-  } else {
-    btn.textContent = "Login";
-    btn.onclick = () => openAuth();
-    resetProfileUI();
+
+/* =========================================================
+   CHANGE DP AFTER LOGIN
+========================================================= */
+
+function changePhoto(){
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
   }
+
+
+  const input =
+    document.createElement("input");
+
+  input.type = "file";
+
+  input.accept = "image/*";
+
+
+  input.onchange = async function(){
+
+    const file = input.files[0];
+
+    if(!file) return;
+
+
+    try{
+
+      const photo =
+        await resizeImage(file);
+
+
+      await db
+        .collection("users")
+        .doc(currentUser.uid)
+        .update({
+
+          photo:photo,
+
+          updatedAt:
+            firebase.firestore.FieldValue.serverTimestamp()
+
+        });
+
+
+    }
+
+    catch(e){
+
+      alert(
+        "Could not update profile photo."
+      );
+
+      console.error(e);
+
+    }
+
+  };
+
+
+  input.click();
+
+}
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+auth.onAuthStateChanged(user=>{
+
+  currentUser = user;
+
+
+  const button =
+    document.getElementById("authButton");
+
+
+  if(user){
+
+    button.textContent = "Logout";
+
+    button.onclick = function(){
+
+      auth.signOut();
+
+    };
+
+
+    listenUserData(user.uid);
+
+  }
+
+  else{
+
+    button.textContent = "Login";
+
+    button.onclick = function(){
+
+      openAuth();
+
+    };
+
+
+    currentPlayer = null;
+
+    resetProfileUI();
+
+  }
+
+
   loadLeaderboard();
+
 });
+
+
+/* =========================================================
+   USER REAL-TIME DATA
+========================================================= */
 
 function listenUserData(uid){
-  db.collection("users").doc(uid).onSnapshot(doc => {
-    if(doc.exists){
-      currentPlayer = doc.data();
-      document.getElementById("profileName").textContent = currentPlayer.name;
-      document.getElementById("profileEmail").textContent = currentPlayer.email;
-      document.getElementById("profilePhoto").src = currentPlayer.photo || defaultPhoto;
-      document.getElementById("profilePoints").textContent = currentPlayer.points || 0;
-      document.getElementById("profileGames").textContent = currentPlayer.gamesPlayed || 0;
-      document.getElementById("profileWins").textContent = currentPlayer.wins || 0;
-      document.getElementById("heroMessage").innerHTML = `Welcome back, <span class="red">${currentPlayer.name}</span>! Ready to climb higher?`;
-      renderAchievements();
-    }
-  });
+
+  if(userListener){
+
+    userListener();
+
+  }
+
+
+  userListener =
+    db
+      .collection("users")
+      .doc(uid)
+      .onSnapshot(
+
+        doc=>{
+
+          if(!doc.exists){
+
+            resetProfileUI();
+
+            return;
+
+          }
+
+
+          currentPlayer =
+            doc.data();
+
+
+          document.getElementById("profileName")
+            .textContent =
+            currentPlayer.name || "Gamer";
+
+
+          document.getElementById("profileEmail")
+            .textContent =
+            currentPlayer.email || "";
+
+
+          document.getElementById("profilePhoto")
+            .src =
+            currentPlayer.photo || defaultPhoto;
+
+
+          document.getElementById("profilePoints")
+            .textContent =
+            currentPlayer.points || 0;
+
+
+          document.getElementById("profileGames")
+            .textContent =
+            currentPlayer.gamesPlayed || 0;
+
+
+          document.getElementById("profileWins")
+            .textContent =
+            currentPlayer.wins || 0;
+
+
+          document.getElementById("changePhotoButton")
+            .classList.remove("hide");
+
+
+          document.getElementById("heroMessage")
+            .innerHTML =
+            'Welcome back, <span class="red">' +
+            escapeHTML(currentPlayer.name || "Gamer") +
+            '</span>! Ready for another challenge?';
+
+
+          renderAchievements();
+
+        },
+
+        error=>{
+
+          console.error(
+            "User data error:",
+            error
+          );
+
+        }
+
+      );
+
 }
+
 
 function resetProfileUI(){
-  document.getElementById("profileName").textContent = "Guest Gamer";
-  document.getElementById("profileEmail").textContent = "Login to save your progress";
-  document.getElementById("profilePhoto").src = defaultPhoto;
-  document.getElementById("profilePoints").textContent = "0";
-  document.getElementById("profileGames").textContent = "0";
-  document.getElementById("profileWins").textContent = "0";
-  document.getElementById("heroMessage").textContent = "Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.";
+
+  document.getElementById("profileName")
+    .textContent =
+    "Guest Gamer";
+
+
+  document.getElementById("profileEmail")
+    .textContent =
+    "Login to save your progress";
+
+
+  document.getElementById("profilePhoto")
+    .src =
+    defaultPhoto;
+
+
+  document.getElementById("profilePoints")
+    .textContent = "0";
+
+
+  document.getElementById("profileGames")
+    .textContent = "0";
+
+
+  document.getElementById("profileWins")
+    .textContent = "0";
+
+
+  document.getElementById("changePhotoButton")
+    .classList.add("hide");
+
+
+  document.getElementById("heroMessage")
+    .textContent =
+    "Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.";
+
+
   currentPlayer = null;
+
   renderAchievements();
+
 }
 
-async function addReward(addPoints, isWin = false){
-  if(!currentUser || !currentPlayer) return;
-  const ref = db.collection("users").doc(currentUser.uid);
-  await ref.update({
-    points: firebase.firestore.FieldValue.increment(addPoints),
-    gamesPlayed: firebase.firestore.FieldValue.increment(1),
-    wins: isWin ? firebase.firestore.FieldValue.increment(1) : firebase.firestore.FieldValue.increment(0)
-  });
+
+/* =========================================================
+   REWARD SYSTEM
+========================================================= */
+
+async function addReward(points,isWin=false){
+
+  if(!currentUser){
+
+    alert(
+      "Please login first to save your score."
+    );
+
+    return false;
+
+  }
+
+
+  try{
+
+    const ref =
+      db.collection("users")
+        .doc(currentUser.uid);
+
+
+    await ref.update({
+
+      points:
+        firebase.firestore.FieldValue.increment(points),
+
+      gamesPlayed:
+        firebase.firestore.FieldValue.increment(1),
+
+      wins:
+        isWin
+        ? firebase.firestore.FieldValue.increment(1)
+        : firebase.firestore.FieldValue.increment(0),
+
+      updatedAt:
+        firebase.firestore.FieldValue.serverTimestamp()
+
+    });
+
+
+    return true;
+
+  }
+
+  catch(e){
+
+    console.error(e);
+
+    alert(
+      "Score could not be saved."
+    );
+
+    return false;
+
+  }
+
 }
 
-/* =====================================================
-   LEADERBOARD & ALL PLAYERS
-===================================================== */
+
+/* =========================================================
+   SAFE HTML
+========================================================= */
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
 function loadLeaderboard(){
-  db.collection("users").orderBy("points", "desc").limit(10).onSnapshot(snap => {
-    const list = document.getElementById("leaderboardList");
-    list.innerHTML = "";
-    let rank = 1;
-    snap.forEach(doc => {
-      const p = doc.data();
-      list.innerHTML += `
-        <div class="leader-row">
-          <div class="rank">#${rank++}</div>
-          <img class="avatar" src="${p.photo || defaultPhoto}">
-          <div class="player-data">
-            <strong>${p.name}</strong>
-            <small>${p.wins || 0} Wins</small>
-          </div>
-          <div class="points">${p.points || 0} PTS</div>
-        </div>
-      `;
-    });
-  });
 
-  db.collection("users").limit(20).onSnapshot(snap => {
-    const list = document.getElementById("playersList");
-    list.innerHTML = "";
-    snap.forEach(doc => {
-      const p = doc.data();
-      list.innerHTML += `
-        <div class="leader-row">
-          <img class="avatar" src="${p.photo || defaultPhoto}">
-          <div class="player-data">
-            <strong>${p.name}</strong>
-            <small>Joined Gamer</small>
-          </div>
-          <div class="points">${p.points || 0} PTS</div>
-        </div>
-      `;
-    });
-  });
+  db.collection("users")
+    .orderBy("points","desc")
+    .limit(20)
+    .onSnapshot(
+
+      snap=>{
+
+        const list =
+          document.getElementById(
+            "leaderboardList"
+          );
+
+
+        list.innerHTML = "";
+
+
+        if(snap.empty){
+
+          list.innerHTML =
+            '<p style="text-align:center;color:#777">No players yet.</p>';
+
+          return;
+
+        }
+
+
+        let rank = 1;
+
+
+        snap.forEach(doc=>{
+
+          const p =
+            doc.data();
+
+
+          list.innerHTML += `
+
+            <div class="leader-row">
+
+              <div class="rank">
+                #${rank++}
+              </div>
+
+              <img
+                class="avatar"
+                src="${escapeHTML(p.photo || defaultPhoto)}"
+                alt="Player">
+
+              <div class="player-data">
+
+                <strong>
+                  ${escapeHTML(p.name || "Gamer")}
+                </strong>
+
+                <small>
+                  ${p.wins || 0} Wins
+                  • ${p.gamesPlayed || 0} Games
+                </small>
+
+              </div>
+
+              <div class="points">
+                ${p.points || 0} PTS
+              </div>
+
+            </div>
+
+          `;
+
+        });
+
+      },
+
+      error=>{
+
+        console.error(
+          "Leaderboard error:",
+          error
+        );
+
+        document.getElementById(
+          "leaderboardList"
+        ).innerHTML =
+          '<p style="text-align:center;color:#777">Leaderboard unavailable.</p>';
+
+      }
+
+    );
+
+
+  db.collection("users")
+    .orderBy("createdAt","desc")
+    .limit(50)
+    .onSnapshot(
+
+      snap=>{
+
+        const list =
+          document.getElementById(
+            "playersList"
+          );
+
+
+        list.innerHTML = "";
+
+
+        snap.forEach(doc=>{
+
+          const p =
+            doc.data();
+
+
+          list.innerHTML += `
+
+            <div class="leader-row">
+
+              <img
+                class="avatar"
+                src="${escapeHTML(p.photo || defaultPhoto)}"
+                alt="Player">
+
+              <div class="player-data">
+
+                <strong>
+                  ${escapeHTML(p.name || "Gamer")}
+                </strong>
+
+                <small>
+                  ${p.gamesPlayed || 0} Games
+                </small>
+
+              </div>
+
+              <div class="points">
+                ${p.points || 0} PTS
+              </div>
+
+            </div>
+
+          `;
+
+        });
+
+      }
+
+    );
+
 }
 
-/* =====================================================
-   ACHIEVEMENTS SYSTEM
-===================================================== */
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
 function renderAchievements(){
-  const pts = currentPlayer ? (currentPlayer.points || 0) : 0;
-  const wins = currentPlayer ? (currentPlayer.wins || 0) : 0;
+
+  const pts =
+    currentPlayer
+    ? Number(currentPlayer.points || 0)
+    : 0;
+
+
+  const wins =
+    currentPlayer
+    ? Number(currentPlayer.wins || 0)
+    : 0;
+
+
+  const games =
+    currentPlayer
+    ? Number(currentPlayer.gamesPlayed || 0)
+    : 0;
+
 
   const achievements = [
-    { name:"First Step", icon:"🎮", desc:"Get 10 Points", locked: pts < 10 },
-    { name:"Pro Gamer", icon:"🔥", desc:"Get 100 Points", locked: pts < 100 },
-    { name:"Champion", icon:"👑", desc:"Win 5 Games", locked: wins < 5 },
-    { name:"Unstoppable", icon:"⚡", desc:"Get 500 Points", locked: pts < 500 }
+
+    {
+      name:"First Game",
+      icon:"🎮",
+      desc:"Complete 1 game",
+      unlocked:games >= 1
+    },
+
+    {
+      name:"First Win",
+      icon:"🏆",
+      desc:"Win 1 game",
+      unlocked:wins >= 1
+    },
+
+    {
+      name:"100 Points",
+      icon:"🔥",
+      desc:"Reach 100 points",
+      unlocked:pts >= 100
+    },
+
+    {
+      name:"10 Games",
+      icon:"⚡",
+      desc:"Play 10 games",
+      unlocked:games >= 10
+    },
+
+    {
+      name:"500 Points",
+      icon:"💎",
+      desc:"Reach 500 points",
+      unlocked:pts >= 500
+    },
+
+    {
+      name:"Elite",
+      icon:"👑",
+      desc:"Reach 1000 points",
+      unlocked:pts >= 1000
+    }
+
   ];
 
-  const grid = document.getElementById("achievementList");
+
+  const grid =
+    document.getElementById(
+      "achievementList"
+    );
+
+
   grid.innerHTML = "";
-  achievements.forEach(a => {
+
+
+  achievements.forEach(a=>{
+
     grid.innerHTML += `
-      <div class="achievement ${a.locked ? 'locked' : ''}">
-        <div class="achievement-icon">${a.icon}</div>
-        <h3>${a.name}</h3>
-        <p>${a.desc}</p>
+
+      <div class="achievement ${a.unlocked ? "" : "locked"}">
+
+        <div class="achievement-icon">
+          ${a.icon}
+        </div>
+
+        <h3>
+          ${a.name}
+        </h3>
+
+        <p>
+          ${a.desc}
+        </p>
+
+        <p>
+          ${a.unlocked ? "✅ UNLOCKED" : "🔒 LOCKED"}
+        </p>
+
       </div>
+
     `;
+
   });
+
 }
 
-/* =====================================================
-   GAME 1: 2048 PRO
-===================================================== */
-let board2048 = [], score2048 = 0, best2048 = 0;
+
+/* =========================================================
+   GAME 1 — 2048
+========================================================= */
+
+let board2048 = [];
+let score2048 = 0;
+let best2048 =
+  Number(localStorage.getItem("ayushBest2048") || 0);
+
+let game2048Over = false;
+let game2048Rewarded = false;
+
 
 function open2048(){
+
   openGame("modal2048");
+
   start2048();
+
 }
+
 
 function start2048(){
-  board2048 = Array(16).fill(0);
+
+  board2048 =
+    Array(16).fill(0);
+
   score2048 = 0;
+
+  game2048Over = false;
+
+  game2048Rewarded = false;
+
+
+  spawnTile();
+
+  spawnTile();
+
   updateScore2048();
-  spawnTile();
-  spawnTile();
+
   renderBoard2048();
-  document.getElementById("status2048").textContent = "Use Arrow Keys or Swipe!";
+
+
+  document.getElementById(
+    "status2048"
+  ).textContent =
+    "Reach 2048. Good luck!";
+
 }
 
-function updateScore2048(){
-  document.getElementById("score2048").textContent = score2048;
-  if(score2048 > best2048) best2048 = score2048;
-  document.getElementById("best2048").textContent = best2048;
-}
 
 function spawnTile(){
-  let empty = board2048.map((v, i) => v === 0 ? i : null).filter(v => v !== null);
-  if(empty.length > 0){
-    let idx = empty[Math.floor(Math.random() * empty.length)];
-    board2048[idx] = Math.random() < 0.9 ? 2 : 4;
-  }
+
+  const empty =
+    board2048
+      .map((v,i)=>v === 0 ? i : null)
+      .filter(v=>v !== null);
+
+
+  if(!empty.length) return;
+
+
+  const index =
+    empty[
+      Math.floor(
+        Math.random()*empty.length
+      )
+    ];
+
+
+  board2048[index] =
+    Math.random() < .9 ? 2 : 4;
+
 }
+
+
+function updateScore2048(){
+
+  document.getElementById(
+    "score2048"
+  ).textContent =
+    score2048;
+
+
+  if(score2048 > best2048){
+
+    best2048 = score2048;
+
+    localStorage.setItem(
+      "ayushBest2048",
+      best2048
+    );
+
+  }
+
+
+  document.getElementById(
+    "best2048"
+  ).textContent =
+    best2048;
+
+}
+
 
 function renderBoard2048(){
-  const b = document.getElementById("board2048");
-  b.innerHTML = "";
-  board2048.forEach(v => {
-    let div = document.createElement("div");
-    div.className = "tile2048 " + (v > 0 ? (v <= 64 ? "v"+v : "big") : "");
-    div.textContent = v > 0 ? v : "";
-    b.appendChild(div);
+
+  const board =
+    document.getElementById(
+      "board2048"
+    );
+
+
+  board.innerHTML = "";
+
+
+  board2048.forEach(value=>{
+
+    const tile =
+      document.createElement("div");
+
+
+    tile.className =
+      "tile2048";
+
+
+    if(value){
+
+      tile.classList.add(
+        value <= 64
+        ? "v"+value
+        : "big"
+      );
+
+      tile.textContent =
+        value;
+
+    }
+
+
+    board.appendChild(tile);
+
   });
+
 }
 
-function move2048(dir){
+
+function canMove2048(){
+
+  for(let i=0;i<16;i++){
+
+    if(board2048[i] === 0)
+      return true;
+
+    const x = i % 4;
+    const y = Math.floor(i/4);
+
+
+    if(
+      x < 3 &&
+      board2048[i] === board2048[i+1]
+    )
+      return true;
+
+
+    if(
+      y < 3 &&
+      board2048[i] === board2048[i+4]
+    )
+      return true;
+
+  }
+
+
+  return false;
+
+}
+
+
+function move2048(direction){
+
+  if(game2048Over)
+    return;
+
+
   let moved = false;
-  let lines = [];
 
-  for(let i=0; i<4; i++){
-    if(dir==='left'||dir==='right') lines.push([i*4, i*4+1, i*4+2, i*4+3]);
-    else lines.push([i, i+4, i+8, i+12]);
-  }
 
-  lines.forEach(line => {
-    let vals = line.map(i => board2048[i]).filter(v => v !== 0);
-    if(dir === 'right' || dir === 'down') vals.reverse();
+  for(let line=0;line<4;line++){
 
-    let merged = [];
-    for(let i=0; i<vals.length; i++){
-      if(vals[i] === vals[i+1]){
-        let newVal = vals[i] * 2;
-        merged.push(newVal);
-        score2048 += newVal;
+    let indexes;
+
+
+    if(direction === "left"){
+
+      indexes =
+        [0,1,2,3].map(
+          n=>line*4+n
+        );
+
+    }
+
+    else if(direction === "right"){
+
+      indexes =
+        [3,2,1,0].map(
+          n=>line*4+n
+        );
+
+    }
+
+    else if(direction === "up"){
+
+      indexes =
+        [0,1,2,3].map(
+          n=>line+n*4
+        );
+
+    }
+
+    else{
+
+      indexes =
+        [3,2,1,0].map(
+          n=>line+n*4
+        );
+
+    }
+
+
+    let values =
+      indexes
+        .map(i=>board2048[i])
+        .filter(v=>v !== 0);
+
+
+    let result = [];
+
+
+    for(let i=0;i<values.length;i++){
+
+      if(
+        values[i] === values[i+1]
+      ){
+
+        const newValue =
+          values[i]*2;
+
+
+        result.push(newValue);
+
+        score2048 +=
+          newValue;
+
         i++;
-        moved = true;
-      } else {
-        merged.push(vals[i]);
+
       }
-    }
-    while(merged.length < 4) merged.push(0);
-    if(dir === 'right' || dir === 'down') merged.reverse();
 
-    line.forEach((idx, i) => {
-      if(board2048[idx] !== merged[i]) moved = true;
-      board2048[idx] = merged[i];
+      else{
+
+        result.push(
+          values[i]
+        );
+
+      }
+
+    }
+
+
+    while(result.length < 4)
+      result.push(0);
+
+
+    indexes.forEach((index,i)=>{
+
+      if(
+        board2048[index] !== result[i]
+      )
+        moved = true;
+
+
+      board2048[index] =
+        result[i];
+
     });
-  });
 
-  if(moved){
-    spawnTile();
-    renderBoard2048();
-    updateScore2048();
-    if(score2048 >= 2048){
-      document.getElementById("status2048").textContent = "🎉 YOU WON 2048!";
-      addReward(50, true);
-    }
   }
+
+
+  if(!moved)
+    return;
+
+
+  spawnTile();
+
+  updateScore2048();
+
+  renderBoard2048();
+
+
+  if(
+    board2048.includes(2048) &&
+    !game2048Rewarded
+  ){
+
+    game2048Rewarded = true;
+
+    document.getElementById(
+      "status2048"
+    ).textContent =
+      "🎉 2048 COMPLETE! +50 POINTS";
+
+
+    addReward(50,true);
+
+    game2048Over = true;
+
+    return;
+
+  }
+
+
+  if(!canMove2048()){
+
+    game2048Over = true;
+
+    document.getElementById(
+      "status2048"
+    ).textContent =
+      "💀 GAME OVER!";
+
+  }
+
 }
 
-window.addEventListener("keydown", e => {
-  if(!document.getElementById("modal2048").classList.contains("show")) return;
-  if(e.key === "ArrowUp") move2048('up');
-  if(e.key === "ArrowDown") move2048('down');
-  if(e.key === "ArrowLeft") move2048('left');
-  if(e.key === "ArrowRight") move2048('right');
-});
 
-/* =====================================================
-   GAME 2: SUDOKU
-===================================================== */
+window.addEventListener(
+  "keydown",
+  function(e){
+
+    if(
+      !document
+        .getElementById("modal2048")
+        .classList.contains("show")
+    )
+      return;
+
+
+    if(
+      ["ArrowUp","ArrowDown",
+       "ArrowLeft","ArrowRight"]
+       .includes(e.key)
+    ){
+
+      e.preventDefault();
+
+    }
+
+
+    if(e.key === "ArrowUp")
+      move2048("up");
+
+    if(e.key === "ArrowDown")
+      move2048("down");
+
+    if(e.key === "ArrowLeft")
+      move2048("left");
+
+    if(e.key === "ArrowRight")
+      move2048("right");
+
+  }
+);
+
+
+/* Swipe for 2048 */
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+
+document
+  .getElementById("board2048")
+  .addEventListener(
+    "touchstart",
+    function(e){
+
+      touchStartX =
+        e.changedTouches[0].screenX;
+
+      touchStartY =
+        e.changedTouches[0].screenY;
+
+    }
+  );
+
+
+document
+  .getElementById("board2048")
+  .addEventListener(
+    "touchend",
+    function(e){
+
+      const x =
+        e.changedTouches[0].screenX;
+
+      const y =
+        e.changedTouches[0].screenY;
+
+
+      const dx =
+        x-touchStartX;
+
+      const dy =
+        y-touchStartY;
+
+
+      if(
+        Math.abs(dx) < 30 &&
+        Math.abs(dy) < 30
+      )
+        return;
+
+
+      if(Math.abs(dx) > Math.abs(dy)){
+
+        move2048(
+          dx > 0
+          ? "right"
+          : "left"
+        );
+
+      }
+
+      else{
+
+        move2048(
+          dy > 0
+          ? "down"
+          : "up"
+        );
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   GAME 2 — SUDOKU
+========================================================= */
+
+const sudokuSolution = [
+
+  [5,3,4,6,7,8,9,1,2],
+  [6,7,2,1,9,5,3,4,8],
+  [1,9,8,3,4,2,5,6,7],
+  [8,5,9,7,6,1,4,2,3],
+  [4,2,6,8,5,3,7,9,1],
+  [7,1,3,9,2,4,8,5,6],
+  [9,6,1,5,3,7,2,8,4],
+  [2,8,7,4,1,9,6,3,5],
+  [3,4,5,2,8,6,1,7,9]
+
+];
+
+
 const sudokuPuzzle = [
+
   [5,3,0,0,7,0,0,0,0],
   [6,0,0,1,9,5,0,0,0],
   [0,9,8,0,0,0,0,6,0],
@@ -1248,115 +2815,913 @@ const sudokuPuzzle = [
   [0,6,0,0,0,0,2,8,0],
   [0,0,0,4,1,9,0,0,5],
   [0,0,0,0,8,0,0,7,9]
+
 ];
 
+
+let sudokuRewarded = false;
+
+
 function openSudoku(){
+
   openGame("modalSudoku");
+
   newSudoku();
+
 }
+
 
 function newSudoku(){
-  const board = document.getElementById("sudokuBoard");
-  board.innerHTML = "";
-  document.getElementById("sudokuStatus").textContent = "Fill the missing numbers!";
 
-  for(let r=0; r<9; r++){
-    for(let c=0; c<9; c++){
-      let val = sudokuPuzzle[r][c];
-      let input = document.createElement("input");
+  sudokuRewarded = false;
+
+
+  const board =
+    document.getElementById(
+      "sudokuBoard"
+    );
+
+
+  board.innerHTML = "";
+
+
+  document.getElementById(
+    "sudokuStatus"
+  ).textContent =
+    "Fill every empty cell correctly.";
+
+
+  for(let r=0;r<9;r++){
+
+    for(let c=0;c<9;c++){
+
+      const input =
+        document.createElement("input");
+
+
       input.type = "number";
-      input.max = 9; input.min = 1;
-      input.className = "sudoku-cell";
-      if(val !== 0){
-        input.value = val;
+
+      input.min = 1;
+
+      input.max = 9;
+
+      input.className =
+        "sudoku-cell";
+
+
+      const value =
+        sudokuPuzzle[r][c];
+
+
+      if(value !== 0){
+
+        input.value =
+          value;
+
         input.readOnly = true;
-        input.classList.add("fixed");
+
+        input.classList.add(
+          "fixed"
+        );
+
       }
+
+
+      input.dataset.row = r;
+
+      input.dataset.col = c;
+
+
       board.appendChild(input);
+
     }
+
   }
+
 }
+
 
 function checkSudoku(){
-  let inputs = document.querySelectorAll("#sudokuBoard input");
-  let valid = true;
-  inputs.forEach(i => {
-    if(!i.value || i.value < 1 || i.value > 9) valid = false;
+
+  if(sudokuRewarded)
+    return;
+
+
+  const inputs =
+    document.querySelectorAll(
+      "#sudokuBoard input"
+    );
+
+
+  let correct = true;
+
+
+  inputs.forEach(input=>{
+
+    const r =
+      Number(input.dataset.row);
+
+    const c =
+      Number(input.dataset.col);
+
+
+    const value =
+      Number(input.value);
+
+
+    if(
+      value !==
+      sudokuSolution[r][c]
+    ){
+
+      correct = false;
+
+      input.style.borderColor =
+        "#e50914";
+
+    }
+
+    else{
+
+      input.style.borderColor =
+        "#333";
+
+    }
+
   });
 
-  if(valid){
-    document.getElementById("sudokuStatus").textContent = "🔥 Puzzle Solved! +30 Points";
-    addReward(30, true);
-  } else {
-    document.getElementById("sudokuStatus").textContent = "❌ Incorrect or Incomplete Puzzle!";
+
+  if(correct){
+
+    sudokuRewarded = true;
+
+
+    document.getElementById(
+      "sudokuStatus"
+    ).textContent =
+      "🔥 PERFECT SOLVE! +40 POINTS";
+
+
+    addReward(40,true);
+
   }
+
+  else{
+
+    document.getElementById(
+      "sudokuStatus"
+    ).textContent =
+      "❌ Not correct. Check the red cells.";
+
+  }
+
 }
 
-/* =====================================================
-   GAME 3: MAZE ESCAPE
-===================================================== */
-const mazeGridSize = 9;
-let maze = [], playerPos = {x:0, y:0}, exitPos = {x:8, y:8};
+
+/* =========================================================
+   GAME 3 — GUARANTEED SOLVABLE MAZE
+========================================================= */
+
+const mazeSize = 11;
+
+let maze = [];
+let mazePlayer = {
+  x:0,
+  y:0
+};
+
+let mazeExit = {
+  x:mazeSize-1,
+  y:mazeSize-1
+};
+
+let mazeMoves = 0;
+let mazeRewarded = false;
+
 
 function openMaze(){
+
   openGame("modalMaze");
+
   newMaze();
+
 }
+
 
 function newMaze(){
-  maze = Array(mazeGridSize).fill(0).map(() => Array(mazeGridSize).fill(0));
-  for(let i=0; i<15; i++){
-    let rx = Math.floor(Math.random() * mazeGridSize);
-    let ry = Math.floor(Math.random() * mazeGridSize);
-    if((rx !== 0 || ry !== 0) && (rx !== 8 || ry !== 8)) maze[ry][rx] = 1;
+
+  mazeRewarded = false;
+
+  mazeMoves = 0;
+
+
+  /*
+    Start with walls and carve a path.
+    This guarantees the exit is reachable.
+  */
+
+  maze =
+    Array(mazeSize)
+      .fill(null)
+      .map(
+        ()=>Array(mazeSize).fill(1)
+      );
+
+
+  let x=0;
+  let y=0;
+
+
+  maze[y][x]=0;
+
+
+  while(
+    x < mazeSize-1 ||
+    y < mazeSize-1
+  ){
+
+    let options=[];
+
+
+    if(x < mazeSize-1)
+      options.push("right");
+
+
+    if(y < mazeSize-1)
+      options.push("down");
+
+
+    if(Math.random() < .35){
+
+      if(x > 0)
+        options.push("left");
+
+      if(y > 0)
+        options.push("up");
+
+    }
+
+
+    const direction =
+      options[
+        Math.floor(
+          Math.random()*options.length
+        )
+      ];
+
+
+    if(direction === "right")
+      x++;
+
+    if(direction === "left")
+      x--;
+
+    if(direction === "down")
+      y++;
+
+    if(direction === "up")
+      y--;
+
+
+    maze[y][x]=0;
+
   }
-  playerPos = {x:0, y:0};
-  document.getElementById("mazeStatus").textContent = "Reach the green exit!";
+
+
+  /*
+    Add extra open cells without
+    blocking the guaranteed path.
+  */
+
+  for(let i=0;i<25;i++){
+
+    const rx =
+      Math.floor(
+        Math.random()*mazeSize
+      );
+
+    const ry =
+      Math.floor(
+        Math.random()*mazeSize
+      );
+
+
+    maze[ry][rx]=0;
+
+  }
+
+
+  mazePlayer={
+    x:0,
+    y:0
+  };
+
+
+  document.getElementById(
+    "mazeStatus"
+  ).textContent =
+    "Reach the green exit. Moves: 0";
+
+
   renderMaze();
+
 }
+
 
 function renderMaze(){
-  const board = document.getElementById("mazeBoard");
-  board.style.gridTemplateColumns = `repeat(${mazeGridSize}, 1fr)`;
+
+  const board =
+    document.getElementById(
+      "mazeBoard"
+    );
+
+
+  board.style.gridTemplateColumns =
+    `repeat(${mazeSize},1fr)`;
+
+
   board.innerHTML = "";
 
-  for(let y=0; y<mazeGridSize; y++){
-    for(let x=0; x<mazeGridSize; x++){
-      let cell = document.createElement("div");
-      cell.className = "maze-cell";
-      if(maze[y][x] === 1) cell.classList.add("wall");
-      if(x === playerPos.x && y === playerPos.y) cell.classList.add("player");
-      else if(x === exitPos.x && y === exitPos.y) cell.classList.add("exit");
-      board.appendChild(cell);
-    }
-  }
-}
 
-function moveMaze(dx, dy){
-  let nx = playerPos.x + dx;
-  let ny = playerPos.y + dy;
+  for(let y=0;y<mazeSize;y++){
 
-  if(nx >= 0 && nx < mazeGridSize && ny >= 0 && ny < mazeGridSize){
-    if(maze[ny][nx] !== 1){
-      playerPos = {x: nx, y: ny};
-      renderMaze();
-      if(nx === exitPos.x && ny === exitPos.y){
-        document.getElementById("mazeStatus").textContent = "🎉 MAZE ESCAPED! +20 Points";
-        addReward(20, true);
+    for(let x=0;x<mazeSize;x++){
+
+      const cell =
+        document.createElement("div");
+
+
+      cell.className =
+        "maze-cell";
+
+
+      if(maze[y][x] === 1)
+        cell.classList.add("wall");
+
+
+      if(
+        x === mazePlayer.x &&
+        y === mazePlayer.y
+      ){
+
+        cell.classList.add(
+          "player"
+        );
+
+        cell.textContent =
+          "🎮";
+
       }
+
+      else if(
+        x === mazeExit.x &&
+        y === mazeExit.y
+      ){
+
+        cell.classList.add(
+          "exit"
+        );
+
+        cell.textContent =
+          "🏁";
+
+      }
+
+
+      board.appendChild(cell);
+
     }
+
   }
+
 }
 
-window.addEventListener("keydown", e => {
-  if(!document.getElementById("modalMaze").classList.contains("show")) return;
-  if(e.key === "ArrowUp") moveMaze(0, -1);
-  if(e.key === "ArrowDown") moveMaze(0, 1);
-  if(e.key === "ArrowLeft") moveMaze(-1, 0);
-  if(e.key === "ArrowRight") moveMaze(1, 0);
-});
+
+function moveMaze(dx,dy){
+
+  if(mazeRewarded)
+    return;
+
+
+  const nx =
+    mazePlayer.x + dx;
+
+  const ny =
+    mazePlayer.y + dy;
+
+
+  if(
+    nx < 0 ||
+    nx >= mazeSize ||
+    ny < 0 ||
+    ny >= mazeSize
+  )
+    return;
+
+
+  if(maze[ny][nx] === 1)
+    return;
+
+
+  mazePlayer={
+    x:nx,
+    y:ny
+  };
+
+
+  mazeMoves++;
+
+
+  renderMaze();
+
+
+  document.getElementById(
+    "mazeStatus"
+  ).textContent =
+    "Moves: " + mazeMoves;
+
+
+  if(
+    nx === mazeExit.x &&
+    ny === mazeExit.y
+  ){
+
+    mazeRewarded = true;
+
+
+    const bonus =
+      Math.max(
+        20,
+        60 - mazeMoves
+      );
+
+
+    document.getElementById(
+      "mazeStatus"
+    ).textContent =
+      "🏁 ESCAPED! +" +
+      bonus +
+      " POINTS";
+
+
+    addReward(
+      bonus,
+      true
+    );
+
+  }
+
+}
+
+
+window.addEventListener(
+  "keydown",
+  function(e){
+
+    if(
+      !document
+        .getElementById("modalMaze")
+        .classList.contains("show")
+    )
+      return;
+
+
+    if(e.key === "ArrowUp")
+      moveMaze(0,-1);
+
+    if(e.key === "ArrowDown")
+      moveMaze(0,1);
+
+    if(e.key === "ArrowLeft")
+      moveMaze(-1,0);
+
+    if(e.key === "ArrowRight")
+      moveMaze(1,0);
+
+  }
+);
+
+
+/* =========================================================
+   GAME 4 — MINESWEEPER
+========================================================= */
+
+const mineRows = 10;
+const mineCols = 10;
+const mineCount = 18;
+
+let mineData = [];
+let mineGameOver = false;
+let mineOpened = 0;
+let mineRewarded = false;
+
+
+function openMines(){
+
+  openGame("modalMines");
+
+  newMines();
+
+}
+
+
+function newMines(){
+
+  mineData =
+    Array(mineRows)
+      .fill(null)
+      .map(
+        ()=>Array(mineCols)
+          .fill(null)
+          .map(
+            ()=>({
+              mine:false,
+              open:false,
+              flag:false,
+              count:0
+            })
+          )
+      );
+
+
+  mineGameOver = false;
+
+  mineOpened = 0;
+
+  mineRewarded = false;
+
+
+  let placed = 0;
+
+
+  while(placed < mineCount){
+
+    const r =
+      Math.floor(
+        Math.random()*mineRows
+      );
+
+    const c =
+      Math.floor(
+        Math.random()*mineCols
+      );
+
+
+    if(
+      !mineData[r][c].mine &&
+      !(r === 0 && c === 0)
+    ){
+
+      mineData[r][c].mine = true;
+
+      placed++;
+
+    }
+
+  }
+
+
+  calculateMineNumbers();
+
+  renderMines();
+
+
+  document.getElementById(
+    "mineStatus"
+  ).textContent =
+    "Find all safe cells. Tap a cell to open.";
+
+}
+
+
+function calculateMineNumbers(){
+
+  for(let r=0;r<mineRows;r++){
+
+    for(let c=0;c<mineCols;c++){
+
+      if(mineData[r][c].mine)
+        continue;
+
+
+      let count=0;
+
+
+      for(let dr=-1;dr<=1;dr++){
+
+        for(let dc=-1;dc<=1;dc++){
+
+          if(
+            dr===0 &&
+            dc===0
+          )
+            continue;
+
+
+          const nr=r+dr;
+          const nc=c+dc;
+
+
+          if(
+            nr>=0 &&
+            nr<mineRows &&
+            nc>=0 &&
+            nc<mineCols &&
+            mineData[nr][nc].mine
+          ){
+
+            count++;
+
+          }
+
+        }
+
+      }
+
+
+      mineData[r][c].count =
+        count;
+
+    }
+
+  }
+
+}
+
+
+function renderMines(){
+
+  const board =
+    document.getElementById(
+      "mineBoard"
+    );
+
+
+  board.innerHTML = "";
+
+
+  for(let r=0;r<mineRows;r++){
+
+    for(let c=0;c<mineCols;c++){
+
+      const cell =
+        document.createElement("button");
+
+
+      cell.className =
+        "mine-cell";
+
+
+      const data =
+        mineData[r][c];
+
+
+      if(data.open){
+
+        cell.classList.add(
+          "open"
+        );
+
+
+        if(data.mine){
+
+          cell.classList.add(
+            "mine"
+          );
+
+          cell.textContent =
+            "💣";
+
+        }
+
+        else if(data.count > 0){
+
+          cell.textContent =
+            data.count;
+
+        }
+
+      }
+
+      else if(data.flag){
+
+        cell.classList.add(
+          "flag"
+        );
+
+        cell.textContent =
+          "🚩";
+
+      }
+
+
+      cell.onclick =
+        ()=>openMineCell(r,c);
+
+
+      cell.oncontextmenu =
+        function(e){
+
+          e.preventDefault();
+
+          toggleMineFlag(r,c);
+
+        };
+
+
+      board.appendChild(cell);
+
+    }
+
+  }
+
+}
+
+
+function openMineCell(r,c){
+
+  if(mineGameOver)
+    return;
+
+
+  const cell =
+    mineData[r][c];
+
+
+  if(cell.open || cell.flag)
+    return;
+
+
+  cell.open = true;
+
+
+  if(cell.mine){
+
+    mineGameOver = true;
+
+
+    revealAllMines();
+
+
+    document.getElementById(
+      "mineStatus"
+    ).textContent =
+      "💥 BOOM! Try again.";
+
+
+    renderMines();
+
+    return;
+
+  }
+
+
+  mineOpened++;
+
+
+  /*
+    Open empty neighbouring cells.
+  */
+
+  if(cell.count === 0){
+
+    for(let dr=-1;dr<=1;dr++){
+
+      for(let dc=-1;dc<=1;dc++){
+
+        const nr=r+dr;
+        const nc=c+dc;
+
+
+        if(
+          nr>=0 &&
+          nr<mineRows &&
+          nc>=0 &&
+          nc<mineCols
+        ){
+
+          if(
+            !mineData[nr][nc].open &&
+            !mineData[nr][nc].mine
+          ){
+
+            openMineCell(
+              nr,
+              nc
+            );
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  renderMines();
+
+
+  const safeCells =
+    mineRows*mineCols-mineCount;
+
+
+  if(
+    mineOpened >= safeCells &&
+    !mineRewarded
+  ){
+
+    mineRewarded = true;
+
+    mineGameOver = true;
+
+
+    document.getElementById(
+      "mineStatus"
+    ).textContent =
+      "🏆 MINESWEEPER MASTER! +60 POINTS";
+
+
+    addReward(
+      60,
+      true
+    );
+
+  }
+
+}
+
+
+function toggleMineFlag(r,c){
+
+  if(mineGameOver)
+    return;
+
+
+  const cell =
+    mineData[r][c];
+
+
+  if(cell.open)
+    return;
+
+
+  cell.flag =
+    !cell.flag;
+
+
+  renderMines();
+
+}
+
+
+function revealAllMines(){
+
+  for(let r=0;r<mineRows;r++){
+
+    for(let c=0;c<mineCols;c++){
+
+      if(mineData[r][c].mine){
+
+        mineData[r][c].open = true;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   CLOSE MODALS BY CLICKING OUTSIDE
+========================================================= */
+
+document
+  .querySelectorAll(".modal,.game-modal")
+  .forEach(modal=>{
+
+    modal.addEventListener(
+      "click",
+      function(e){
+
+        if(e.target === modal){
+
+          modal.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+  });
+
 </script>
 
 </body>
 </html>
-
