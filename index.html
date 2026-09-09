@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#080808">
 <title>AYUSH GAMING</title>
 
-<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -23,152 +22,191 @@ html{
 }
 
 body{
+  font-family:Arial,Helvetica,sans-serif;
   background:#050505;
   color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
+  line-height:1.5;
 }
 
-button,input{
-  font-family:inherit;
+button,input,select,textarea{
+  font:inherit;
 }
 
 button{
   cursor:pointer;
 }
 
-.hide{
-  display:none!important;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-/* ================= LOADER ================= */
+/* ================= NAVBAR ================= */
 
-#loader{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  background:#050505;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#e50914;
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:3px;
-  transition:.5s;
-}
-
-/* ================= NAV ================= */
-
-header{
+nav{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:14px 5%;
-  background:rgba(5,5,5,.96);
+  background:rgba(5,5,5,.94);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid #242424;
+  border-bottom:1px solid #252525;
+  padding:14px 5%;
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+  gap:15px;
 }
 
 .logo{
-  color:#ff2020;
-  font-size:21px;
+  font-size:22px;
   font-weight:900;
-  white-space:nowrap;
+  letter-spacing:1px;
 }
 
-nav{
+.logo span{
+  color:#ff1e1e;
+}
+
+.nav-links{
   display:flex;
-  gap:7px;
+  gap:8px;
   flex-wrap:wrap;
-  justify-content:flex-end;
+  align-items:center;
 }
 
-nav button{
-  border:1px solid #292929;
-  background:#111;
-  color:#fff;
-  padding:9px 12px;
+.nav-links a,
+.nav-btn{
+  background:none;
+  border:0;
+  color:#ddd;
+  padding:8px 11px;
   border-radius:8px;
-  font-size:12px;
+  font-weight:700;
 }
 
-nav button:hover{
-  background:#e50914;
+.nav-links a:hover,
+.nav-btn:hover{
+  background:#181818;
+  color:#fff;
+}
+
+.nav-user{
+  display:none;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #ff1e1e;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-  min-height:500px;
-  padding:70px 7%;
+  min-height:82vh;
   display:flex;
   align-items:center;
-  background:
-  radial-gradient(circle at 80% 45%,rgba(229,9,20,.4),transparent 35%),
-  linear-gradient(120deg,#050505,#130000,#050505);
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
   position:relative;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(255,20,20,.18),transparent 35%),
+    linear-gradient(180deg,#0b0b0b,#050505);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:750px;
+  max-width:850px;
 }
 
 .hero h1{
-  font-size:clamp(48px,10vw,92px);
-  line-height:.9;
+  font-size:clamp(48px,10vw,105px);
   font-weight:1000;
+  letter-spacing:-4px;
+  text-shadow:0 0 35px rgba(255,30,30,.25);
 }
 
-.red{
-  color:#e50914;
+.hero h1 span{
+  color:#ff2020;
 }
 
 .hero p{
+  margin:18px auto;
   color:#aaa;
-  margin:25px 0;
+  font-size:18px;
   max-width:650px;
-  font-size:17px;
-  line-height:1.6;
 }
 
-.main-btn{
-  background:#e50914;
-  color:white;
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.btn{
   border:0;
-  padding:14px 22px;
-  border-radius:9px;
-  font-weight:bold;
+  border-radius:10px;
+  padding:13px 20px;
+  font-weight:900;
+  transition:.2s;
 }
 
-.main-btn:hover{
-  background:#ff2632;
+.btn-red{
+  background:#e71919;
+  color:#fff;
+}
+
+.btn-red:hover{
+  background:#ff2929;
+  transform:translateY(-2px);
+}
+
+.btn-dark{
+  background:#171717;
+  color:#fff;
+  border:1px solid #333;
+}
+
+.btn-dark:hover{
+  border-color:#666;
 }
 
 /* ================= SECTIONS ================= */
 
 section{
-  padding:60px 6%;
+  padding:70px 5%;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
 }
 
 .section-title{
   text-align:center;
-  font-size:32px;
-  margin-bottom:30px;
+  margin-bottom:35px;
 }
 
-.section-subtitle{
-  text-align:center;
-  color:#777;
-  margin-top:-18px;
-  margin-bottom:30px;
+.section-title h2{
+  font-size:38px;
+  font-weight:1000;
+}
+
+.section-title p{
+  color:#888;
+  margin-top:6px;
 }
 
 /* ================= VIDEO ================= */
@@ -176,599 +214,588 @@ section{
 .video-box{
   max-width:950px;
   margin:auto;
-  border:1px solid #282828;
-  border-radius:16px;
+  border:1px solid #292929;
+  border-radius:18px;
   overflow:hidden;
-  background:#090909;
+  background:#0d0d0d;
 }
 
-video{
+.video-box video{
   width:100%;
   display:block;
-  max-height:540px;
-}
-
-/* ================= GAMES ================= */
-
-.game-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.game-card{
-  background:linear-gradient(145deg,#131313,#090909);
-  border:1px solid #272727;
-  border-radius:17px;
-  padding:25px;
-  min-height:245px;
-  transition:.25s;
-}
-
-.game-card:hover{
-  transform:translateY(-5px);
-  border-color:#e50914;
-}
-
-.game-icon{
-  font-size:43px;
-  margin-bottom:15px;
-}
-
-.game-card h3{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.game-card p{
-  color:#999;
-  line-height:1.5;
-}
-
-.game-card button{
-  margin-top:20px;
-  background:#e50914;
-  color:white;
-  border:0;
-  border-radius:8px;
-  padding:12px 17px;
-  font-weight:bold;
-}
-
-/* ================= LEADERBOARD ================= */
-
-.leader-list{
-  max-width:850px;
-  margin:auto;
-}
-
-.leader-row{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  background:#111;
-  border:1px solid #222;
-  border-radius:12px;
-  padding:12px;
-  margin-bottom:9px;
-}
-
-.rank{
-  width:38px;
-  text-align:center;
-  font-size:18px;
-  color:#e50914;
-  font-weight:bold;
-}
-
-.avatar{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  object-fit:cover;
-  background:#222;
-  border:1px solid #333;
-}
-
-.player-data{
-  flex:1;
-  min-width:0;
-}
-
-.player-data strong{
-  display:block;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.player-data small{
-  color:#777;
-}
-
-.points{
-  color:#ff3131;
-  font-weight:bold;
-  white-space:nowrap;
+  max-height:600px;
+  background:#000;
 }
 
 /* ================= PROFILE ================= */
 
-.profile-box{
-  max-width:550px;
+.profile-card{
+  max-width:850px;
   margin:auto;
-  text-align:center;
-  background:#101010;
-  border:1px solid #282828;
-  border-radius:18px;
-  padding:30px;
+  background:linear-gradient(145deg,#111,#090909);
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:25px;
 }
 
-.profile-box .avatar{
-  width:115px;
-  height:115px;
-  margin-bottom:15px;
-}
-
-.profile-email{
-  color:#777;
-  margin-top:6px;
-}
-
-.profile-actions{
+.profile-top{
   display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:18px;
+  align-items:center;
+  gap:20px;
   flex-wrap:wrap;
 }
 
-.profile-actions button{
-  border:0;
-  border-radius:8px;
-  padding:10px 15px;
-  background:#222;
-  color:#fff;
+.profile-avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #ff1f1f;
+  background:#151515;
 }
 
-.profile-actions button:hover{
-  background:#e50914;
+.profile-info h3{
+  font-size:28px;
 }
 
-.stats{
+.profile-info p{
+  color:#888;
+}
+
+.profile-stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:22px;
+  gap:12px;
+  margin-top:25px;
 }
 
 .stat{
-  background:#080808;
-  border:1px solid #222;
-  border-radius:10px;
-  padding:15px 8px;
-  font-size:12px;
+  background:#151515;
+  border:1px solid #292929;
+  border-radius:12px;
+  padding:17px;
+  text-align:center;
 }
 
-.stat b{
+.stat strong{
   display:block;
-  font-size:23px;
-  color:#e50914;
-  margin-bottom:5px;
+  font-size:25px;
+  color:#ff3030;
+}
+
+.stat span{
+  color:#888;
+  font-size:13px;
+}
+
+/* ================= LEADERBOARD ================= */
+
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid #292929;
+  border-radius:16px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+th,td{
+  padding:15px;
+  text-align:left;
+  border-bottom:1px solid #222;
+}
+
+th{
+  background:#111;
+  color:#ff3535;
+}
+
+tr:last-child td{
+  border-bottom:0;
+}
+
+.player-cell{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.player-avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #333;
+}
+
+.rank{
+  font-weight:1000;
+  color:#ff3838;
+}
+
+/* ================= PLAYERS ================= */
+
+.players-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:15px;
+}
+
+.player-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+}
+
+.player-card img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #333;
+}
+
+.player-card h3{
+  margin-top:10px;
+}
+
+.player-card p{
+  color:#888;
+  font-size:14px;
+}
+
+.points{
+  color:#ff3030 !important;
+  font-weight:900;
 }
 
 /* ================= ACHIEVEMENTS ================= */
 
 .achievement-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
 }
 
 .achievement{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:13px;
   padding:20px;
-  text-align:center;
+  border-radius:15px;
+  background:#101010;
+  border:1px solid #252525;
+  opacity:.45;
 }
 
-.achievement.locked{
-  opacity:.32;
+.achievement.unlocked{
+  opacity:1;
+  border-color:#ff2525;
+  box-shadow:0 0 20px rgba(255,30,30,.08);
 }
 
 .achievement-icon{
-  font-size:31px;
-  margin-bottom:10px;
+  font-size:32px;
+}
+
+.achievement h3{
+  margin:6px 0;
 }
 
 .achievement p{
-  color:#777;
-  margin-top:6px;
+  color:#888;
   font-size:13px;
+}
+
+/* ================= GAMES ================= */
+
+.games-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+
+.game-card{
+  background:linear-gradient(145deg,#111,#090909);
+  border:1px solid #292929;
+  border-radius:18px;
+  padding:24px;
+  transition:.2s;
+}
+
+.game-card:hover{
+  transform:translateY(-4px);
+  border-color:#ff2525;
+}
+
+.game-icon{
+  font-size:45px;
+}
+
+.game-card h3{
+  margin:12px 0 5px;
+  font-size:24px;
+}
+
+.game-card p{
+  color:#888;
+  min-height:50px;
 }
 
 /* ================= MODAL ================= */
 
-.modal,
-.game-modal{
+.modal{
   position:fixed;
   inset:0;
-  z-index:5000;
-  background:rgba(0,0,0,.9);
+  background:rgba(0,0,0,.82);
+  z-index:2000;
   display:none;
   align-items:center;
   justify-content:center;
   padding:15px;
 }
 
-.modal.show,
-.game-modal.show{
+.modal.show{
   display:flex;
 }
 
-.auth-box,
-.game-window{
+.modal-box{
   width:100%;
-  max-width:650px;
-  max-height:94vh;
-  overflow:auto;
-  background:#101010;
+  max-width:600px;
+  max-height:92vh;
+  overflow-y:auto;
+  background:#0d0d0d;
   border:1px solid #333;
   border-radius:18px;
-  padding:25px;
-  box-shadow:0 20px 70px rgba(0,0,0,.8);
+  padding:24px;
+  position:relative;
 }
 
-.close-btn{
-  float:right;
+.close{
+  position:absolute;
+  top:12px;
+  right:15px;
   background:none;
   border:0;
   color:#aaa;
-  font-size:25px;
+  font-size:28px;
+}
+
+.close:hover{
+  color:#fff;
+}
+
+.modal-box h2{
+  margin-bottom:18px;
 }
 
 /* ================= AUTH ================= */
 
 .auth-tabs{
-  display:flex;
-  margin:15px 0 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  background:#151515;
+  padding:5px;
+  border-radius:10px;
+  margin-bottom:18px;
 }
 
-.auth-tabs button{
-  flex:1;
-  padding:12px;
+.auth-tab{
   border:0;
-  background:#181818;
-  color:#999;
+  padding:11px;
+  background:transparent;
+  color:#aaa;
+  border-radius:7px;
+  font-weight:900;
 }
 
-.auth-tabs button.active{
-  background:#e50914;
+.auth-tab.active{
+  background:#e71919;
   color:#fff;
 }
 
-.auth-form input{
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  color:#bbb;
+  font-size:14px;
+  font-weight:700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
   width:100%;
-  padding:13px;
-  margin:7px 0;
-  background:#070707;
-  border:1px solid #303030;
-  border-radius:8px;
-  color:white;
+  background:#151515;
+  border:1px solid #333;
+  color:#fff;
+  border-radius:9px;
+  padding:12px;
   outline:none;
 }
 
-.auth-form input:focus{
-  border-color:#e50914;
+.form-group textarea{
+  min-height:110px;
+  resize:vertical;
 }
 
-.submit-btn{
-  width:100%;
-  margin-top:10px;
-  padding:13px;
-  border:0;
-  border-radius:8px;
-  background:#e50914;
-  color:#fff;
-  font-weight:bold;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#ff2626;
 }
 
-.message{
+.form-message{
+  margin:10px 0;
   min-height:20px;
-  margin-top:12px;
-  color:#ff5555;
+  color:#ff5050;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* ================= GAME MODAL ================= */
+
+.game-area{
   text-align:center;
-  font-size:13px;
 }
 
-/* ================= GAME HEADER ================= */
-
-.game-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.game-close{
-  background:#222;
-  border:0;
-  color:#fff;
-  width:35px;
-  height:35px;
-  border-radius:8px;
-}
-
-.game-info,
-.game-status{
-  text-align:center;
+.game-score{
+  font-size:20px;
+  margin:10px 0 15px;
   color:#aaa;
-  margin:10px;
 }
 
-/* ================= 2048 ================= */
+.game-score strong{
+  color:#ff2929;
+}
 
-.board2048{
-  width:min(92vw,400px);
+#board2048{
+  width:min(90vw,420px);
   aspect-ratio:1;
-  margin:20px auto;
+  margin:auto;
+  background:#222;
+  border-radius:12px;
   padding:8px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:8px;
-  background:#252525;
-  border-radius:10px;
-  touch-action:none;
 }
 
-.tile2048{
+.tile{
+  background:#333;
+  border-radius:8px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  border-radius:7px;
-  background:#151515;
-  font-size:clamp(18px,7vw,32px);
-  font-weight:900;
+  justify-content:center;
+  font-size:clamp(18px,6vw,32px);
+  font-weight:1000;
 }
 
-.tile2048.v2{background:#333}
-.tile2048.v4{background:#555}
-.tile2048.v8{background:#e50914}
-.tile2048.v16{background:#c70000}
-.tile2048.v32{background:#9b0000}
-.tile2048.v64{background:#720000}
-.tile2048.big{background:#4b0000}
+.tile.filled{
+  background:#551818;
+  color:#fff;
+}
 
 .game-controls{
-  display:grid;
-  grid-template-columns:repeat(3,60px);
-  justify-content:center;
-  gap:7px;
-  margin-top:15px;
-}
-
-.game-controls button{
-  height:55px;
-  border:0;
-  border-radius:8px;
-  background:#222;
-  color:white;
-  font-size:20px;
-}
-
-.game-controls button:nth-child(1){grid-column:2}
-.game-controls button:nth-child(2){grid-column:1;grid-row:2}
-.game-controls button:nth-child(3){grid-column:2;grid-row:2}
-.game-controls button:nth-child(4){grid-column:3;grid-row:2}
-
-/* ================= SUDOKU ================= */
-
-.sudoku-board{
-  width:min(94vw,420px);
-  aspect-ratio:1;
-  margin:15px auto;
-  display:grid;
-  grid-template-columns:repeat(9,1fr);
-  border:2px solid #e50914;
-}
-
-.sudoku-cell{
-  width:100%;
-  height:100%;
-  border:1px solid #333;
-  background:#080808;
-  color:white;
-  text-align:center;
-  font-size:clamp(13px,4vw,22px);
-  outline:none;
-}
-
-.sudoku-cell.fixed{
-  color:#e50914;
-  font-weight:bold;
-  background:#151515;
-}
-
-.sudoku-cell:nth-child(3n){
-  border-right:2px solid #777;
-}
-
-.sudoku-cell:nth-child(9n){
-  border-right:none;
-}
-
-.sudoku-cell:nth-child(n+19):nth-child(-n+27),
-.sudoku-cell:nth-child(n+46):nth-child(-n+54){
-  border-bottom:2px solid #777;
-}
-
-.sudoku-buttons{
   display:flex;
-  gap:10px;
   justify-content:center;
+  gap:8px;
   flex-wrap:wrap;
   margin-top:15px;
 }
 
-.sudoku-buttons button{
-  padding:11px 17px;
-  border:0;
-  border-radius:8px;
-  background:#e50914;
-  color:white;
-  font-weight:bold;
+.control-btn{
+  width:55px;
+  height:48px;
+  border:1px solid #333;
+  background:#151515;
+  color:#fff;
+  border-radius:9px;
+  font-size:20px;
+}
+
+/* ================= SUDOKU ================= */
+
+.sudoku{
+  width:min(94vw,450px);
+  margin:15px auto;
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  border:2px solid #777;
+}
+
+.sudoku input{
+  width:100%;
+  aspect-ratio:1;
+  background:#151515;
+  color:#fff;
+  border:1px solid #333;
+  text-align:center;
+  font-size:clamp(15px,4vw,22px);
+  font-weight:800;
+}
+
+.sudoku input:nth-child(3n){
+  border-right:2px solid #777;
+}
+
+.sudoku input:nth-child(9n){
+  border-right:0;
+}
+
+.sudoku input:nth-child(n+19):nth-child(-n+27),
+.sudoku input:nth-child(n+46):nth-child(-n+54){
+  border-bottom:2px solid #777;
+}
+
+.sudoku input.given{
+  color:#ff3636;
 }
 
 /* ================= MAZE ================= */
 
-.maze-board{
-  width:min(92vw,420px);
+.maze{
+  display:grid;
+  grid-template-columns:repeat(11,1fr);
+  width:min(90vw,440px);
   aspect-ratio:1;
   margin:15px auto;
-  display:grid;
-  gap:2px;
-  background:#333;
-  border:3px solid #333;
+  border:2px solid #444;
 }
 
 .maze-cell{
-  background:#080808;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:clamp(12px,4vw,22px);
+  border:1px solid #171717;
+  background:#090909;
 }
 
 .maze-cell.wall{
-  background:#292929;
+  background:#555;
 }
 
 .maze-cell.player{
-  background:#e50914;
+  background:#e71919;
+  border-radius:5px;
 }
 
-.maze-cell.exit{
-  background:#168a3b;
+.maze-cell.end{
+  background:#183d1d;
 }
 
-.maze-controls{
-  display:grid;
-  grid-template-columns:repeat(3,55px);
-  gap:7px;
-  justify-content:center;
-  margin-top:15px;
+.maze-cell.path{
+  background:#121f13;
 }
 
-.maze-controls button{
-  height:50px;
-  border:0;
+/* ================= FEEDBACK ================= */
+
+.feedback-note{
+  color:#888;
+  margin-bottom:20px;
+}
+
+.feedback-form{
+  max-width:800px;
+  margin:auto;
+  background:#0e0e0e;
+  border:1px solid #292929;
+  padding:25px;
+  border-radius:18px;
+}
+
+.rating-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.rating-row label{
+  background:#151515;
+  border:1px solid #333;
   border-radius:8px;
-  background:#222;
-  color:white;
-  font-size:20px;
+  padding:8px 12px;
+  cursor:pointer;
 }
 
-.maze-controls .up{grid-column:2}
-.maze-controls .left{grid-column:1;grid-row:2}
-.maze-controls .down{grid-column:2;grid-row:2}
-.maze-controls .right{grid-column:3;grid-row:2}
-
-/* ================= MINESWEEPER ================= */
-
-.mine-board{
-  width:min(94vw,420px);
-  margin:20px auto;
-  display:grid;
-  grid-template-columns:repeat(10,1fr);
-  gap:3px;
-  background:#333;
-  padding:5px;
+.rating-row input{
+  margin-right:4px;
 }
 
-.mine-cell{
-  aspect-ratio:1;
-  border:0;
-  background:#202020;
-  color:#fff;
-  font-weight:bold;
-  font-size:clamp(11px,3.5vw,18px);
-  border-radius:4px;
-}
-
-.mine-cell.open{
-  background:#080808;
-}
-
-.mine-cell.mine{
-  background:#e50914;
-}
-
-.mine-cell.flag{
-  background:#3a1515;
-}
-
-.mine-buttons{
-  text-align:center;
-  margin-top:15px;
-}
-
-.mine-buttons button{
-  background:#e50914;
-  color:white;
-  border:0;
-  border-radius:8px;
-  padding:11px 18px;
-  font-weight:bold;
-}
+/* ================= FOOTER ================= */
 
 footer{
-  text-align:center;
-  padding:35px 20px;
+  padding:40px 5%;
   border-top:1px solid #222;
+  text-align:center;
   color:#666;
+}
+
+footer strong{
+  color:#ff2828;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(100px);
+  background:#151515;
+  border:1px solid #333;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  z-index:5000;
+  transition:.3s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:600px){
-
-  header{
-    align-items:center;
+@media(max-width:700px){
+  .nav-inner{
+    flex-direction:column;
   }
 
-  .logo{
-    font-size:16px;
-  }
-
-  nav button{
-    font-size:10px;
-    padding:7px 8px;
+  .nav-links{
+    justify-content:center;
   }
 
   .hero{
-    min-height:440px;
-    padding:60px 6%;
+    min-height:75vh;
+    padding:50px 15px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
   }
 
   section{
-    padding:45px 5%;
+    padding:50px 15px;
   }
 
-  .section-title{
-    font-size:27px;
+  .profile-stats{
+    grid-template-columns:1fr;
   }
 
-  .stats{
-    gap:6px;
+  .profile-top{
+    justify-content:center;
+    text-align:center;
   }
 
-  .stat{
-    padding:12px 4px;
-  }
-
-  .stat b{
-    font-size:18px;
+  .modal-box{
+    padding:18px;
   }
 }
 </style>
@@ -776,207 +803,619 @@ footer{
 
 <body>
 
-<div id="loader">AYUSH GAMING</div>
+<!-- ================= NAVBAR ================= -->
 
-<header>
-  <div class="logo">AYUSH GAMING</div>
+<nav>
+  <div class="nav-inner">
 
-  <nav>
-    <button onclick="goTo('games')">Games</button>
-    <button onclick="goTo('leaderboard')">Rank</button>
-    <button onclick="goTo('profile')">Profile</button>
-    <button id="authButton" onclick="openAuth()">Login</button>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      PLAY.<br>
-      <span class="red">COMPETE.</span><br>
-      DOMINATE.
-    </h1>
-
-    <p id="heroMessage">
-      Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.
-    </p>
-
-    <button class="main-btn" onclick="goTo('games')">
-      ENTER GAMING ZONE
-    </button>
-  </div>
-</section>
-
-<section>
-  <h2 class="section-title">🎬 FEATURED</h2>
-
-  <div class="video-box">
-    <video controls muted playsinline preload="none">
-      <source
-        src="lv_7568434162294803717_20260805165841.mp4"
-        type="video/mp4">
-    </video>
-  </div>
-</section>
-
-<section id="games">
-
-  <h2 class="section-title">🎮 CHALLENGE ZONE</h2>
-
-  <p class="section-subtitle">
-    Harder puzzles. Real challenges. No boring tap games.
-  </p>
-
-  <div class="game-grid">
-
-    <div class="game-card">
-      <div class="game-icon">🧩</div>
-      <h3>2048 PRO</h3>
-      <p>
-        Combine tiles and reach 2048. Every move matters.
-        Can you survive the board?
-      </p>
-      <button onclick="open2048()">PLAY 2048</button>
+    <div class="logo">
+      AYUSH <span>GAMING</span>
     </div>
 
-    <div class="game-card">
-      <div class="game-icon">🔢</div>
-      <h3>HARD SUDOKU</h3>
-      <p>
-        Solve a 9×9 logic puzzle. Every row, column and box
-        must contain 1–9 exactly once.
-      </p>
-      <button onclick="openSudoku()">PLAY SUDOKU</button>
-    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#games">Games</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#players">Players</a>
+      <a href="#feedback">Feedback</a>
 
-    <div class="game-card">
-      <div class="game-icon">🌀</div>
-      <h3>MAZE ESCAPE</h3>
-      <p>
-        Navigate a guaranteed-solvable maze and reach the exit
-        using the fewest moves possible.
-      </p>
-      <button onclick="openMaze()">PLAY MAZE</button>
-    </div>
-
-    <div class="game-card">
-      <div class="game-icon">💣</div>
-      <h3>MINESWEEPER</h3>
-      <p>
-        Find the safe cells and avoid hidden mines.
-        One wrong move ends the round.
-      </p>
-      <button onclick="openMines()">PLAY MINESWEEPER</button>
-    </div>
-
-  </div>
-</section>
-
-<section id="leaderboard">
-
-  <h2 class="section-title">🏆 LIVE LEADERBOARD</h2>
-
-  <div class="leader-list" id="leaderboardList">
-    <p style="text-align:center;color:#777">
-      Loading players...
-    </p>
-  </div>
-
-</section>
-
-<section id="profile">
-
-  <h2 class="section-title">👤 MY PROFILE</h2>
-
-  <div class="profile-box">
-
-    <img
-      id="profilePhoto"
-      class="avatar"
-      src="https://via.placeholder.com/115/222/fff?text=Gamer"
-      alt="Profile">
-
-    <h2 id="profileName">Guest Gamer</h2>
-
-    <p class="profile-email" id="profileEmail">
-      Login to save your progress
-    </p>
-
-    <div class="profile-actions">
-
-      <button id="changePhotoButton" onclick="changePhoto()" class="hide">
-        📷 Change DP
+      <button class="nav-btn" id="loginNavBtn" type="button" onclick="openAuth('login')">
+        LOGIN
       </button>
 
-    </div>
+      <button class="nav-btn" id="signupNavBtn" type="button" onclick="openAuth('signup')">
+        SIGN UP
+      </button>
 
-    <div class="stats">
-
-      <div class="stat">
-        <b id="profilePoints">0</b>
-        Points
+      <div class="nav-user" id="navUser">
+        <img id="navAvatar" class="nav-avatar" src="" alt="Player">
+        <span id="navName">Player</span>
+        <button class="nav-btn" type="button" onclick="logout()">LOGOUT</button>
       </div>
-
-      <div class="stat">
-        <b id="profileGames">0</b>
-        Games
-      </div>
-
-      <div class="stat">
-        <b id="profileWins">0</b>
-        Wins
-      </div>
-
     </div>
 
   </div>
-</section>
+</nav>
 
-<section>
 
-  <h2 class="section-title">🏅 ACHIEVEMENTS</h2>
+<!-- ================= HERO ================= -->
 
-  <div class="achievement-grid" id="achievementList"></div>
+<section class="hero" id="home">
+  <div class="hero-content">
 
-</section>
+    <h1>AYUSH <span>GAMING</span></h1>
 
-<section>
-
-  <h2 class="section-title">👥 ALL PLAYERS</h2>
-
-  <div class="leader-list" id="playersList">
-    <p style="text-align:center;color:#777">
-      Loading players...
+    <p>
+      Play challenging games, earn points, unlock achievements
+      and compete on the live leaderboard.
     </p>
-  </div>
 
+    <div id="heroGreeting"></div>
+
+    <div class="hero-buttons">
+      <button class="btn btn-red" type="button" onclick="scrollToGames()">
+        PLAY GAMES
+      </button>
+
+      <button class="btn btn-dark" type="button" onclick="openAuth('signup')">
+        CREATE ACCOUNT
+      </button>
+    </div>
+
+  </div>
 </section>
+
+
+<!-- ================= VIDEO ================= -->
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2>FEATURED</h2>
+      <p>Welcome to AYUSH GAMING</p>
+    </div>
+
+    <div class="video-box">
+      <video controls playsinline preload="metadata">
+        <source src="lv_7568434162294803717_20260805165841.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profileSection">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>MY PROFILE</h2>
+      <p>Your gaming identity</p>
+    </div>
+
+    <div class="profile-card">
+
+      <div id="loggedOutProfile" style="text-align:center;color:#888;">
+        <p>Please login to view your profile.</p>
+        <br>
+        <button class="btn btn-red" type="button" onclick="openAuth('login')">
+          LOGIN
+        </button>
+      </div>
+
+      <div id="loggedInProfile" style="display:none;">
+
+        <div class="profile-top">
+
+          <img id="profileAvatar"
+               class="profile-avatar"
+               src=""
+               alt="Profile">
+
+          <div class="profile-info">
+            <h3 id="profileName">Player</h3>
+            <p id="profileEmail">email@example.com</p>
+
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+
+              <button class="btn btn-red"
+                      type="button"
+                      onclick="openEditProfile()">
+                EDIT PROFILE
+              </button>
+
+              <button class="btn btn-dark"
+                      type="button"
+                      onclick="document.getElementById('dpInput').click()">
+                CHANGE DP
+              </button>
+
+              <input id="dpInput"
+                     type="file"
+                     accept="image/*"
+                     style="display:none"
+                     onchange="changeDP(this)">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="profile-stats">
+
+          <div class="stat">
+            <strong id="myPoints">0</strong>
+            <span>POINTS</span>
+          </div>
+
+          <div class="stat">
+            <strong id="myGames">0</strong>
+            <span>GAMES PLAYED</span>
+          </div>
+
+          <div class="stat">
+            <strong id="myWins">0</strong>
+            <span>WINS</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= GAMES ================= -->
+
+<section id="games">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>GAMES</h2>
+      <p>Challenge yourself and earn points</p>
+    </div>
+
+    <div class="games-grid">
+
+      <div class="game-card">
+        <div class="game-icon">🔢</div>
+        <h3>2048 PRO</h3>
+        <p>Combine tiles and reach 2048. Every completed run can earn points.</p>
+        <button class="btn btn-red" type="button" onclick="start2048()">
+          PLAY
+        </button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon">🧩</div>
+        <h3>SUDOKU HARD</h3>
+        <p>Complete the hard Sudoku puzzle correctly to win points.</p>
+        <button class="btn btn-red" type="button" onclick="startSudoku()">
+          PLAY
+        </button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon">🌀</div>
+        <h3>MAZE ESCAPE</h3>
+        <p>Find your way through the maze and reach the exit.</p>
+        <button class="btn btn-red" type="button" onclick="startMaze()">
+          PLAY
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= LEADERBOARD ================= -->
+
+<section id="leaderboard">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>LIVE LEADERBOARD</h2>
+      <p>Real player points from Firebase</p>
+    </div>
+
+    <div class="table-wrap">
+
+      <table>
+        <thead>
+          <tr>
+            <th>RANK</th>
+            <th>PLAYER</th>
+            <th>POINTS</th>
+            <th>GAMES</th>
+            <th>WINS</th>
+          </tr>
+        </thead>
+
+        <tbody id="leaderboardBody">
+          <tr>
+            <td colspan="5" style="text-align:center;color:#777;">
+              Loading players...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= ALL PLAYERS ================= -->
+
+<section id="players">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>ALL PLAYERS</h2>
+      <p>Meet the AYUSH GAMING community</p>
+    </div>
+
+    <div class="players-grid" id="playersGrid">
+      <p style="color:#777;">Loading players...</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2>ACHIEVEMENTS</h2>
+      <p>Unlock achievements as you play</p>
+    </div>
+
+    <div class="achievement-grid" id="achievementGrid">
+
+      <div class="achievement" data-ach="firstGame">
+        <div class="achievement-icon">🎮</div>
+        <h3>First Game</h3>
+        <p>Play your first game.</p>
+      </div>
+
+      <div class="achievement" data-ach="firstWin">
+        <div class="achievement-icon">🥇</div>
+        <h3>First Win</h3>
+        <p>Win your first game.</p>
+      </div>
+
+      <div class="achievement" data-ach="points100">
+        <div class="achievement-icon">💯</div>
+        <h3>100 Points</h3>
+        <p>Reach 100 points.</p>
+      </div>
+
+      <div class="achievement" data-ach="games10">
+        <div class="achievement-icon">🔥</div>
+        <h3>10 Games</h3>
+        <p>Play 10 games.</p>
+      </div>
+
+      <div class="achievement" data-ach="points500">
+        <div class="achievement-icon">💎</div>
+        <h3>500 Points</h3>
+        <p>Reach 500 points.</p>
+      </div>
+
+      <div class="achievement" data-ach="top3">
+        <div class="achievement-icon">🏆</div>
+        <h3>Top 3</h3>
+        <p>Reach the top three leaderboard positions.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FEEDBACK ================= -->
+
+<section id="feedback">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>PLAYER FEEDBACK</h2>
+      <p>Help us make AYUSH GAMING better.</p>
+    </div>
+
+    <div class="feedback-form">
+
+      <div id="feedbackLoginMessage"
+           style="text-align:center;color:#888;margin-bottom:20px;">
+        Please login to submit your feedback.
+      </div>
+
+      <form id="feedbackForm" style="display:none;">
+
+        <div class="form-group">
+          <label>How would you rate the overall website?</label>
+
+          <div class="rating-row">
+            <label><input type="radio" name="overallRating" value="1" required> 1</label>
+            <label><input type="radio" name="overallRating" value="2"> 2</label>
+            <label><input type="radio" name="overallRating" value="3"> 3</label>
+            <label><input type="radio" name="overallRating" value="4"> 4</label>
+            <label><input type="radio" name="overallRating" value="5"> 5</label>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label>How would you rate the website design?</label>
+
+          <select name="designRating" required>
+            <option value="">Select rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+            <option>Very Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How would you rate the website speed?</label>
+
+          <select name="speedRating" required>
+            <option value="">Select rating</option>
+            <option>Very Fast</option>
+            <option>Fast</option>
+            <option>Average</option>
+            <option>Slow</option>
+            <option>Very Slow</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How is your mobile experience?</label>
+
+          <select name="mobileExperience" required>
+            <option value="">Select option</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How would you rate the leaderboard?</label>
+
+          <select name="leaderboardRating" required>
+            <option value="">Select rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How would you rate your player profile experience?</label>
+
+          <select name="profileRating" required>
+            <option value="">Select rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Which game do you like the most?</label>
+
+          <select name="favouriteGame" required>
+            <option value="">Select a game</option>
+            <option>2048 PRO</option>
+            <option>SUDOKU HARD</option>
+            <option>MAZE ESCAPE</option>
+            <option>All Games</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How do you feel about the game difficulty?</label>
+
+          <select name="gameDifficulty" required>
+            <option value="">Select option</option>
+            <option>Too Easy</option>
+            <option>Easy</option>
+            <option>Balanced</option>
+            <option>Hard</option>
+            <option>Very Hard</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How would you rate the game controls?</label>
+
+          <select name="gameControls" required>
+            <option value="">Select rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>How is the game performance?</label>
+
+          <select name="gamePerformance" required>
+            <option value="">Select rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Which game should be improved?</label>
+
+          <select name="gameToImprove">
+            <option value="">Select a game</option>
+            <option>2048 PRO</option>
+            <option>SUDOKU HARD</option>
+            <option>MAZE ESCAPE</option>
+            <option>All Games</option>
+            <option>None</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>What new game would you like us to add?</label>
+
+          <input
+            type="text"
+            name="newGame"
+            maxlength="100"
+            placeholder="Example: Minesweeper">
+        </div>
+
+
+        <div class="form-group">
+          <label>Did you find any bugs or problems?</label>
+
+          <select name="bugs">
+            <option value="">Select option</option>
+            <option>No bugs</option>
+            <option>Yes, I found a bug</option>
+            <option>Not sure</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Please describe any bug or problem you found.</label>
+
+          <textarea
+            name="bugDetails"
+            maxlength="1000"
+            placeholder="Describe the problem here..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label>What should we improve on the website?</label>
+
+          <textarea
+            name="improvements"
+            maxlength="1500"
+            placeholder="Tell us what we can improve..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label>What features should we add?</label>
+
+          <textarea
+            name="features"
+            maxlength="1500"
+            placeholder="Tell us about new features you want..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label>Overall experience</label>
+
+          <select name="experience" required>
+            <option value="">Select option</option>
+            <option>Excellent</option>
+            <option>Very Good</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Additional comments or suggestions</label>
+
+          <textarea
+            name="comments"
+            maxlength="2000"
+            placeholder="Write your feedback here..."></textarea>
+        </div>
+
+        <div id="feedbackMessage" class="form-message"></div>
+
+        <button class="btn btn-red" type="submit">
+          SUBMIT FEEDBACK
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
-  AYUSH GAMING © 2026
+  <p>© 2026 <strong>AYUSH GAMING</strong>. All Rights Reserved.</p>
 </footer>
 
 
-<!-- ================= AUTH ================= -->
+<!-- ================= AUTH MODAL ================= -->
 
 <div class="modal" id="authModal">
 
-  <div class="auth-box">
+  <div class="modal-box">
 
-    <button class="close-btn" onclick="closeAuth()">×</button>
+    <button class="close" type="button" onclick="closeModal('authModal')">
+      ×
+    </button>
+
+    <h2 id="authTitle">Login</h2>
 
     <div class="auth-tabs">
 
       <button
         id="loginTab"
-        class="active"
-        onclick="showLogin()">
+        class="auth-tab active"
+        type="button"
+        onclick="switchAuth('login')">
         LOGIN
       </button>
 
       <button
         id="signupTab"
-        onclick="showSignup()">
+        class="auth-tab"
+        type="button"
+        onclick="switchAuth('signup')">
         SIGN UP
       </button>
 
@@ -985,291 +1424,161 @@ footer{
 
     <!-- LOGIN -->
 
-    <div id="loginForm" class="auth-form">
+    <form id="loginForm">
 
-      <h2>Welcome Back 🎮</h2>
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          id="loginEmail"
+          type="email"
+          autocomplete="email"
+          placeholder="Enter your email"
+          required>
+      </div>
 
-      <input
-        id="loginEmail"
-        type="email"
-        autocomplete="email"
-        placeholder="Email">
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter your password"
+          required>
+      </div>
 
-      <input
-        id="loginPassword"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Password">
+      <div id="loginMessage" class="form-message"></div>
 
-      <button
-        class="submit-btn"
-        id="loginSubmit"
-        onclick="login()">
+      <button class="btn btn-red" type="submit">
         LOGIN
       </button>
 
-      <div id="loginMessage" class="message"></div>
-
-    </div>
+    </form>
 
 
     <!-- SIGNUP -->
 
-    <div id="signupForm" class="auth-form hide">
+    <form id="signupForm" style="display:none;">
 
-      <h2>Create Account 🔥</h2>
+      <div class="form-group">
+        <label>Gamer Name</label>
 
-      <input
-        id="signupName"
-        type="text"
-        maxlength="25"
-        placeholder="Gamer Name">
+        <input
+          id="signupName"
+          type="text"
+          maxlength="24"
+          placeholder="Choose your gamer name"
+          required>
+      </div>
 
-      <input
-        id="signupEmail"
-        type="email"
-        autocomplete="email"
-        placeholder="Email">
 
-      <input
-        id="signupPassword"
-        type="password"
-        autocomplete="new-password"
-        placeholder="Password (minimum 6 characters)">
+      <div class="form-group">
+        <label>Email</label>
 
-      <input
-        id="signupPhoto"
-        type="file"
-        accept="image/*">
+        <input
+          id="signupEmail"
+          type="email"
+          autocomplete="email"
+          placeholder="Enter your email"
+          required>
+      </div>
 
-      <button
-        class="submit-btn"
-        id="signupSubmit"
-        onclick="signup()">
+
+      <div class="form-group">
+        <label>Password</label>
+
+        <input
+          id="signupPassword"
+          type="password"
+          autocomplete="new-password"
+          minlength="6"
+          placeholder="Minimum 6 characters"
+          required>
+      </div>
+
+
+      <div class="form-group">
+        <label>Profile Picture / DP</label>
+
+        <input
+          id="signupPhoto"
+          type="file"
+          accept="image/*">
+      </div>
+
+
+      <div id="signupMessage" class="form-message"></div>
+
+      <button class="btn btn-red" type="submit">
         CREATE ACCOUNT
       </button>
 
-      <div id="signupMessage" class="message"></div>
-
-    </div>
+    </form>
 
   </div>
 
 </div>
 
 
-<!-- ================= 2048 ================= -->
+<!-- ================= EDIT PROFILE MODAL ================= -->
 
-<div class="game-modal" id="modal2048">
+<div class="modal" id="profileModal">
 
-  <div class="game-window">
+  <div class="modal-box">
 
-    <div class="game-header">
-      <h2>🧩 2048 PRO</h2>
-      <button
-        class="game-close"
-        onclick="closeGame('modal2048')">
-        ×
-      </button>
-    </div>
+    <button class="close" type="button" onclick="closeModal('profileModal')">
+      ×
+    </button>
 
-    <div class="game-info">
-      Score:
-      <b id="score2048">0</b>
-      |
-      Best:
-      <b id="best2048">0</b>
-    </div>
+    <h2>Edit Profile</h2>
 
-    <div id="board2048" class="board2048"></div>
+    <form id="profileForm">
 
-    <div
-      class="game-status"
-      id="status2048">
-      Use arrows or swipe.
-    </div>
+      <div class="form-group">
+        <label>Gamer Name</label>
 
-    <div class="game-controls">
+        <input
+          id="editName"
+          type="text"
+          maxlength="24"
+          required>
+      </div>
 
-      <button onclick="move2048('up')">⬆️</button>
-      <button onclick="move2048('left')">⬅️</button>
-      <button onclick="move2048('down')">⬇️</button>
-      <button onclick="move2048('right')">➡️</button>
+      <div id="profileMessage" class="form-message"></div>
 
-    </div>
-
-    <div style="text-align:center;margin-top:15px">
-      <button class="main-btn" onclick="start2048()">
-        NEW GAME
-      </button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ================= SUDOKU ================= -->
-
-<div class="game-modal" id="modalSudoku">
-
-  <div class="game-window">
-
-    <div class="game-header">
-
-      <h2>🔢 HARD SUDOKU</h2>
-
-      <button
-        class="game-close"
-        onclick="closeGame('modalSudoku')">
-        ×
+      <button class="btn btn-red" type="submit">
+        SAVE CHANGES
       </button>
 
-    </div>
-
-    <div
-      id="sudokuStatus"
-      class="game-status">
-      Fill the missing numbers.
-    </div>
-
-    <div
-      id="sudokuBoard"
-      class="sudoku-board">
-    </div>
-
-    <div class="sudoku-buttons">
-
-      <button onclick="checkSudoku()">
-        CHECK
-      </button>
-
-      <button onclick="newSudoku()">
-        NEW PUZZLE
-      </button>
-
-    </div>
+    </form>
 
   </div>
 
 </div>
 
 
-<!-- ================= MAZE ================= -->
+<!-- ================= GAME MODAL ================= -->
 
-<div class="game-modal" id="modalMaze">
+<div class="modal" id="gameModal">
 
-  <div class="game-window">
+  <div class="modal-box">
 
-    <div class="game-header">
+    <button class="close" type="button" onclick="closeGame()">
+      ×
+    </button>
 
-      <h2>🌀 MAZE ESCAPE</h2>
-
-      <button
-        class="game-close"
-        onclick="closeGame('modalMaze')">
-        ×
-      </button>
-
-    </div>
-
-    <div
-      id="mazeStatus"
-      class="game-status">
-      Reach the green exit!
-    </div>
-
-    <div
-      id="mazeBoard"
-      class="maze-board">
-    </div>
-
-    <div class="maze-controls">
-
-      <button
-        class="up"
-        onclick="moveMaze(0,-1)">
-        ⬆️
-      </button>
-
-      <button
-        class="left"
-        onclick="moveMaze(-1,0)">
-        ⬅️
-      </button>
-
-      <button
-        class="down"
-        onclick="moveMaze(0,1)">
-        ⬇️
-      </button>
-
-      <button
-        class="right"
-        onclick="moveMaze(1,0)">
-        ➡️
-      </button>
-
-    </div>
-
-    <div style="text-align:center;margin-top:15px">
-
-      <button
-        class="main-btn"
-        onclick="newMaze()">
-        NEW MAZE
-      </button>
-
-    </div>
+    <div id="gameContent"></div>
 
   </div>
 
 </div>
 
 
-<!-- ================= MINESWEEPER ================= -->
+<!-- ================= TOAST ================= -->
 
-<div class="game-modal" id="modalMines">
-
-  <div class="game-window">
-
-    <div class="game-header">
-
-      <h2>💣 MINESWEEPER</h2>
-
-      <button
-        class="game-close"
-        onclick="closeGame('modalMines')">
-        ×
-      </button>
-
-    </div>
-
-    <div
-      id="mineStatus"
-      class="game-status">
-      Find all safe cells.
-    </div>
-
-    <div
-      id="mineBoard"
-      class="mine-board">
-    </div>
-
-    <div class="mine-buttons">
-
-      <button onclick="newMines()">
-        NEW BOARD
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
-
 /* =========================================================
    FIREBASE
 ========================================================= */
@@ -1289,314 +1598,381 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-const defaultPhoto =
-  "https://via.placeholder.com/115/222/fff?text=Gamer";
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
 
 let currentUser = null;
 let currentPlayer = null;
-let userListener = null;
+let userDocUnsubscribe = null;
+
+let leaderboardPlayers = [];
+
+let game2048Board = [];
+let game2048Score = 0;
+let game2048Rewarded = false;
+let game2048Over = false;
+
+let sudokuRewarded = false;
+
+let mazeGrid = [];
+let mazePlayer = {r:1,c:1};
+let mazeRewarded = false;
+let mazeFinished = false;
 
 
 /* =========================================================
-   BASIC UI
+   DEFAULT AVATAR
 ========================================================= */
 
-window.addEventListener("load",function(){
-
-  setTimeout(function(){
-
-    const loader = document.getElementById("loader");
-
-    loader.style.opacity = "0";
-
-    setTimeout(function(){
-      loader.classList.add("hide");
-    },500);
-
-  },1200);
-
-  renderAchievements();
-
-});
+const DEFAULT_AVATAR =
+"data:image/svg+xml;charset=UTF-8," +
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+<rect width="256" height="256" fill="#151515"/>
+<circle cx="128" cy="95" r="55" fill="#555"/>
+<path d="M45 235c8-58 43-82 83-82s75 24 83 82" fill="#555"/>
+<text x="128" y="250" text-anchor="middle"
+font-family="Arial" font-size="20" fill="#ff3333">AYUSH GAMING</text>
+</svg>
+`);
 
 
-function goTo(id){
+/* =========================================================
+   HELPERS
+========================================================= */
 
-  const element = document.getElementById(id);
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
 
-  if(element){
-    element.scrollIntoView({
-      behavior:"smooth"
-    });
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },3000);
+}
+
+
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
+
+
+function escapeHTML(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+function safePhoto(photo){
+  if(
+    typeof photo === "string" &&
+    (
+      photo.startsWith("data:image/") ||
+      photo.startsWith("https://")
+    )
+  ){
+    return photo;
   }
 
+  return DEFAULT_AVATAR;
 }
 
 
-function openGame(id){
-
-  document.getElementById(id).classList.add("show");
-
+function scrollToGames(){
+  document.getElementById("games").scrollIntoView({
+    behavior:"smooth"
+  });
 }
 
 
-function closeGame(id){
+function requireLogin(){
+  if(!currentUser){
+    openAuth("login");
+    showToast("Please login first to play and save your score.");
+    return false;
+  }
 
-  document.getElementById(id).classList.remove("show");
-
+  return true;
 }
 
 
 /* =========================================================
-   AUTH UI
+   IMAGE COMPRESSION
 ========================================================= */
 
-function openAuth(){
+function compressImage(file){
+
+  return new Promise((resolve,reject)=>{
+
+    if(!file){
+      resolve(DEFAULT_AVATAR);
+      return;
+    }
+
+    if(!file.type.startsWith("image/")){
+      reject(new Error("Please select an image file."));
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+      const img = new Image();
+
+      img.onload = function(){
+
+        const maxSize = 256;
+
+        let width = img.width;
+        let height = img.height;
+
+        if(width > height){
+          if(width > maxSize){
+            height = Math.round(height * maxSize / width);
+            width = maxSize;
+          }
+        }else{
+          if(height > maxSize){
+            width = Math.round(width * maxSize / height);
+            height = maxSize;
+          }
+        }
+
+        const canvas = document.createElement("canvas");
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+
+        ctx.drawImage(img,0,0,width,height);
+
+        resolve(
+          canvas.toDataURL("image/jpeg",0.72)
+        );
+      };
+
+      img.onerror = ()=>reject(new Error("Could not read image."));
+
+      img.src = e.target.result;
+    };
+
+    reader.onerror = ()=>reject(new Error("Could not read file."));
+
+    reader.readAsDataURL(file);
+  });
+}
+
+
+/* =========================================================
+   AUTH MODAL
+========================================================= */
+
+function openAuth(type="login"){
+
+  if(currentUser){
+    document.getElementById("profileSection")
+      .scrollIntoView({behavior:"smooth"});
+
+    return;
+  }
 
   document.getElementById("authModal").classList.add("show");
 
-  showLogin();
-
+  switchAuth(type);
 }
 
 
-function closeAuth(){
+function switchAuth(type){
 
-  document.getElementById("authModal").classList.remove("show");
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
 
-  clearMessages();
-
-}
-
-
-function clearMessages(){
+  const loginTab = document.getElementById("loginTab");
+  const signupTab = document.getElementById("signupTab");
 
   document.getElementById("loginMessage").textContent = "";
-
   document.getElementById("signupMessage").textContent = "";
 
-}
+  if(type === "signup"){
 
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
 
-function showLogin(){
+    loginTab.classList.remove("active");
+    signupTab.classList.add("active");
 
-  document.getElementById("loginForm").classList.remove("hide");
+    document.getElementById("authTitle").textContent =
+      "Create Player Account";
 
-  document.getElementById("signupForm").classList.add("hide");
+  }else{
 
-  document.getElementById("loginTab").classList.add("active");
+    loginForm.style.display = "block";
+    signupForm.style.display = "none";
 
-  document.getElementById("signupTab").classList.remove("active");
+    loginTab.classList.add("active");
+    signupTab.classList.remove("active");
 
-  clearMessages();
-
-}
-
-
-function showSignup(){
-
-  document.getElementById("signupForm").classList.remove("hide");
-
-  document.getElementById("loginForm").classList.add("hide");
-
-  document.getElementById("signupTab").classList.add("active");
-
-  document.getElementById("loginTab").classList.remove("active");
-
-  clearMessages();
-
+    document.getElementById("authTitle").textContent =
+      "Login";
+  }
 }
 
 
 /* =========================================================
    LOGIN
-   IMPORTANT:
-   LOGIN NEVER CREATES AN ACCOUNT
 ========================================================= */
 
-async function login(){
+document.getElementById("loginForm").addEventListener(
+"submit",
+async function(e){
+
+  e.preventDefault();
 
   const email =
-    document.getElementById("loginEmail").value.trim();
+    document.getElementById("loginEmail").value
+    .trim()
+    .toLowerCase();
 
-  const pass =
+  const password =
     document.getElementById("loginPassword").value;
 
-  const msg =
+  const message =
     document.getElementById("loginMessage");
 
-  const button =
-    document.getElementById("loginSubmit");
-
-
-  msg.textContent = "";
-
-
-  if(!email || !pass){
-
-    msg.textContent =
-      "Please enter email and password.";
-
-    return;
-  }
-
-
-  button.disabled = true;
-
-  button.textContent = "LOGGING IN...";
-
+  message.textContent = "Logging in...";
 
   try{
 
+    /*
+      IMPORTANT:
+      Login ONLY signs in.
+      It NEVER creates a Firebase account.
+    */
+
     await auth.signInWithEmailAndPassword(
       email,
-      pass
+      password
     );
 
-    closeAuth();
+    message.textContent = "";
 
-  }
+    closeModal("authModal");
 
-  catch(e){
+    showToast("Login successful!");
 
-    if(
-      e.code === "auth/user-not-found" ||
-      e.code === "auth/invalid-credential"
-    ){
+  }catch(error){
 
-      msg.textContent =
-        "Account not found. Please Sign Up first.";
+    console.error(error);
 
-    }
+    if(error.code === "auth/user-not-found"){
+      message.textContent =
+        "Account not found. Please sign up first.";
 
-    else if(e.code === "auth/wrong-password"){
+    }else if(error.code === "auth/wrong-password"){
+      message.textContent =
+        "Wrong email or password.";
 
-      msg.textContent =
-        "Wrong password.";
+    }else if(error.code === "auth/invalid-credential"){
+      message.textContent =
+        "Wrong email or password.";
 
-    }
-
-    else if(e.code === "auth/invalid-email"){
-
-      msg.textContent =
+    }else if(error.code === "auth/invalid-email"){
+      message.textContent =
         "Please enter a valid email.";
 
-    }
+    }else if(error.code === "auth/too-many-requests"){
+      message.textContent =
+        "Too many attempts. Please try again later.";
 
-    else{
-
-      msg.textContent =
+    }else{
+      message.textContent =
         "Login failed. Please try again.";
-
-      console.error(e);
-
     }
-
   }
 
-  finally{
-
-    button.disabled = false;
-
-    button.textContent = "LOGIN";
-
-  }
-
-}
+});
 
 
 /* =========================================================
    SIGNUP
 ========================================================= */
 
-async function signup(){
+document.getElementById("signupForm").addEventListener(
+"submit",
+async function(e){
+
+  e.preventDefault();
 
   const name =
     document.getElementById("signupName").value.trim();
 
   const email =
-    document.getElementById("signupEmail").value.trim();
+    document.getElementById("signupEmail").value
+    .trim()
+    .toLowerCase();
 
-  const pass =
+  const password =
     document.getElementById("signupPassword").value;
 
   const photoFile =
     document.getElementById("signupPhoto").files[0];
 
-  const msg =
+  const message =
     document.getElementById("signupMessage");
 
-  const button =
-    document.getElementById("signupSubmit");
-
-
-  msg.textContent = "";
-
-
-  if(!name || !email || !pass){
-
-    msg.textContent =
-      "Please fill all required fields.";
-
+  if(name.length < 2){
+    message.textContent =
+      "Gamer name must be at least 2 characters.";
     return;
   }
 
-
-  if(pass.length < 6){
-
-    msg.textContent =
-      "Password must be at least 6 characters.";
-
+  if(password.length < 6){
+    message.textContent =
+      "Password must contain at least 6 characters.";
     return;
   }
 
-
-  button.disabled = true;
-
-  button.textContent = "CREATING...";
-
+  message.textContent = "Creating account...";
 
   try{
 
-    let photoURL = defaultPhoto;
-
+    let photo = DEFAULT_AVATAR;
 
     if(photoFile){
-
-      photoURL =
-        await resizeImage(photoFile);
-
+      photo = await compressImage(photoFile);
     }
-
 
     /*
       IMPORTANT:
-      This is the ONLY place where a new
-      Firebase account is created.
+      ONLY SIGNUP creates an account.
     */
 
-    const result =
+    const credential =
       await auth.createUserWithEmailAndPassword(
         email,
-        pass
+        password
       );
 
+    const uid = credential.user.uid;
 
-    await db
-      .collection("users")
-      .doc(result.user.uid)
+    await db.collection("users")
+      .doc(uid)
       .set({
 
         name:name,
-
         email:email,
-
-        photo:photoURL,
+        photo:photo,
 
         points:0,
-
         gamesPlayed:0,
-
         wins:0,
 
         createdAt:
@@ -1607,467 +1983,322 @@ async function signup(){
 
       });
 
+    document.getElementById("signupForm").reset();
 
-    closeAuth();
+    message.textContent = "";
 
-  }
+    closeModal("authModal");
 
-  catch(e){
+    showToast("Account created successfully!");
 
-    if(e.code === "auth/email-already-in-use"){
+  }catch(error){
 
-      msg.textContent =
-        "This email is already registered. Login instead.";
+    console.error(error);
 
-    }
+    if(error.code === "auth/email-already-in-use"){
 
-    else if(e.code === "auth/invalid-email"){
+      message.textContent =
+        "This email is already registered. Please login.";
 
-      msg.textContent =
+    }else if(error.code === "auth/invalid-email"){
+
+      message.textContent =
         "Please enter a valid email.";
 
+    }else if(error.code === "auth/weak-password"){
+
+      message.textContent =
+        "Password is too weak. Use at least 6 characters.";
+
+    }else{
+
+      message.textContent =
+        "Could not create account. Please try again.";
     }
-
-    else if(e.code === "auth/weak-password"){
-
-      msg.textContent =
-        "Password is too weak.";
-
-    }
-
-    else{
-
-      msg.textContent =
-        "Signup failed. Please try again.";
-
-      console.error(e);
-
-    }
-
   }
 
-  finally{
-
-    button.disabled = false;
-
-    button.textContent = "CREATE ACCOUNT";
-
-  }
-
-}
-
-
-/* =========================================================
-   RESIZE PROFILE PHOTO
-========================================================= */
-
-function resizeImage(file){
-
-  return new Promise((resolve,reject)=>{
-
-    const reader = new FileReader();
-
-    reader.onload = function(event){
-
-      const img = new Image();
-
-      img.onload = function(){
-
-        const canvas =
-          document.createElement("canvas");
-
-        const size = 256;
-
-        canvas.width = size;
-        canvas.height = size;
-
-
-        const ctx =
-          canvas.getContext("2d");
-
-
-        const min =
-          Math.min(img.width,img.height);
-
-        const sx =
-          (img.width-min)/2;
-
-        const sy =
-          (img.height-min)/2;
-
-
-        ctx.drawImage(
-          img,
-          sx,
-          sy,
-          min,
-          min,
-          0,
-          0,
-          size,
-          size
-        );
-
-
-        resolve(
-          canvas.toDataURL(
-            "image/jpeg",
-            .78
-          )
-        );
-
-      };
-
-
-      img.onerror = reject;
-
-      img.src = event.target.result;
-
-    };
-
-
-    reader.onerror = reject;
-
-    reader.readAsDataURL(file);
-
-  });
-
-}
-
-
-/* =========================================================
-   CHANGE DP AFTER LOGIN
-========================================================= */
-
-function changePhoto(){
-
-  if(!currentUser){
-
-    openAuth();
-
-    return;
-
-  }
-
-
-  const input =
-    document.createElement("input");
-
-  input.type = "file";
-
-  input.accept = "image/*";
-
-
-  input.onchange = async function(){
-
-    const file = input.files[0];
-
-    if(!file) return;
-
-
-    try{
-
-      const photo =
-        await resizeImage(file);
-
-
-      await db
-        .collection("users")
-        .doc(currentUser.uid)
-        .update({
-
-          photo:photo,
-
-          updatedAt:
-            firebase.firestore.FieldValue.serverTimestamp()
-
-        });
-
-
-    }
-
-    catch(e){
-
-      alert(
-        "Could not update profile photo."
-      );
-
-      console.error(e);
-
-    }
-
-  };
-
-
-  input.click();
-
-}
+});
 
 
 /* =========================================================
    AUTH STATE
 ========================================================= */
 
-auth.onAuthStateChanged(user=>{
+auth.onAuthStateChanged(async user=>{
 
   currentUser = user;
 
-
-  const button =
-    document.getElementById("authButton");
-
-
-  if(user){
-
-    button.textContent = "Logout";
-
-    button.onclick = function(){
-
-      auth.signOut();
-
-    };
-
-
-    listenUserData(user.uid);
-
+  if(userDocUnsubscribe){
+    userDocUnsubscribe();
+    userDocUnsubscribe = null;
   }
 
-  else{
-
-    button.textContent = "Login";
-
-    button.onclick = function(){
-
-      openAuth();
-
-    };
-
+  if(!user){
 
     currentPlayer = null;
 
-    resetProfileUI();
+    document.getElementById("loginNavBtn").style.display =
+      "inline-block";
 
+    document.getElementById("signupNavBtn").style.display =
+      "inline-block";
+
+    document.getElementById("navUser").style.display =
+      "none";
+
+    document.getElementById("loggedOutProfile").style.display =
+      "block";
+
+    document.getElementById("loggedInProfile").style.display =
+      "none";
+
+    document.getElementById("feedbackForm").style.display =
+      "none";
+
+    document.getElementById("feedbackLoginMessage").style.display =
+      "block";
+
+    updateAchievements(null);
+
+    return;
   }
 
 
-  loadLeaderboard();
+  document.getElementById("loginNavBtn").style.display =
+    "none";
+
+  document.getElementById("signupNavBtn").style.display =
+    "none";
+
+  document.getElementById("navUser").style.display =
+    "flex";
+
+  document.getElementById("loggedOutProfile").style.display =
+    "none";
+
+  document.getElementById("loggedInProfile").style.display =
+    "block";
+
+  document.getElementById("feedbackForm").style.display =
+    "block";
+
+  document.getElementById("feedbackLoginMessage").style.display =
+    "none";
+
+
+  userDocUnsubscribe =
+    db.collection("users")
+      .doc(user.uid)
+      .onSnapshot(
+        snapshot=>{
+
+          if(snapshot.exists){
+
+            currentPlayer = {
+              id:snapshot.id,
+              ...snapshot.data()
+            };
+
+            renderProfile();
+            updateAchievements(currentPlayer);
+          }
+
+        },
+        error=>{
+          console.error(error);
+          showToast("Could not load player profile.");
+        }
+      );
 
 });
 
 
 /* =========================================================
-   USER REAL-TIME DATA
+   RENDER PROFILE
 ========================================================= */
 
-function listenUserData(uid){
+function renderProfile(){
 
-  if(userListener){
+  if(!currentPlayer) return;
 
-    userListener();
+  const name =
+    currentPlayer.name || "Player";
 
-  }
+  const email =
+    currentPlayer.email || currentUser.email || "";
 
+  const photo =
+    safePhoto(currentPlayer.photo);
 
-  userListener =
-    db
-      .collection("users")
-      .doc(uid)
-      .onSnapshot(
+  const points =
+    Number(currentPlayer.points || 0);
 
-        doc=>{
+  const games =
+    Number(currentPlayer.gamesPlayed || 0);
 
-          if(!doc.exists){
-
-            resetProfileUI();
-
-            return;
-
-          }
+  const wins =
+    Number(currentPlayer.wins || 0);
 
 
-          currentPlayer =
-            doc.data();
+  document.getElementById("navAvatar").src = photo;
+  document.getElementById("navName").textContent = name;
 
+  document.getElementById("profileAvatar").src = photo;
+  document.getElementById("profileName").textContent = name;
+  document.getElementById("profileEmail").textContent = email;
 
-          document.getElementById("profileName")
-            .textContent =
-            currentPlayer.name || "Gamer";
+  document.getElementById("myPoints").textContent = points;
+  document.getElementById("myGames").textContent = games;
+  document.getElementById("myWins").textContent = wins;
 
+  const greeting =
+    document.getElementById("heroGreeting");
 
-          document.getElementById("profileEmail")
-            .textContent =
-            currentPlayer.email || "";
-
-
-          document.getElementById("profilePhoto")
-            .src =
-            currentPlayer.photo || defaultPhoto;
-
-
-          document.getElementById("profilePoints")
-            .textContent =
-            currentPlayer.points || 0;
-
-
-          document.getElementById("profileGames")
-            .textContent =
-            currentPlayer.gamesPlayed || 0;
-
-
-          document.getElementById("profileWins")
-            .textContent =
-            currentPlayer.wins || 0;
-
-
-          document.getElementById("changePhotoButton")
-            .classList.remove("hide");
-
-
-          document.getElementById("heroMessage")
-            .innerHTML =
-            'Welcome back, <span class="red">' +
-            escapeHTML(currentPlayer.name || "Gamer") +
-            '</span>! Ready for another challenge?';
-
-
-          renderAchievements();
-
-        },
-
-        error=>{
-
-          console.error(
-            "User data error:",
-            error
-          );
-
-        }
-
-      );
-
-}
-
-
-function resetProfileUI(){
-
-  document.getElementById("profileName")
-    .textContent =
-    "Guest Gamer";
-
-
-  document.getElementById("profileEmail")
-    .textContent =
-    "Login to save your progress";
-
-
-  document.getElementById("profilePhoto")
-    .src =
-    defaultPhoto;
-
-
-  document.getElementById("profilePoints")
-    .textContent = "0";
-
-
-  document.getElementById("profileGames")
-    .textContent = "0";
-
-
-  document.getElementById("profileWins")
-    .textContent = "0";
-
-
-  document.getElementById("changePhotoButton")
-    .classList.add("hide");
-
-
-  document.getElementById("heroMessage")
-    .textContent =
-    "Welcome to Ayush Gaming. Play challenging games, earn points and climb the leaderboard.";
-
-
-  currentPlayer = null;
-
-  renderAchievements();
-
+  greeting.innerHTML =
+    `<p style="color:#ff3535;font-weight:900;">
+      Welcome back, ${escapeHTML(name)} 👋
+    </p>`;
 }
 
 
 /* =========================================================
-   REWARD SYSTEM
+   EDIT PROFILE
 ========================================================= */
 
-async function addReward(points,isWin=false){
+function openEditProfile(){
 
-  if(!currentUser){
-
-    alert(
-      "Please login first to save your score."
-    );
-
-    return false;
-
+  if(!currentUser || !currentPlayer){
+    openAuth("login");
+    return;
   }
 
+  document.getElementById("editName").value =
+    currentPlayer.name || "";
+
+  document.getElementById("profileMessage").textContent = "";
+
+  document.getElementById("profileModal")
+    .classList.add("show");
+}
+
+
+document.getElementById("profileForm")
+.addEventListener("submit",async function(e){
+
+  e.preventDefault();
+
+  if(!currentUser) return;
+
+  const name =
+    document.getElementById("editName")
+    .value
+    .trim();
+
+  const message =
+    document.getElementById("profileMessage");
+
+  if(name.length < 2){
+    message.textContent =
+      "Gamer name must be at least 2 characters.";
+    return;
+  }
+
+  message.textContent = "Saving...";
 
   try{
 
-    const ref =
-      db.collection("users")
-        .doc(currentUser.uid);
+    await db.collection("users")
+      .doc(currentUser.uid)
+      .update({
 
+        name:name,
 
-    await ref.update({
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
 
-      points:
-        firebase.firestore.FieldValue.increment(points),
+      });
 
-      gamesPlayed:
-        firebase.firestore.FieldValue.increment(1),
+    message.textContent = "";
 
-      wins:
-        isWin
-        ? firebase.firestore.FieldValue.increment(1)
-        : firebase.firestore.FieldValue.increment(0),
+    closeModal("profileModal");
 
-      updatedAt:
-        firebase.firestore.FieldValue.serverTimestamp()
+    showToast("Gamer name updated!");
 
-    });
+  }catch(error){
 
+    console.error(error);
 
-    return true;
-
+    message.textContent =
+      "Could not update profile.";
   }
 
-  catch(e){
+});
 
-    console.error(e);
 
-    alert(
-      "Score could not be saved."
-    );
+/* =========================================================
+   CHANGE DP
+========================================================= */
 
-    return false;
+async function changeDP(input){
 
+  if(!currentUser){
+    openAuth("login");
+    return;
   }
 
+  const file = input.files[0];
+
+  if(!file) return;
+
+  try{
+
+    showToast("Updating profile picture...");
+
+    const photo =
+      await compressImage(file);
+
+    await db.collection("users")
+      .doc(currentUser.uid)
+      .update({
+
+        photo:photo,
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      });
+
+    input.value = "";
+
+    showToast("Profile picture updated!");
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast("Could not update profile picture.");
+  }
 }
 
 
 /* =========================================================
-   SAFE HTML
+   LOGOUT
 ========================================================= */
 
-function escapeHTML(text){
+async function logout(){
 
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  try{
 
+    await auth.signOut();
+
+    showToast("Logged out successfully.");
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast("Logout failed.");
+  }
 }
 
 
@@ -2075,155 +2306,147 @@ function escapeHTML(text){
    LEADERBOARD
 ========================================================= */
 
-function loadLeaderboard(){
+db.collection("users")
+.orderBy("points","desc")
+.limit(50)
+.onSnapshot(snapshot=>{
 
-  db.collection("users")
-    .orderBy("points","desc")
-    .limit(20)
-    .onSnapshot(
+  leaderboardPlayers =
+    snapshot.docs.map(doc=>({
+      id:doc.id,
+      ...doc.data()
+    }));
 
-      snap=>{
+  renderLeaderboard();
+  renderPlayers();
+  updateAchievements(currentPlayer);
 
-        const list =
-          document.getElementById(
-            "leaderboardList"
-          );
+},error=>{
 
+  console.error(error);
 
-        list.innerHTML = "";
-
-
-        if(snap.empty){
-
-          list.innerHTML =
-            '<p style="text-align:center;color:#777">No players yet.</p>';
-
-          return;
-
-        }
-
-
-        let rank = 1;
+  document.getElementById("leaderboardBody").innerHTML =
+    `<tr>
+      <td colspan="5" style="text-align:center;color:#ff4444;">
+        Could not load leaderboard.
+      </td>
+    </tr>`;
+});
 
 
-        snap.forEach(doc=>{
+function renderLeaderboard(){
 
-          const p =
-            doc.data();
+  const body =
+    document.getElementById("leaderboardBody");
 
+  if(!leaderboardPlayers.length){
 
-          list.innerHTML += `
+    body.innerHTML =
+      `<tr>
+        <td colspan="5" style="text-align:center;color:#777;">
+          No players yet. Be the first!
+        </td>
+      </tr>`;
 
-            <div class="leader-row">
-
-              <div class="rank">
-                #${rank++}
-              </div>
-
-              <img
-                class="avatar"
-                src="${escapeHTML(p.photo || defaultPhoto)}"
-                alt="Player">
-
-              <div class="player-data">
-
-                <strong>
-                  ${escapeHTML(p.name || "Gamer")}
-                </strong>
-
-                <small>
-                  ${p.wins || 0} Wins
-                  • ${p.gamesPlayed || 0} Games
-                </small>
-
-              </div>
-
-              <div class="points">
-                ${p.points || 0} PTS
-              </div>
-
-            </div>
-
-          `;
-
-        });
-
-      },
-
-      error=>{
-
-        console.error(
-          "Leaderboard error:",
-          error
-        );
-
-        document.getElementById(
-          "leaderboardList"
-        ).innerHTML =
-          '<p style="text-align:center;color:#777">Leaderboard unavailable.</p>';
-
-      }
-
-    );
+    return;
+  }
 
 
-  db.collection("users")
-    .orderBy("createdAt","desc")
-    .limit(50)
-    .onSnapshot(
+  body.innerHTML = "";
 
-      snap=>{
+  leaderboardPlayers.forEach((player,index)=>{
 
-        const list =
-          document.getElementById(
-            "playersList"
-          );
+    const tr = document.createElement("tr");
+
+    const photo =
+      safePhoto(player.photo);
+
+    const name =
+      player.name || "Player";
+
+    tr.innerHTML = `
+      <td class="rank">#${index + 1}</td>
+
+      <td>
+        <div class="player-cell">
+          <img
+            class="player-avatar"
+            src="${photo}"
+            alt="Player">
+
+          <strong>${escapeHTML(name)}</strong>
+        </div>
+      </td>
+
+      <td>${Number(player.points || 0)}</td>
+      <td>${Number(player.gamesPlayed || 0)}</td>
+      <td>${Number(player.wins || 0)}</td>
+    `;
+
+    body.appendChild(tr);
+  });
+}
 
 
-        list.innerHTML = "";
+/* =========================================================
+   ALL PLAYERS
+========================================================= */
 
+function renderPlayers(){
 
-        snap.forEach(doc=>{
+  const grid =
+    document.getElementById("playersGrid");
 
-          const p =
-            doc.data();
+  if(!leaderboardPlayers.length){
 
+    grid.innerHTML =
+      `<p style="color:#777;">No players yet.</p>`;
 
-          list.innerHTML += `
+    return;
+  }
 
-            <div class="leader-row">
+  grid.innerHTML = "";
 
-              <img
-                class="avatar"
-                src="${escapeHTML(p.photo || defaultPhoto)}"
-                alt="Player">
+  leaderboardPlayers.forEach(player=>{
 
-              <div class="player-data">
+    const card =
+      document.createElement("div");
 
-                <strong>
-                  ${escapeHTML(p.name || "Gamer")}
-                </strong>
+    card.className = "player-card";
 
-                <small>
-                  ${p.gamesPlayed || 0} Games
-                </small>
+    const img =
+      document.createElement("img");
 
-              </div>
+    img.src = safePhoto(player.photo);
+    img.alt = "Player";
 
-              <div class="points">
-                ${p.points || 0} PTS
-              </div>
+    const name =
+      document.createElement("h3");
 
-            </div>
+    name.textContent =
+      player.name || "Player";
 
-          `;
+    const email =
+      document.createElement("p");
 
-        });
+    email.textContent =
+      player.email || "";
 
-      }
+    const points =
+      document.createElement("p");
 
-    );
+    points.className = "points";
 
+    points.textContent =
+      `${Number(player.points || 0)} Points`;
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(email);
+    card.appendChild(points);
+
+    grid.appendChild(card);
+  });
 }
 
 
@@ -2231,1495 +2454,1022 @@ function loadLeaderboard(){
    ACHIEVEMENTS
 ========================================================= */
 
-function renderAchievements(){
+function updateAchievements(player){
 
-  const pts =
-    currentPlayer
-    ? Number(currentPlayer.points || 0)
-    : 0;
+  const unlocked = {
+    firstGame:false,
+    firstWin:false,
+    points100:false,
+    games10:false,
+    points500:false,
+    top3:false
+  };
+
+  if(player){
+
+    const points =
+      Number(player.points || 0);
+
+    const games =
+      Number(player.gamesPlayed || 0);
+
+    const wins =
+      Number(player.wins || 0);
+
+    unlocked.firstGame = games >= 1;
+    unlocked.firstWin = wins >= 1;
+    unlocked.points100 = points >= 100;
+    unlocked.games10 = games >= 10;
+    unlocked.points500 = points >= 500;
+
+    if(currentUser){
+
+      const rank =
+        leaderboardPlayers.findIndex(
+          p => p.id === currentUser.uid
+        );
+
+      unlocked.top3 =
+        rank >= 0 && rank < 3;
+    }
+  }
 
 
-  const wins =
-    currentPlayer
-    ? Number(currentPlayer.wins || 0)
-    : 0;
+  document.querySelectorAll(".achievement")
+  .forEach(card=>{
 
+    const key =
+      card.dataset.ach;
 
-  const games =
-    currentPlayer
-    ? Number(currentPlayer.gamesPlayed || 0)
-    : 0;
-
-
-  const achievements = [
-
-    {
-      name:"First Game",
-      icon:"🎮",
-      desc:"Complete 1 game",
-      unlocked:games >= 1
-    },
-
-    {
-      name:"First Win",
-      icon:"🏆",
-      desc:"Win 1 game",
-      unlocked:wins >= 1
-    },
-
-    {
-      name:"100 Points",
-      icon:"🔥",
-      desc:"Reach 100 points",
-      unlocked:pts >= 100
-    },
-
-    {
-      name:"10 Games",
-      icon:"⚡",
-      desc:"Play 10 games",
-      unlocked:games >= 10
-    },
-
-    {
-      name:"500 Points",
-      icon:"💎",
-      desc:"Reach 500 points",
-      unlocked:pts >= 500
-    },
-
-    {
-      name:"Elite",
-      icon:"👑",
-      desc:"Reach 1000 points",
-      unlocked:pts >= 1000
+    if(unlocked[key]){
+      card.classList.add("unlocked");
+    }else{
+      card.classList.remove("unlocked");
     }
 
-  ];
-
-
-  const grid =
-    document.getElementById(
-      "achievementList"
-    );
-
-
-  grid.innerHTML = "";
-
-
-  achievements.forEach(a=>{
-
-    grid.innerHTML += `
-
-      <div class="achievement ${a.unlocked ? "" : "locked"}">
-
-        <div class="achievement-icon">
-          ${a.icon}
-        </div>
-
-        <h3>
-          ${a.name}
-        </h3>
-
-        <p>
-          ${a.desc}
-        </p>
-
-        <p>
-          ${a.unlocked ? "✅ UNLOCKED" : "🔒 LOCKED"}
-        </p>
-
-      </div>
-
-    `;
-
   });
-
 }
 
 
 /* =========================================================
-   GAME 1 — 2048
+   ADD GAME REWARD
 ========================================================= */
 
-let board2048 = [];
-let score2048 = 0;
-let best2048 =
-  Number(localStorage.getItem("ayushBest2048") || 0);
+async function addGameReward(points,win){
 
-let game2048Over = false;
-let game2048Rewarded = false;
+  if(!currentUser){
+    showToast("Please login first.");
+    return;
+  }
 
+  try{
 
-function open2048(){
+    const updates = {
 
-  openGame("modal2048");
+      points:
+        firebase.firestore.FieldValue.increment(points),
 
-  start2048();
+      gamesPlayed:
+        firebase.firestore.FieldValue.increment(1),
 
+      updatedAt:
+        firebase.firestore.FieldValue.serverTimestamp()
+
+    };
+
+    if(win){
+
+      updates.wins =
+        firebase.firestore.FieldValue.increment(1);
+    }
+
+    await db.collection("users")
+      .doc(currentUser.uid)
+      .update(updates);
+
+    showToast(
+      win
+      ? `Victory! +${points} points`
+      : `Game completed! +${points} points`
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast("Score could not be saved.");
+  }
 }
 
+
+/* =========================================================
+   2048
+========================================================= */
 
 function start2048(){
 
-  board2048 =
-    Array(16).fill(0);
+  if(!requireLogin()) return;
 
-  score2048 = 0;
+  game2048Board =
+    Array.from({length:4},()=>Array(4).fill(0));
 
+  game2048Score = 0;
+  game2048Rewarded = false;
   game2048Over = false;
 
-  game2048Rewarded = false;
+  add2048Tile();
+  add2048Tile();
 
+  document.getElementById("gameModal")
+    .classList.add("show");
 
-  spawnTile();
-
-  spawnTile();
-
-  updateScore2048();
-
-  renderBoard2048();
-
-
-  document.getElementById(
-    "status2048"
-  ).textContent =
-    "Reach 2048. Good luck!";
-
+  render2048();
 }
 
 
-function spawnTile(){
+function add2048Tile(){
 
-  const empty =
-    board2048
-      .map((v,i)=>v === 0 ? i : null)
-      .filter(v=>v !== null);
+  const empty = [];
 
+  for(let r=0;r<4;r++){
+    for(let c=0;c<4;c++){
+
+      if(game2048Board[r][c] === 0){
+        empty.push({r,c});
+      }
+
+    }
+  }
 
   if(!empty.length) return;
 
+  const spot =
+    empty[Math.floor(Math.random()*empty.length)];
 
-  const index =
-    empty[
-      Math.floor(
-        Math.random()*empty.length
-      )
-    ];
-
-
-  board2048[index] =
+  game2048Board[spot.r][spot.c] =
     Math.random() < .9 ? 2 : 4;
-
 }
 
 
-function updateScore2048(){
+function render2048(){
 
-  document.getElementById(
-    "score2048"
-  ).textContent =
-    score2048;
+  const html = `
+    <div class="game-area">
 
+      <h2>2048 PRO</h2>
 
-  if(score2048 > best2048){
+      <div class="game-score">
+        Score:
+        <strong id="score2048">${game2048Score}</strong>
+      </div>
 
-    best2048 = score2048;
+      <div id="board2048"></div>
 
-    localStorage.setItem(
-      "ayushBest2048",
-      best2048
-    );
+      <div class="game-controls">
+        <button class="control-btn" onclick="move2048('up')">↑</button>
+        <button class="control-btn" onclick="move2048('left')">←</button>
+        <button class="control-btn" onclick="move2048('down')">↓</button>
+        <button class="control-btn" onclick="move2048('right')">→</button>
+      </div>
 
-  }
+      <p style="color:#777;margin-top:12px;">
+        Use arrow buttons or keyboard arrow keys.
+        Reach 2048 to win.
+      </p>
 
+    </div>
+  `;
 
-  document.getElementById(
-    "best2048"
-  ).textContent =
-    best2048;
+  document.getElementById("gameContent").innerHTML = html;
 
+  draw2048Board();
 }
 
 
-function renderBoard2048(){
+function draw2048Board(){
 
   const board =
-    document.getElementById(
-      "board2048"
-    );
+    document.getElementById("board2048");
 
+  if(!board) return;
 
   board.innerHTML = "";
 
+  for(let r=0;r<4;r++){
 
-  board2048.forEach(value=>{
+    for(let c=0;c<4;c++){
 
-    const tile =
-      document.createElement("div");
+      const value =
+        game2048Board[r][c];
 
+      const tile =
+        document.createElement("div");
 
-    tile.className =
-      "tile2048";
-
-
-    if(value){
-
-      tile.classList.add(
-        value <= 64
-        ? "v"+value
-        : "big"
-      );
+      tile.className =
+        value ? "tile filled" : "tile";
 
       tile.textContent =
-        value;
+        value || "";
 
+      board.appendChild(tile);
     }
+  }
 
+  const score =
+    document.getElementById("score2048");
 
-    board.appendChild(tile);
-
-  });
-
+  if(score){
+    score.textContent = game2048Score;
+  }
 }
 
 
-function canMove2048(){
+function slideLine(line){
 
-  for(let i=0;i<16;i++){
+  const original =
+    [...line];
 
-    if(board2048[i] === 0)
-      return true;
+  let arr =
+    line.filter(x=>x !== 0);
 
-    const x = i % 4;
-    const y = Math.floor(i/4);
+  for(let i=0;i<arr.length-1;i++){
 
+    if(arr[i] === arr[i+1]){
 
-    if(
-      x < 3 &&
-      board2048[i] === board2048[i+1]
-    )
-      return true;
+      arr[i] *= 2;
 
+      game2048Score += arr[i];
 
-    if(
-      y < 3 &&
-      board2048[i] === board2048[i+4]
-    )
-      return true;
-
+      arr.splice(i+1,1);
+    }
   }
 
+  while(arr.length < 4){
+    arr.push(0);
+  }
 
-  return false;
+  const changed =
+    arr.some((v,i)=>v !== original[i]);
 
+  return {
+    line:arr,
+    changed
+  };
 }
 
 
 function move2048(direction){
 
-  if(game2048Over)
-    return;
-
+  if(game2048Over) return;
 
   let moved = false;
 
-
-  for(let line=0;line<4;line++){
-
-    let indexes;
+  const newBoard =
+    Array.from({length:4},()=>Array(4).fill(0));
 
 
-    if(direction === "left"){
+  if(direction === "left" || direction === "right"){
 
-      indexes =
-        [0,1,2,3].map(
-          n=>line*4+n
-        );
+    for(let r=0;r<4;r++){
 
-    }
+      let line =
+        [...game2048Board[r]];
 
-    else if(direction === "right"){
-
-      indexes =
-        [3,2,1,0].map(
-          n=>line*4+n
-        );
-
-    }
-
-    else if(direction === "up"){
-
-      indexes =
-        [0,1,2,3].map(
-          n=>line+n*4
-        );
-
-    }
-
-    else{
-
-      indexes =
-        [3,2,1,0].map(
-          n=>line+n*4
-        );
-
-    }
-
-
-    let values =
-      indexes
-        .map(i=>board2048[i])
-        .filter(v=>v !== 0);
-
-
-    let result = [];
-
-
-    for(let i=0;i<values.length;i++){
-
-      if(
-        values[i] === values[i+1]
-      ){
-
-        const newValue =
-          values[i]*2;
-
-
-        result.push(newValue);
-
-        score2048 +=
-          newValue;
-
-        i++;
-
+      if(direction === "right"){
+        line.reverse();
       }
 
-      else{
+      const result =
+        slideLine(line);
 
-        result.push(
-          values[i]
-        );
-
+      if(direction === "right"){
+        result.line.reverse();
       }
 
-    }
+      newBoard[r] =
+        result.line;
 
-
-    while(result.length < 4)
-      result.push(0);
-
-
-    indexes.forEach((index,i)=>{
-
-      if(
-        board2048[index] !== result[i]
-      )
+      if(result.changed){
         moved = true;
+      }
+    }
 
+  }else{
 
-      board2048[index] =
-        result[i];
+    for(let c=0;c<4;c++){
 
-    });
+      let line = [];
 
+      for(let r=0;r<4;r++){
+        line.push(game2048Board[r][c]);
+      }
+
+      if(direction === "down"){
+        line.reverse();
+      }
+
+      const result =
+        slideLine(line);
+
+      if(direction === "down"){
+        result.line.reverse();
+      }
+
+      for(let r=0;r<4;r++){
+        newBoard[r][c] =
+          result.line[r];
+      }
+
+      if(result.changed){
+        moved = true;
+      }
+    }
   }
 
 
-  if(!moved)
-    return;
+  if(!moved) return;
 
+  game2048Board =
+    newBoard;
 
-  spawnTile();
+  add2048Tile();
 
-  updateScore2048();
-
-  renderBoard2048();
+  draw2048Board();
 
 
   if(
-    board2048.includes(2048) &&
-    !game2048Rewarded
+    !game2048Rewarded &&
+    game2048Board.some(row =>
+      row.includes(2048)
+    )
   ){
 
     game2048Rewarded = true;
-
-    document.getElementById(
-      "status2048"
-    ).textContent =
-      "🎉 2048 COMPLETE! +50 POINTS";
-
-
-    addReward(50,true);
-
     game2048Over = true;
 
+    addGameReward(100,true);
+
+    showToast("You reached 2048! You win!");
     return;
-
   }
 
 
-  if(!canMove2048()){
+  if(is2048GameOver()){
 
     game2048Over = true;
 
-    document.getElementById(
-      "status2048"
-    ).textContent =
-      "💀 GAME OVER!";
+    addGameReward(20,false);
 
+    showToast("Game Over! +20 points");
   }
-
 }
 
 
-window.addEventListener(
-  "keydown",
-  function(e){
+function is2048GameOver(){
 
-    if(
-      !document
-        .getElementById("modal2048")
-        .classList.contains("show")
-    )
-      return;
+  for(let r=0;r<4;r++){
 
+    for(let c=0;c<4;c++){
 
-    if(
-      ["ArrowUp","ArrowDown",
-       "ArrowLeft","ArrowRight"]
-       .includes(e.key)
-    ){
-
-      e.preventDefault();
-
-    }
-
-
-    if(e.key === "ArrowUp")
-      move2048("up");
-
-    if(e.key === "ArrowDown")
-      move2048("down");
-
-    if(e.key === "ArrowLeft")
-      move2048("left");
-
-    if(e.key === "ArrowRight")
-      move2048("right");
-
-  }
-);
-
-
-/* Swipe for 2048 */
-
-let touchStartX = 0;
-let touchStartY = 0;
-
-
-document
-  .getElementById("board2048")
-  .addEventListener(
-    "touchstart",
-    function(e){
-
-      touchStartX =
-        e.changedTouches[0].screenX;
-
-      touchStartY =
-        e.changedTouches[0].screenY;
-
-    }
-  );
-
-
-document
-  .getElementById("board2048")
-  .addEventListener(
-    "touchend",
-    function(e){
-
-      const x =
-        e.changedTouches[0].screenX;
-
-      const y =
-        e.changedTouches[0].screenY;
-
-
-      const dx =
-        x-touchStartX;
-
-      const dy =
-        y-touchStartY;
-
+      if(game2048Board[r][c] === 0){
+        return false;
+      }
 
       if(
-        Math.abs(dx) < 30 &&
-        Math.abs(dy) < 30
-      )
-        return;
-
-
-      if(Math.abs(dx) > Math.abs(dy)){
-
-        move2048(
-          dx > 0
-          ? "right"
-          : "left"
-        );
-
+        c<3 &&
+        game2048Board[r][c] === game2048Board[r][c+1]
+      ){
+        return false;
       }
 
-      else{
-
-        move2048(
-          dy > 0
-          ? "down"
-          : "up"
-        );
-
+      if(
+        r<3 &&
+        game2048Board[r][c] === game2048Board[r+1][c]
+      ){
+        return false;
       }
-
     }
-  );
+  }
+
+  return true;
+}
+
+
+document.addEventListener("keydown",function(e){
+
+  if(
+    !document.getElementById("gameModal")
+      .classList.contains("show")
+  ){
+    return;
+  }
+
+  if(
+    ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"]
+    .includes(e.key)
+  ){
+
+    e.preventDefault();
+
+    const map = {
+      ArrowUp:"up",
+      ArrowDown:"down",
+      ArrowLeft:"left",
+      ArrowRight:"right"
+    };
+
+    if(document.getElementById("board2048")){
+      move2048(map[e.key]);
+    }
+  }
+});
 
 
 /* =========================================================
-   GAME 2 — SUDOKU
+   SUDOKU HARD
 ========================================================= */
 
-const sudokuSolution = [
-
-  [5,3,4,6,7,8,9,1,2],
-  [6,7,2,1,9,5,3,4,8],
-  [1,9,8,3,4,2,5,6,7],
-  [8,5,9,7,6,1,4,2,3],
-  [4,2,6,8,5,3,7,9,1],
-  [7,1,3,9,2,4,8,5,6],
-  [9,6,1,5,3,7,2,8,4],
-  [2,8,7,4,1,9,6,3,5],
-  [3,4,5,2,8,6,1,7,9]
-
-];
-
-
 const sudokuPuzzle = [
+  [0,0,0,0,0,0,0,1,2],
+  [0,0,0,0,0,0,0,0,0],
+  [0,0,1,0,0,0,0,0,0],
 
-  [5,3,0,0,7,0,0,0,0],
-  [6,0,0,1,9,5,0,0,0],
-  [0,9,8,0,0,0,0,6,0],
-  [8,0,0,0,6,0,0,0,3],
-  [4,0,0,8,0,3,0,0,1],
-  [7,0,0,0,2,0,0,0,6],
-  [0,6,0,0,0,0,2,8,0],
-  [0,0,0,4,1,9,0,0,5],
-  [0,0,0,0,8,0,0,7,9]
+  [0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,3,0,0,0],
+  [0,0,0,0,0,0,0,0,0],
 
+  [0,0,0,0,0,0,1,0,0],
+  [0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0]
 ];
 
 
-let sudokuRewarded = false;
+/*
+  A complete valid solution.
+*/
+const sudokuSolution = [
+  [9,8,7,6,5,4,3,1,2],
+  [4,5,6,1,3,2,7,9,8],
+  [3,2,1,9,8,7,6,5,4],
+
+  [8,7,9,2,4,1,5,3,6],
+  [1,4,2,5,7,3,9,8,0],
+  [5,3,6,8,9,0,2,4,1],
+
+  [7,9,5,3,2,8,1,6,0],
+  [6,1,3,4,0,5,8,2,9],
+  [2,6,4,7,1,9,0,0,3]
+];
 
 
-function openSudoku(){
+/*
+  We generate a valid Sudoku board using
+  a base pattern, then remove numbers.
+*/
+function generateSudoku(){
 
-  openGame("modalSudoku");
+  const base = [
+    [1,2,3,4,5,6,7,8,9],
+    [4,5,6,7,8,9,1,2,3],
+    [7,8,9,1,2,3,4,5,6],
 
-  newSudoku();
+    [2,3,4,5,6,7,8,9,1],
+    [5,6,7,8,9,1,2,3,4],
+    [8,9,1,2,3,4,5,6,7],
 
+    [3,4,5,6,7,8,9,1,2],
+    [6,7,8,9,1,2,3,4,5],
+    [9,1,2,3,4,5,6,7,8]
+  ];
+
+  const nums =
+    [1,2,3,4,5,6,7,8,9]
+    .sort(()=>Math.random()-.5);
+
+  const board =
+    base.map(row =>
+      row.map(n=>nums[n-1])
+    );
+
+  return board;
 }
 
 
-function newSudoku(){
+let sudokuBoard = [];
+let sudokuSolutionBoard = [];
+
+
+function startSudoku(){
+
+  if(!requireLogin()) return;
 
   sudokuRewarded = false;
 
+  sudokuSolutionBoard =
+    generateSudoku();
 
-  const board =
-    document.getElementById(
-      "sudokuBoard"
-    );
+  sudokuBoard =
+    sudokuSolutionBoard.map(row=>[...row]);
+
+  /*
+    Remove 48 cells = difficult puzzle.
+  */
+
+  const cells = [];
+
+  for(let r=0;r<9;r++){
+    for(let c=0;c<9;c++){
+      cells.push({r,c});
+    }
+  }
+
+  cells.sort(()=>Math.random()-.5);
+
+  for(let i=0;i<48;i++){
+
+    const cell = cells[i];
+
+    sudokuBoard[cell.r][cell.c] = 0;
+  }
 
 
-  board.innerHTML = "";
+  document.getElementById("gameModal")
+    .classList.add("show");
+
+  renderSudoku();
+}
 
 
-  document.getElementById(
-    "sudokuStatus"
-  ).textContent =
-    "Fill every empty cell correctly.";
+function renderSudoku(){
 
+  let html = `
+    <div class="game-area">
+
+      <h2>SUDOKU HARD</h2>
+
+      <p style="color:#888;margin:8px 0;">
+        Fill every empty cell correctly.
+      </p>
+
+      <div class="sudoku">
+  `;
 
   for(let r=0;r<9;r++){
 
     for(let c=0;c<9;c++){
 
-      const input =
-        document.createElement("input");
-
-
-      input.type = "number";
-
-      input.min = 1;
-
-      input.max = 9;
-
-      input.className =
-        "sudoku-cell";
-
-
       const value =
-        sudokuPuzzle[r][c];
+        sudokuBoard[r][c];
 
+      if(value){
 
-      if(value !== 0){
+        html += `
+          <input
+            class="given"
+            value="${value}"
+            readonly>
+        `;
 
-        input.value =
-          value;
+      }else{
 
-        input.readOnly = true;
-
-        input.classList.add(
-          "fixed"
-        );
-
+        html += `
+          <input
+            id="sudoku-${r}-${c}"
+            maxlength="1"
+            inputmode="numeric"
+            pattern="[1-9]"
+            oninput="this.value=this.value.replace(/[^1-9]/g,'')">
+        `;
       }
-
-
-      input.dataset.row = r;
-
-      input.dataset.col = c;
-
-
-      board.appendChild(input);
-
     }
-
   }
 
+  html += `
+      </div>
+
+      <button
+        class="btn btn-red"
+        type="button"
+        onclick="checkSudoku()">
+        CHECK SOLUTION
+      </button>
+
+    </div>
+  `;
+
+  document.getElementById("gameContent")
+    .innerHTML = html;
 }
 
 
 function checkSudoku(){
 
-  if(sudokuRewarded)
-    return;
+  if(sudokuRewarded) return;
 
+  for(let r=0;r<9;r++){
 
-  const inputs =
-    document.querySelectorAll(
-      "#sudokuBoard input"
-    );
+    for(let c=0;c<9;c++){
 
+      if(sudokuBoard[r][c] === 0){
 
-  let correct = true;
+        const input =
+          document.getElementById(
+            `sudoku-${r}-${c}`
+          );
 
+        const value =
+          Number(input.value);
 
-  inputs.forEach(input=>{
+        if(
+          !value ||
+          value !== sudokuSolutionBoard[r][c]
+        ){
 
-    const r =
-      Number(input.dataset.row);
-
-    const c =
-      Number(input.dataset.col);
-
-
-    const value =
-      Number(input.value);
-
-
-    if(
-      value !==
-      sudokuSolution[r][c]
-    ){
-
-      correct = false;
-
-      input.style.borderColor =
-        "#e50914";
-
+          showToast("Incorrect solution. Keep trying!");
+          return;
+        }
+      }
     }
-
-    else{
-
-      input.style.borderColor =
-        "#333";
-
-    }
-
-  });
-
-
-  if(correct){
-
-    sudokuRewarded = true;
-
-
-    document.getElementById(
-      "sudokuStatus"
-    ).textContent =
-      "🔥 PERFECT SOLVE! +40 POINTS";
-
-
-    addReward(40,true);
-
   }
 
-  else{
+  sudokuRewarded = true;
 
-    document.getElementById(
-      "sudokuStatus"
-    ).textContent =
-      "❌ Not correct. Check the red cells.";
+  addGameReward(150,true);
 
-  }
-
+  showToast("Perfect Sudoku! +150 points");
 }
 
 
 /* =========================================================
-   GAME 3 — GUARANTEED SOLVABLE MAZE
+   MAZE
 ========================================================= */
 
-const mazeSize = 11;
+function startMaze(){
 
-let maze = [];
-let mazePlayer = {
-  x:0,
-  y:0
-};
+  if(!requireLogin()) return;
 
-let mazeExit = {
-  x:mazeSize-1,
-  y:mazeSize-1
-};
+  mazeRewarded = false;
+  mazeFinished = false;
 
-let mazeMoves = 0;
-let mazeRewarded = false;
+  generateMaze();
 
+  document.getElementById("gameModal")
+    .classList.add("show");
 
-function openMaze(){
-
-  openGame("modalMaze");
-
-  newMaze();
-
+  renderMaze();
 }
 
 
-function newMaze(){
+function generateMaze(){
 
-  mazeRewarded = false;
+  const size = 11;
 
-  mazeMoves = 0;
+  mazeGrid =
+    Array.from(
+      {length:size},
+      ()=>Array(size).fill(1)
+    );
 
+  function carve(r,c){
 
-  /*
-    Start with walls and carve a path.
-    This guarantees the exit is reachable.
-  */
+    mazeGrid[r][c] = 0;
 
-  maze =
-    Array(mazeSize)
-      .fill(null)
-      .map(
-        ()=>Array(mazeSize).fill(1)
-      );
+    const dirs = [
+      [2,0],
+      [-2,0],
+      [0,2],
+      [0,-2]
+    ].sort(()=>Math.random()-.5);
 
+    for(const [dr,dc] of dirs){
 
-  let x=0;
-  let y=0;
+      const nr = r + dr;
+      const nc = c + dc;
 
+      if(
+        nr > 0 &&
+        nr < size-1 &&
+        nc > 0 &&
+        nc < size-1 &&
+        mazeGrid[nr][nc] === 1
+      ){
 
-  maze[y][x]=0;
+        mazeGrid[
+          r + dr/2
+        ][
+          c + dc/2
+        ] = 0;
 
-
-  while(
-    x < mazeSize-1 ||
-    y < mazeSize-1
-  ){
-
-    let options=[];
-
-
-    if(x < mazeSize-1)
-      options.push("right");
-
-
-    if(y < mazeSize-1)
-      options.push("down");
-
-
-    if(Math.random() < .35){
-
-      if(x > 0)
-        options.push("left");
-
-      if(y > 0)
-        options.push("up");
-
+        carve(nr,nc);
+      }
     }
-
-
-    const direction =
-      options[
-        Math.floor(
-          Math.random()*options.length
-        )
-      ];
-
-
-    if(direction === "right")
-      x++;
-
-    if(direction === "left")
-      x--;
-
-    if(direction === "down")
-      y++;
-
-    if(direction === "up")
-      y--;
-
-
-    maze[y][x]=0;
-
   }
 
+  carve(1,1);
 
-  /*
-    Add extra open cells without
-    blocking the guaranteed path.
-  */
+  mazeGrid[1][1] = 0;
+  mazeGrid[size-2][size-2] = 0;
 
-  for(let i=0;i<25;i++){
-
-    const rx =
-      Math.floor(
-        Math.random()*mazeSize
-      );
-
-    const ry =
-      Math.floor(
-        Math.random()*mazeSize
-      );
-
-
-    maze[ry][rx]=0;
-
-  }
-
-
-  mazePlayer={
-    x:0,
-    y:0
+  mazePlayer = {
+    r:1,
+    c:1
   };
-
-
-  document.getElementById(
-    "mazeStatus"
-  ).textContent =
-    "Reach the green exit. Moves: 0";
-
-
-  renderMaze();
-
 }
 
 
 function renderMaze(){
 
-  const board =
-    document.getElementById(
-      "mazeBoard"
-    );
+  let html = `
+    <div class="game-area">
 
+      <h2>MAZE ESCAPE</h2>
 
-  board.style.gridTemplateColumns =
-    `repeat(${mazeSize},1fr)`;
+      <p style="color:#888;">
+        Reach the green exit.
+      </p>
 
+      <div class="maze">
+  `;
 
-  board.innerHTML = "";
+  for(let r=0;r<11;r++){
 
+    for(let c=0;c<11;c++){
 
-  for(let y=0;y<mazeSize;y++){
-
-    for(let x=0;x<mazeSize;x++){
-
-      const cell =
-        document.createElement("div");
-
-
-      cell.className =
+      let className =
         "maze-cell";
 
+      if(mazeGrid[r][c] === 1){
+        className += " wall";
+      }
 
-      if(maze[y][x] === 1)
-        cell.classList.add("wall");
-
+      if(r === 9 && c === 9){
+        className += " end";
+      }
 
       if(
-        x === mazePlayer.x &&
-        y === mazePlayer.y
+        r === mazePlayer.r &&
+        c === mazePlayer.c
       ){
-
-        cell.classList.add(
-          "player"
-        );
-
-        cell.textContent =
-          "🎮";
-
+        className += " player";
       }
 
-      else if(
-        x === mazeExit.x &&
-        y === mazeExit.y
-      ){
-
-        cell.classList.add(
-          "exit"
-        );
-
-        cell.textContent =
-          "🏁";
-
-      }
-
-
-      board.appendChild(cell);
-
+      html += `
+        <div class="${className}"></div>
+      `;
     }
-
   }
 
+  html += `
+      </div>
+
+      <div class="game-controls">
+        <button
+          class="control-btn"
+          onclick="moveMaze(-1,0)">↑</button>
+
+        <button
+          class="control-btn"
+          onclick="moveMaze(0,-1)">←</button>
+
+        <button
+          class="control-btn"
+          onclick="moveMaze(1,0)">↓</button>
+
+        <button
+          class="control-btn"
+          onclick="moveMaze(0,1)">→</button>
+      </div>
+
+      <p style="color:#777;margin-top:10px;">
+        You can also use keyboard arrow keys.
+      </p>
+
+    </div>
+  `;
+
+  document.getElementById("gameContent")
+    .innerHTML = html;
 }
 
 
-function moveMaze(dx,dy){
+function moveMaze(dr,dc){
 
-  if(mazeRewarded)
-    return;
+  if(mazeFinished) return;
 
+  const nr =
+    mazePlayer.r + dr;
 
-  const nx =
-    mazePlayer.x + dx;
-
-  const ny =
-    mazePlayer.y + dy;
-
+  const nc =
+    mazePlayer.c + dc;
 
   if(
-    nx < 0 ||
-    nx >= mazeSize ||
-    ny < 0 ||
-    ny >= mazeSize
-  )
+    nr < 0 ||
+    nr >= 11 ||
+    nc < 0 ||
+    nc >= 11
+  ){
     return;
+  }
 
-
-  if(maze[ny][nx] === 1)
+  if(mazeGrid[nr][nc] === 1){
     return;
+  }
 
-
-  mazePlayer={
-    x:nx,
-    y:ny
-  };
-
-
-  mazeMoves++;
-
+  mazePlayer.r = nr;
+  mazePlayer.c = nc;
 
   renderMaze();
 
-
-  document.getElementById(
-    "mazeStatus"
-  ).textContent =
-    "Moves: " + mazeMoves;
-
-
   if(
-    nx === mazeExit.x &&
-    ny === mazeExit.y
+    mazePlayer.r === 9 &&
+    mazePlayer.c === 9 &&
+    !mazeRewarded
   ){
 
     mazeRewarded = true;
+    mazeFinished = true;
 
+    addGameReward(75,true);
 
-    const bonus =
-      Math.max(
-        20,
-        60 - mazeMoves
-      );
-
-
-    document.getElementById(
-      "mazeStatus"
-    ).textContent =
-      "🏁 ESCAPED! +" +
-      bonus +
-      " POINTS";
-
-
-    addReward(
-      bonus,
-      true
-    );
-
+    showToast("Maze escaped! +75 points");
   }
-
 }
-
-
-window.addEventListener(
-  "keydown",
-  function(e){
-
-    if(
-      !document
-        .getElementById("modalMaze")
-        .classList.contains("show")
-    )
-      return;
-
-
-    if(e.key === "ArrowUp")
-      moveMaze(0,-1);
-
-    if(e.key === "ArrowDown")
-      moveMaze(0,1);
-
-    if(e.key === "ArrowLeft")
-      moveMaze(-1,0);
-
-    if(e.key === "ArrowRight")
-      moveMaze(1,0);
-
-  }
-);
 
 
 /* =========================================================
-   GAME 4 — MINESWEEPER
+   CLOSE GAME
 ========================================================= */
 
-const mineRows = 10;
-const mineCols = 10;
-const mineCount = 18;
+function closeGame(){
 
-let mineData = [];
-let mineGameOver = false;
-let mineOpened = 0;
-let mineRewarded = false;
+  closeModal("gameModal");
 
-
-function openMines(){
-
-  openGame("modalMines");
-
-  newMines();
-
+  document.getElementById("gameContent")
+    .innerHTML = "";
 }
 
 
-function newMines(){
-
-  mineData =
-    Array(mineRows)
-      .fill(null)
-      .map(
-        ()=>Array(mineCols)
-          .fill(null)
-          .map(
-            ()=>({
-              mine:false,
-              open:false,
-              flag:false,
-              count:0
-            })
-          )
-      );
-
-
-  mineGameOver = false;
-
-  mineOpened = 0;
-
-  mineRewarded = false;
-
-
-  let placed = 0;
-
-
-  while(placed < mineCount){
-
-    const r =
-      Math.floor(
-        Math.random()*mineRows
-      );
-
-    const c =
-      Math.floor(
-        Math.random()*mineCols
-      );
-
-
-    if(
-      !mineData[r][c].mine &&
-      !(r === 0 && c === 0)
-    ){
-
-      mineData[r][c].mine = true;
-
-      placed++;
-
-    }
-
-  }
-
-
-  calculateMineNumbers();
-
-  renderMines();
-
-
-  document.getElementById(
-    "mineStatus"
-  ).textContent =
-    "Find all safe cells. Tap a cell to open.";
-
-}
-
-
-function calculateMineNumbers(){
-
-  for(let r=0;r<mineRows;r++){
-
-    for(let c=0;c<mineCols;c++){
-
-      if(mineData[r][c].mine)
-        continue;
-
-
-      let count=0;
-
-
-      for(let dr=-1;dr<=1;dr++){
-
-        for(let dc=-1;dc<=1;dc++){
-
-          if(
-            dr===0 &&
-            dc===0
-          )
-            continue;
-
-
-          const nr=r+dr;
-          const nc=c+dc;
-
-
-          if(
-            nr>=0 &&
-            nr<mineRows &&
-            nc>=0 &&
-            nc<mineCols &&
-            mineData[nr][nc].mine
-          ){
-
-            count++;
-
-          }
-
-        }
-
-      }
-
-
-      mineData[r][c].count =
-        count;
-
-    }
-
-  }
-
-}
-
-
-function renderMines(){
-
-  const board =
-    document.getElementById(
-      "mineBoard"
-    );
-
-
-  board.innerHTML = "";
-
-
-  for(let r=0;r<mineRows;r++){
-
-    for(let c=0;c<mineCols;c++){
-
-      const cell =
-        document.createElement("button");
-
-
-      cell.className =
-        "mine-cell";
-
-
-      const data =
-        mineData[r][c];
-
-
-      if(data.open){
-
-        cell.classList.add(
-          "open"
-        );
-
-
-        if(data.mine){
-
-          cell.classList.add(
-            "mine"
-          );
-
-          cell.textContent =
-            "💣";
-
-        }
-
-        else if(data.count > 0){
-
-          cell.textContent =
-            data.count;
-
-        }
-
-      }
-
-      else if(data.flag){
-
-        cell.classList.add(
-          "flag"
-        );
-
-        cell.textContent =
-          "🚩";
-
-      }
-
-
-      cell.onclick =
-        ()=>openMineCell(r,c);
-
-
-      cell.oncontextmenu =
-        function(e){
-
-          e.preventDefault();
-
-          toggleMineFlag(r,c);
-
-        };
-
-
-      board.appendChild(cell);
-
-    }
-
-  }
-
-}
-
-
-function openMineCell(r,c){
-
-  if(mineGameOver)
-    return;
-
-
-  const cell =
-    mineData[r][c];
-
-
-  if(cell.open || cell.flag)
-    return;
-
-
-  cell.open = true;
-
-
-  if(cell.mine){
-
-    mineGameOver = true;
-
-
-    revealAllMines();
-
-
-    document.getElementById(
-      "mineStatus"
-    ).textContent =
-      "💥 BOOM! Try again.";
-
-
-    renderMines();
-
-    return;
-
-  }
-
-
-  mineOpened++;
-
-
-  /*
-    Open empty neighbouring cells.
-  */
-
-  if(cell.count === 0){
-
-    for(let dr=-1;dr<=1;dr++){
-
-      for(let dc=-1;dc<=1;dc++){
-
-        const nr=r+dr;
-        const nc=c+dc;
-
-
-        if(
-          nr>=0 &&
-          nr<mineRows &&
-          nc>=0 &&
-          nc<mineCols
-        ){
-
-          if(
-            !mineData[nr][nc].open &&
-            !mineData[nr][nc].mine
-          ){
-
-            openMineCell(
-              nr,
-              nc
-            );
-
-          }
-
-        }
-
-      }
-
-    }
-
-  }
-
-
-  renderMines();
-
-
-  const safeCells =
-    mineRows*mineCols-mineCount;
-
+/* =========================================================
+   MAZE KEYBOARD
+========================================================= */
+
+document.addEventListener("keydown",function(e){
 
   if(
-    mineOpened >= safeCells &&
-    !mineRewarded
+    !document.getElementById("gameModal")
+      .classList.contains("show")
+  ){
+    return;
+  }
+
+  if(
+    document.querySelector(".maze")
   ){
 
-    mineRewarded = true;
+    const map = {
+      ArrowUp:[-1,0],
+      ArrowDown:[1,0],
+      ArrowLeft:[0,-1],
+      ArrowRight:[0,1]
+    };
 
-    mineGameOver = true;
+    if(map[e.key]){
 
+      e.preventDefault();
 
-    document.getElementById(
-      "mineStatus"
-    ).textContent =
-      "🏆 MINESWEEPER MASTER! +60 POINTS";
-
-
-    addReward(
-      60,
-      true
-    );
-
-  }
-
-}
-
-
-function toggleMineFlag(r,c){
-
-  if(mineGameOver)
-    return;
-
-
-  const cell =
-    mineData[r][c];
-
-
-  if(cell.open)
-    return;
-
-
-  cell.flag =
-    !cell.flag;
-
-
-  renderMines();
-
-}
-
-
-function revealAllMines(){
-
-  for(let r=0;r<mineRows;r++){
-
-    for(let c=0;c<mineCols;c++){
-
-      if(mineData[r][c].mine){
-
-        mineData[r][c].open = true;
-
-      }
-
+      moveMaze(
+        map[e.key][0],
+        map[e.key][1]
+      );
     }
-
   }
 
-}
+});
 
 
 /* =========================================================
-   CLOSE MODALS BY CLICKING OUTSIDE
+   FEEDBACK SUBMIT
 ========================================================= */
 
-document
-  .querySelectorAll(".modal,.game-modal")
-  .forEach(modal=>{
+document.getElementById("feedbackForm")
+.addEventListener("submit",async function(e){
 
-    modal.addEventListener(
-      "click",
-      function(e){
+  e.preventDefault();
 
-        if(e.target === modal){
+  if(!currentUser || !currentPlayer){
 
-          modal.classList.remove(
-            "show"
-          );
+    showToast("Please login first.");
+    return;
+  }
 
-        }
+  const form =
+    e.target;
 
-      }
-    );
+  const message =
+    document.getElementById("feedbackMessage");
 
-  });
+  message.textContent =
+    "Submitting feedback...";
+
+
+  const data =
+    new FormData(form);
+
+
+  try{
+
+    await db.collection("feedback").add({
+
+      userId:currentUser.uid,
+
+      playerName:
+        currentPlayer.name || "Player",
+
+      playerEmail:
+        currentPlayer.email || currentUser.email || "",
+
+      overallRating:
+        Number(data.get("overallRating") || 0),
+
+      designRating:
+        data.get("designRating") || "",
+
+      speedRating:
+        data.get("speedRating") || "",
+
+      mobileExperience:
+        data.get("mobileExperience") || "",
+
+      leaderboardRating:
+        data.get("leaderboardRating") || "",
+
+      profileRating:
+        data.get("profileRating") || "",
+
+      favouriteGame:
+        data.get("favouriteGame") || "",
+
+      gameDifficulty:
+        data.get("gameDifficulty") || "",
+
+      gameControls:
+        data.get("gameControls") || "",
+
+      gamePerformance:
+        data.get("gamePerformance") || "",
+
+      gameToImprove:
+        data.get("gameToImprove") || "",
+
+      newGame:
+        String(data.get("newGame") || "").trim(),
+
+      bugs:
+        data.get("bugs") || "",
+
+      bugDetails:
+        String(data.get("bugDetails") || "").trim(),
+
+      improvements:
+        String(data.get("improvements") || "").trim(),
+
+      features:
+        String(data.get("features") || "").trim(),
+
+      experience:
+        data.get("experience") || "",
+
+      comments:
+        String(data.get("comments") || "").trim(),
+
+      createdAt:
+        firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+
+    form.reset();
+
+    message.textContent =
+      "Thank you! Your feedback has been submitted.";
+
+    showToast("Feedback submitted successfully!");
+
+  }catch(error){
+
+    console.error(error);
+
+    message.textContent =
+      "Could not submit feedback. Please try again.";
+  }
+
+});
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+updateAchievements(null);
 
 </script>
 
