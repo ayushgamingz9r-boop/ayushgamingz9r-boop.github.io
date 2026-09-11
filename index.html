@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080808">
-<title>AYUSH GAMING</title>
+<meta name="description" content="AYUSH GAMING is a gaming website featuring browser games, player profiles, achievements, a live leaderboard, gaming guides and community feedback.">
+<meta name="robots" content="index,follow">
+<title>AYUSH GAMING | Online Games, Guides & Community</title>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -761,6 +763,66 @@ footer strong{
   transform:translateX(-50%) translateY(0);
 }
 
+
+/* ================= ADSENSE / CONTENT PAGES ================= */
+.content-card{
+  max-width:1000px;
+  margin:auto;
+  background:#0e0e0e;
+  border:1px solid #292929;
+  border-radius:18px;
+  padding:28px;
+}
+.content-card h3{
+  color:#ff3030;
+  margin:24px 0 8px;
+  font-size:21px;
+}
+.content-card h3:first-child{margin-top:0}
+.content-card p,.content-card li{
+  color:#aaa;
+  margin:8px 0;
+}
+.content-card ul{padding-left:22px}
+.content-card a{color:#ff4545;text-decoration:underline}
+.content-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:15px;
+}
+.info-card{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:20px;
+}
+.info-card h3{color:#fff;margin:0 0 8px}
+.info-card p{color:#999}
+.ad-slot{
+  max-width:1000px;
+  min-height:90px;
+  margin:25px auto 0;
+  border:1px dashed #333;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#555;
+  font-size:12px;
+}
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin:16px 0;
+}
+.footer-links a{color:#aaa}
+.footer-links a:hover{color:#fff}
+@media(max-width:700px){
+  .content-card{padding:20px}
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
@@ -818,6 +880,7 @@ footer strong{
       <a href="#leaderboard">Leaderboard</a>
       <a href="#players">Players</a>
       <a href="#feedback">Feedback</a>
+      <a href="#about">About</a>
 
       <button class="nav-btn" id="loginNavBtn" type="button" onclick="openAuth('login')">
         LOGIN
@@ -884,6 +947,7 @@ footer strong{
     </div>
 
   </div>
+  <div class="ad-slot" aria-label="Advertising space">Advertising space</div>
 </section>
 
 
@@ -1013,6 +1077,7 @@ footer strong{
     </div>
 
   </div>
+  <div class="ad-slot" aria-label="Advertising space">Advertising space</div>
 </section>
 
 
@@ -1125,6 +1190,123 @@ footer strong{
   </div>
 </section>
 
+
+<!-- ================= GAMING GUIDES ================= -->
+<section id="guides">
+  <div class="container">
+    <div class="section-title">
+      <h2>GAMING GUIDES & TIPS</h2>
+      <p>Original tips to help players understand and enjoy our games.</p>
+    </div>
+
+    <div class="content-grid">
+      <div class="info-card">
+        <h3>2048 PRO Tips</h3>
+        <p>Keep your highest tile in one corner, build matching tiles patiently, and avoid filling the board too quickly. Plan your next move before combining tiles.</p>
+      </div>
+      <div class="info-card">
+        <h3>Sudoku HARD Tips</h3>
+        <p>Start with rows, columns or boxes that have the fewest missing numbers. Use elimination and check every number against its row, column and 3×3 box.</p>
+      </div>
+      <div class="info-card">
+        <h3>Maze Escape Tips</h3>
+        <p>Look ahead before moving, avoid random turns, and use the visible walls to plan a route toward the exit. On mobile, use the four control buttons.</p>
+      </div>
+    </div>
+
+    <div class="content-card" style="margin-top:18px;">
+      <h3>How the AYUSH GAMING system works</h3>
+      <p>Players can create an account, choose a gamer name and profile picture, play the available browser games, earn points from completed challenges, unlock achievements and appear on the live leaderboard.</p>
+      <p>Game scores shown on the leaderboard are connected to the site's Firebase database. Results can change as players complete new challenges.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>ABOUT AYUSH GAMING</h2>
+      <p>A simple gaming community built for browser players.</p>
+    </div>
+    <div class="content-card">
+      <h3>What is AYUSH GAMING?</h3>
+      <p>AYUSH GAMING is an independent gaming website where visitors can play browser-based challenges and, after creating an account, track their points, achievements and leaderboard position.</p>
+      <h3>What you can do here</h3>
+      <ul>
+        <li>Play 2048 PRO, SUDOKU HARD and MAZE ESCAPE.</li>
+        <li>Create and customize a player profile.</li>
+        <li>Earn points through supported game challenges.</li>
+        <li>Compare scores on the live leaderboard.</li>
+        <li>Send feedback and suggest improvements or new games.</li>
+      </ul>
+      <h3>Our goal</h3>
+      <p>Our goal is to keep improving the website with useful gaming content, smoother controls, new challenges and a better experience for mobile and desktop players.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>CONTACT US</h2>
+      <p>Have a question, suggestion or website issue?</p>
+    </div>
+    <div class="content-card">
+      <h3>Get in touch</h3>
+      <p>The easiest way to contact AYUSH GAMING is through the <a href="#feedback">Player Feedback</a> form on this website.</p>
+      <p>You can also visit our official Instagram profile for updates and community posts.</p>
+      <p><a href="https://www.instagram.com/ayush_gaming025" target="_blank" rel="noopener noreferrer">Instagram: @ayush_gaming025</a></p>
+      <h3>For technical problems</h3>
+      <p>Please include the game name, device/browser and a short description of the problem. Do not send passwords or other private information.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIVACY POLICY ================= -->
+<section id="privacy">
+  <div class="container">
+    <div class="section-title"><h2>PRIVACY POLICY</h2><p>How AYUSH GAMING handles information.</p></div>
+    <div class="content-card">
+      <h3>Information we use</h3>
+      <p>When you create an account, the website uses information needed to provide the account and gaming features, such as your gamer name, email address and profile picture. Game statistics such as points, games played and wins are stored with your player profile.</p>
+      <h3>Firebase services</h3>
+      <p>AYUSH GAMING uses Firebase Authentication and Cloud Firestore to provide account, profile, leaderboard and feedback features. These services process information according to their own terms and privacy documentation.</p>
+      <h3>Feedback</h3>
+      <p>Feedback submitted through the website is stored so the site owner can review suggestions, ratings and reported problems. Feedback is not displayed as a public feedback database on this website.</p>
+      <h3>Cookies and advertising</h3>
+      <p>If advertising is added in the future, advertising providers such as Google may use cookies or similar technologies as described in their applicable policies and consent requirements. The site's privacy information will be kept updated when advertising features are enabled.</p>
+      <h3>Public information</h3>
+      <p>Your gamer name, profile picture and gaming statistics may appear in public areas such as the leaderboard and player list. Your account password is not displayed on the website.</p>
+      <h3>Children and young users</h3>
+      <p>Do not submit unnecessary personal information through profiles or feedback. Parents or guardians should supervise younger users where appropriate.</p>
+      <h3>Updates</h3>
+      <p>This policy may be updated when website features or services change. The latest version will be published on this page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TERMS ================= -->
+<section id="terms">
+  <div class="container">
+    <div class="section-title"><h2>TERMS & CONDITIONS</h2><p>Rules for using AYUSH GAMING.</p></div>
+    <div class="content-card">
+      <h3>Using the website</h3>
+      <p>Use AYUSH GAMING for lawful, fair and respectful gaming. Do not attempt to disrupt the website, abuse its services or interfere with other players.</p>
+      <h3>Accounts</h3>
+      <p>You are responsible for keeping your account credentials private. Do not share your password with other people. The site may restrict or remove accounts that misuse the service.</p>
+      <h3>Game scores</h3>
+      <p>Points and leaderboard positions are generated by the website's game system. The site owner may correct or remove invalid results and may change scoring rules when improving the games.</p>
+      <h3>User content</h3>
+      <p>Do not upload profile images or submit feedback that is illegal, abusive, hateful, sexually explicit, threatening or intended to harm others.</p>
+      <h3>Availability</h3>
+      <p>Games and other features may be changed, updated or temporarily unavailable while the website is being maintained.</p>
+      <h3>Acceptance</h3>
+      <p>By using AYUSH GAMING, you agree to follow these terms and the Privacy Policy.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ================= FEEDBACK ================= -->
 
@@ -1386,6 +1568,15 @@ footer strong{
 
 <footer>
   <p>© 2026 <strong>AYUSH GAMING</strong>. All Rights Reserved.</p>
+  <div class="footer-links">
+    <a href="#about">About Us</a>
+    <a href="#guides">Gaming Guides</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms & Conditions</a>
+    <a href="#feedback">Feedback</a>
+  </div>
+  <p style="font-size:12px;">A gaming project focused on browser challenges, community profiles and fair competition.</p>
 </footer>
 
 
@@ -1572,6 +1763,9 @@ footer strong{
 
 </div>
 
+
+<!-- ================= AD PLACEMENT NOTE ================= -->
+<!-- When AdSense approves the site, replace the ad-slot placeholders with the exact AdSense ad code supplied in the AdSense account. -->
 
 <!-- ================= TOAST ================= -->
 
@@ -3475,3 +3669,4 @@ updateAchievements(null);
 
 </body>
 </html>
+
