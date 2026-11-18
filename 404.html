@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found | AYUSH GAMING</title>
+<script>
+(function(){
+  var p = location.pathname.toLowerCase();
+  // Old game links -> new game page
+  if (/nitro-rush-3d\/?(index\.html)?$/.test(p)) { location.replace('/nitro-rush-3d.html'); return; }
+  // Old APK links -> APK in the main folder
+  if (/\.apk$/.test(p) && p !== '/nitro-rush-3d.apk') { location.replace('/Nitro-Rush-3D.apk'); }
+})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:Arial,Helvetica,sans-serif;color:#fff;background:radial-gradient(circle at 50% 20%,rgba(255,30,30,.28),transparent 50%),#050505}
+h1{font-size:clamp(72px,22vw,140px);font-style:italic;font-weight:900;color:#ff2020;text-shadow:0 0 36px rgba(255,30,30,.55)}
+p{color:#aaa;margin:10px 0 26px}
+a{display:inline-block;margin:6px;padding:13px 20px;border-radius:10px;font-weight:900;letter-spacing:1px;text-decoration:none;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#ff2a2a,#b00000)}
+a.alt{background:#171717;border:1px solid #4a1a1a}
+</style>
+</head>
+<body>
+<div>
+  <h1>404</h1>
+  <p>This page is not available.</p>
+  <a href="/">Home</a>
+  <a class="alt" href="/nitro-rush-3d.html">Play Nitro Rush 3D</a>
+</div>
+</body>
+</html>
